@@ -175,6 +175,11 @@
       <div class="ucar"><div class="uic">🏢</div><h3>Employee engagement</h3><p>Pulse and engagement surveys across teams, regions, and languages.</p><a class="uc-more" href="usecases/employee-engagement.html">Learn more →</a></div>
     </div>
     <button class="car-btn next" id="carNext" aria-label="Next">›</button>
+    <div class="car-controls">
+      <button class="car-mob-btn" id="carMobPrev" aria-label="Previous">‹</button>
+      <div class="car-dots" id="carDots"></div>
+      <button class="car-mob-btn" id="carMobNext" aria-label="Next">›</button>
+    </div>
   </div>
 </section>
 
@@ -360,14 +365,69 @@ if (location.search.indexOf('drop=1') > -1) { document.write('<style>.drop-menu{
     bM.style.width=(manual/maxHours*100)+'%';
     bA.style.width=(withA/maxHours*100)+'%';
   }
-  sS.addEventListener('input',upd); sH.addEventListener('input',upd); upd();
+  ['input', 'change', 'pointermove'].forEach(function(ev){
+    sS.addEventListener(ev, upd, { passive: true });
+    sH.addEventListener(ev, upd, { passive: true });
+  });
+  upd();
 })();
 
 /* ---------- use-case carousel ---------- */
 (function(){
-  var car=document.getElementById('carousel');
-  document.getElementById('carPrev').onclick=function(){ car.scrollBy({left:-340,behavior:'smooth'}); };
-  document.getElementById('carNext').onclick=function(){ car.scrollBy({left:340,behavior:'smooth'}); };
+  var car = document.getElementById('carousel');
+  var prevBtn = document.getElementById('carPrev');
+  var nextBtn = document.getElementById('carNext');
+  var mobPrev = document.getElementById('carMobPrev');
+  var mobNext = document.getElementById('carMobNext');
+  var dotsBox = document.getElementById('carDots');
+  var cards = car ? car.querySelectorAll('.ucar') : [];
+
+  function getStep() {
+    var c = car.querySelector('.ucar');
+    if (!c) return 318;
+    var gap = 18;
+    try {
+      var g = parseFloat(window.getComputedStyle(car).gap);
+      if (!isNaN(g)) gap = g;
+    } catch(e) {}
+    return c.offsetWidth + gap;
+  }
+
+  function doScroll(dir) {
+    car.scrollBy({ left: dir * getStep(), behavior: 'smooth' });
+  }
+
+  if (prevBtn) prevBtn.onclick = function() { doScroll(-1); };
+  if (nextBtn) nextBtn.onclick = function() { doScroll(1); };
+  if (mobPrev) mobPrev.onclick = function() { doScroll(-1); };
+  if (mobNext) mobNext.onclick = function() { doScroll(1); };
+
+  if (dotsBox && cards.length) {
+    dotsBox.innerHTML = '';
+    cards.forEach(function(_, idx) {
+      var d = document.createElement('button');
+      d.className = 'car-dot' + (idx === 0 ? ' active' : '');
+      d.type = 'button';
+      d.setAttribute('aria-label', 'Go to usecase ' + (idx + 1));
+      d.onclick = function() {
+        car.scrollTo({ left: idx * getStep(), behavior: 'smooth' });
+      };
+      dotsBox.appendChild(d);
+    });
+
+    var dots = dotsBox.querySelectorAll('.car-dot');
+    var scrollTimer = null;
+    car.addEventListener('scroll', function() {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function() {
+        var step = getStep();
+        var cur = Math.round(car.scrollLeft / step);
+        dots.forEach(function(dot, i) {
+          dot.classList.toggle('active', i === cur);
+        });
+      }, 50);
+    }, { passive: true });
+  }
 })();
 
 /* ---------- feature tabs ---------- */
