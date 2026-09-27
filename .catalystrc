@@ -1,0 +1,29 @@
+{
+  "defaults": {
+    "project": 1
+  },
+  "actives": {
+    "project": 1,
+    "env": 1
+  },
+  "projects": [
+    {
+      "idx": 1,
+      "id": "50630000000013048",
+      "name": "Aayvu",
+      "domain": {
+        "id": "50044234139",
+        "name": "aayvu-60079481264.development"
+      },
+      "timezone": "Asia/Kolkata",
+      "env": [
+        {
+          "idx": 1,
+          "id": "60079481264",
+          "name": "Development",
+          "type": 3
+        }
+      ]
+    }
+  ]
+}
