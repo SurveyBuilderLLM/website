@@ -65,8 +65,8 @@ def page(kind_label, icon, title, tagline, sections_html):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aayvu — {title}</title>
-<script src="../theme.js?v=1"></script>
-<link rel="stylesheet" href="../styles.css?v=nav-6">
+<script src="../theme.js?v=2"></script>
+<link rel="stylesheet" href="../styles.css?v=embed-2">
 <link rel="stylesheet" href="../theme.css?v=1">
 <script src="../navigation.js?v=nav-5" defer></script>
 </head>
