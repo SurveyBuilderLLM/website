@@ -4,6 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aayvu — the AI agent that programs your surveys</title>
+<meta name="description" content="Give Aayvu a questionnaire. Its AI agent builds the complete survey—questions, logic, validation, and translations—ready for your review.">
+<link rel="canonical" href="https://web.aayvu.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aayvu">
+<meta property="og:title" content="Aayvu — the AI agent that programs your surveys">
+<meta property="og:description" content="From questionnaire to launch-ready survey. Aayvu builds the questions, logic, validation, and translations for you.">
+<meta property="og:url" content="https://web.aayvu.io/">
+<meta property="og:image" content="https://web.aayvu.io/assets/aayvu-social-preview.png">
+<meta property="og:image:secure_url" content="https://web.aayvu.io/assets/aayvu-social-preview.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Aayvu turns questionnaires into launch-ready surveys with an AI agent.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aayvu — the AI agent that programs your surveys">
+<meta name="twitter:description" content="From questionnaire to launch-ready survey, built by an AI agent and reviewed by you.">
+<meta name="twitter:image" content="https://web.aayvu.io/assets/aayvu-social-preview.png">
 <script src="theme.js?v=1"></script>
 <link rel="stylesheet" href="styles.css?v=nav-6">
 <link rel="stylesheet" href="theme.css?v=1">
@@ -307,7 +324,7 @@
         <iframe
           class="early-access-frame"
           src="https://www.aayvu.io/f/early-access?embed=1"
-          loading="lazy"
+          scrolling="no"
           title="Request early access to Aayvu">
         </iframe>
       </div>
@@ -372,6 +389,29 @@ if (location.search.indexOf('drop=1') > -1) { document.write('<style>.drop-menu{
     sH.addEventListener(ev, upd, { passive: true });
   });
   upd();
+})();
+
+/* ---------- responsive survey embed ---------- */
+(function(){
+  var frame = document.querySelector('.early-access-frame');
+  if (!frame) return;
+  var frameOrigin = new URL(frame.src, window.location.href).origin;
+
+  function requestMeasurement() {
+    if (frame.contentWindow) {
+      frame.contentWindow.postMessage({ type: 'aayvu:embed-measure' }, frameOrigin);
+    }
+  }
+
+  window.addEventListener('message', function(event) {
+    if (event.origin !== frameOrigin || event.source !== frame.contentWindow) return;
+    if (!event.data || event.data.type !== 'aayvu:embed-resize') return;
+    var height = Math.ceil(Number(event.data.height));
+    if (!Number.isFinite(height) || height < 320 || height > 12000) return;
+    frame.style.height = height + 'px';
+  });
+  frame.addEventListener('load', requestMeasurement);
+  window.addEventListener('resize', requestMeasurement, { passive: true });
 })();
 
 /* ---------- use-case carousel ---------- */
