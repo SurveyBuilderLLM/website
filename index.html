@@ -121,10 +121,10 @@
           <input type="range" id="sSurveys" min="1" max="60" value="8">
         </div>
         <div class="slider-row">
-          <div class="slider-head"><label for="sHours">Hours to program one survey manually</label><output id="oHours">10 h</output></div>
-          <input type="range" id="sHours" min="2" max="40" value="10">
+          <div class="slider-head"><label for="sHours">Manual programming time per survey</label><output id="oHours">6 h</output></div>
+          <input type="range" id="sHours" min="2" max="40" value="6">
         </div>
-        <p class="roi-note">Rough estimates — your mileage will vary. With Aayvu we count ~30 min of your review time per survey.</p>
+        <p class="roi-note">Rough estimates - your mileage will vary. Aayvu still includes about 30 minutes of human review per survey.</p>
       </div>
       <div class="roi-result">
         <div class="roi-bars">
@@ -132,8 +132,8 @@
           <div class="rbar"><span>With Aayvu</span><div class="track"><div class="fill aayvu" id="barAayvu"></div></div><b id="tAayvu">4 h/mo</b></div>
           <p class="roi-note" id="barScale">Shared scale: 0–2,400 hours/month.</p>
         </div>
-        <div class="roi-save">You get back <b id="tSaved" class="grad">76 hours</b> every month.</div>
-        <p class="roi-sub" id="tDays">That's about 9 full work-days.</p>
+        <div class="roi-save">Estimated time saved vs manual: <b id="tSaved" class="grad">76 hours</b> per month.</div>
+        <p class="roi-sub" id="tDays">Aayvu estimate includes human review time.</p>
       </div>
     </div>
     <div class="steps" style="margin-top:44px">
@@ -301,16 +301,14 @@
       <p>Questions, early access, partnerships, support — a real human replies.</p>
     </div>
     <div class="contact-grid">
-      <div class="form-card rv">
+      <div class="form-card form-card-embed rv">
         <!-- Aayvu Embedded Contact Survey -->
         <!-- Note: Create this survey in the Aayvu platform and replace 'early-access' with the actual slug. -->
-        <iframe 
-          src="https://www.aayvu.io/f/early-access?embed=1" 
-          width="100%" 
-          height="500px" 
-          frameborder="0" 
-          style="border: none; background: transparent; overflow: hidden;"
-          title="Contact Us Survey">
+        <iframe
+          class="early-access-frame"
+          src="https://www.aayvu.io/f/early-access?embed=1"
+          loading="lazy"
+          title="Request early access to Aayvu">
         </iframe>
       </div>
       <div>
@@ -355,14 +353,17 @@ if (location.search.indexOf('drop=1') > -1) { document.write('<style>.drop-menu{
       bM=document.getElementById('barManual'), bA=document.getElementById('barAayvu');
   var maxHours=Number(sS.max)*Number(sH.max);
   document.getElementById('barScale').textContent='Shared scale: 0–'+maxHours.toLocaleString('en-US')+' hours/month.';
-  function fmt(n){ return n>=1000 ? (n/1000).toFixed(n>=10000?0:1).replace(/\.0$/,'')+'k' : Math.round(n); }
+  function fmt(n){
+    if (n>=1000) return (n/1000).toFixed(n>=10000?0:1).replace(/\.0$/,'')+'k';
+    return n<10 ? Number(n.toFixed(1)).toString() : Math.round(n).toString();
+  }
   function upd(){
     var s=+sS.value, h=+sH.value;
     oS.textContent=s; oH.textContent=h+' h';
     var manual=s*h, withA=s*0.5, saved=Math.max(0,manual-withA);
     tM.textContent=fmt(manual)+' h/mo'; tA.textContent=fmt(withA)+' h/mo';
     tSv.textContent=fmt(saved)+' hours';
-    tD.textContent='That\u2019s about '+Math.max(1,Math.round(saved/8))+' full work-day'+(saved/8>1.5?'s':'')+'.';
+    tD.textContent='Aayvu estimate: '+fmt(withA)+' h/mo of review time, about 30 minutes per survey.';
     bM.style.width=(manual/maxHours*100)+'%';
     bA.style.width=(withA/maxHours*100)+'%';
   }
