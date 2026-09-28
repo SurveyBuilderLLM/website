@@ -6,7 +6,7 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 
 NAV = """<nav class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="../index.html">aayvu<span class="star">✳</span></a>
+    <a class="brand" href="../index.html"><img class="brand-logo brand-logo-light" src="../assets/logo/aayvu-logo.svg" alt="aayvu"><img class="brand-logo brand-logo-dark" src="../assets/logo/aayvu-logo-dark.svg" alt="aayvu"></a>
     <div class="nav-links">
       <div class="drop"><button class="drop-trigger" type="button" aria-expanded="false" aria-controls="nav-use-cases">Use cases ▾</button>
         <div class="drop-menu" id="nav-use-cases" hidden>
@@ -47,7 +47,7 @@ FOOT = """<footer>
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="brand" href="../index.html">aayvu<span class="star">✳</span></a>
+        <a class="brand" href="../index.html"><img class="brand-logo brand-logo-light" src="../assets/logo/aayvu-logo.svg" alt="aayvu"><img class="brand-logo brand-logo-dark" src="../assets/logo/aayvu-logo-dark.svg" alt="aayvu"></a>
         <p class="foot-tag">Better questions. Closer answers.</p>
       </div>
       <div><h5>Product</h5><ul><li><a href="../index.html#features">Features</a></li><li><a href="../index.html#use-cases">Use cases</a></li><li><a href="../index.html#savings">Time savings</a></li><li><a href="https://app.aayvu.io/login">Sign in</a></li></ul></div>

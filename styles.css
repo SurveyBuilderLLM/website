@@ -61,7 +61,11 @@ img { max-width: 100%; }
   background: rgba(250,249,246,.82); border-bottom: 1px solid var(--line); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
 .brand { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.01em; color: var(--ink); }
-.brand .star { color: var(--brand); }
+.brand { display: inline-flex; align-items: center; }
+.brand-logo { display: block; width: auto; height: 1.1em; max-width: none; }
+.brand-logo-dark { display: none; }
+[data-theme="dark"] .brand-logo-light { display: none; }
+[data-theme="dark"] .brand-logo-dark { display: block; }
 .nav-links { display: flex; gap: 30px; align-items: center; font-size: 14.5px; color: var(--ink-55); }
 .nav-links a:hover { color: var(--ink); }
 .nav-links a.active { color: var(--ink); font-weight: 600; }
