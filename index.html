@@ -412,6 +412,10 @@ if (location.search.indexOf('drop=1') > -1) { document.write('<style>.drop-menu{
   });
   frame.addEventListener('load', requestMeasurement);
   window.addEventListener('resize', requestMeasurement, { passive: true });
+  requestMeasurement();
+  [250, 1000, 2500].forEach(function(delay) {
+    window.setTimeout(requestMeasurement, delay);
+  });
 })();
 
 /* ---------- use-case carousel ---------- */
