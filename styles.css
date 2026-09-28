@@ -201,6 +201,7 @@ section.block { padding: 96px 0; }
 .hgrid .hr { font-weight: 600; padding: 10px 12px; color: var(--ink); }
 
 /* contact */
+#contact { scroll-margin-top: 92px; }
 .contact-grid { display: grid; grid-template-columns: 1.25fr .9fr; gap: 44px; align-items: start; }
 .form-card { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 40px 38px; box-shadow: 0 14px 40px rgba(120,84,30,.07); }
 .form-card-embed {

@@ -5,6 +5,14 @@
   let saved = 'light';
   try { saved = localStorage.getItem(key) || 'light'; } catch (_) {}
 
+  function syncEmbeddedTheme(theme) {
+    document.querySelectorAll('.early-access-frame').forEach(frame => {
+      if (!frame.contentWindow) return;
+      const origin = new URL(frame.src, window.location.href).origin;
+      frame.contentWindow.postMessage({ type: 'aayvu:embed-theme', theme }, origin);
+    });
+  }
+
   function apply(theme) {
     const dark = theme === 'dark';
     root.dataset.theme = dark ? 'dark' : 'light';
@@ -13,6 +21,7 @@
       button.setAttribute('aria-label', label);
       button.title = label;
     });
+    syncEmbeddedTheme(dark ? 'dark' : 'light');
   }
 
   apply(saved);
@@ -24,6 +33,9 @@
         apply(theme);
         try { localStorage.setItem(key, theme); } catch (_) {}
       });
+    });
+    document.querySelectorAll('.early-access-frame').forEach(frame => {
+      frame.addEventListener('load', () => syncEmbeddedTheme(root.dataset.theme));
     });
   });
   window.addEventListener('storage', event => {
