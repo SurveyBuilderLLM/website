@@ -27,10 +27,15 @@
   apply(saved);
   document.addEventListener('DOMContentLoaded', () => {
     apply(root.dataset.theme);
-    document.querySelectorAll('.early-access-frame').forEach(frame => {
-      frame.addEventListener('load', () => syncEmbeddedTheme(root.dataset.theme));
+    [150, 500, 1500].forEach(delay => {
+      window.setTimeout(() => syncEmbeddedTheme(root.dataset.theme), delay);
     });
   });
+  document.addEventListener('load', event => {
+    if (event.target instanceof Element && event.target.matches('.early-access-frame')) {
+      syncEmbeddedTheme(root.dataset.theme);
+    }
+  }, true);
   document.addEventListener('click', event => {
     if (!(event.target instanceof Element) || !event.target.closest('.theme-toggle')) return;
     const theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
