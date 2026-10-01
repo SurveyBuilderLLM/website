@@ -92,8 +92,9 @@ body.home-page {
 }
 
 .home-page .nav-inner { height: 72px; gap: 34px; }
-.home-page .brand { font-size: 25px; font-weight: 800; line-height: 1; }
-.home-page .brand-mark { margin-left: 3px; color: var(--home-accent); font-size: .72em; }
+.home-page .brand { display: inline-flex; align-items: center; line-height: 1; }
+.home-page .brand-logo { height: 30px; }
+.home-page .footer-brand .brand-logo { height: 36px; }
 
 .home-page .nav-links {
   display: flex;
@@ -114,6 +115,8 @@ body.home-page {
 
 .home-page .drop-menu {
   min-width: 238px;
+  max-height: min(70vh, 520px);
+  overflow-y: auto;
   border-radius: 4px;
   border-color: var(--home-line);
   background: var(--home-surface);
@@ -224,9 +227,10 @@ body.home-page {
 .home-page .hero h1 {
   max-width: 680px;
   margin: 0;
-  font-size: clamp(54px, 5.6vw, 92px);
+  font-size: clamp(52px, 4.6vw, 76px);
   font-weight: 800;
   line-height: .91;
+  overflow-wrap: anywhere;
 }
 .home-page .hero h1 > span { color: var(--home-accent); }
 .hero-lede { max-width: 600px; margin: 30px 0; color: var(--home-muted); font-size: clamp(16px, 1.2vw, 18px); line-height: 1.65; }
@@ -866,6 +870,8 @@ body.home-page {
   .home-page .drop-trigger { width: 100%; height: auto; padding: 12px; text-align: left; }
   .home-page .drop { display: block; }
   .home-page .drop-menu { position: static; min-width: 0; margin: 0 8px 8px; transform: none; box-shadow: none; }
+  .home-page #nav-use-cases,
+  .home-page #nav-features { display: grid; width: auto; grid-template-columns: 1fr; }
   .home-page .signin-link { display: none; }
   .home-page .nav-cta { order: 2; }
   .home-page .nav-toggle { order: 3; }

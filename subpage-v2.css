@@ -19,7 +19,9 @@
 .sub-page .skip-link:focus { transform: none; }
 .sub-page .detail-nav { border-bottom: 1px solid var(--detail-line); background: color-mix(in srgb, var(--detail-paper) 92%, transparent); }
 .sub-page .nav-inner { height: 72px; }
-.sub-page .brand { color: var(--detail-ink); font-size: 26px; letter-spacing: -.06em; }
+.sub-page .brand { display: inline-flex; align-items: center; color: var(--detail-ink); }
+.sub-page .brand-logo { height: 30px; }
+.sub-page .detail-footer .brand-logo { height: 36px; }
 .sub-page .star { color: var(--detail-accent); font-size: .58em; vertical-align: top; }
 .sub-page .nav-links { gap: 25px; color: var(--detail-muted); font-size: 12px; }
 .sub-page .drop-trigger { height: 71px; gap: 7px; color: var(--detail-muted); font-size: 12px; }
@@ -28,6 +30,10 @@
 .sub-page .drop-menu a { display: grid; grid-template-columns: 25px 1fr; gap: 10px; border-radius: 0; padding: 10px 12px; color: var(--detail-muted); font-size: 11px; }
 .sub-page .drop-menu a span { color: var(--detail-accent); font-family: 'IBM Plex Mono', monospace; font-size: 9px; }
 .sub-page .drop-menu a:hover { background: var(--detail-paper-2); }
+@media (min-width: 901px) {
+  .sub-page #nav-use-cases { width: min(500px, calc(100vw - 32px)); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sub-page #nav-features { width: min(450px, calc(100vw - 32px)); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 .sub-page .nav-cta { gap: 8px; }
 .sub-page .theme-toggle { border-color: var(--detail-line); }
 .sub-page .detail-signin { padding: 9px 12px; color: var(--detail-muted); font-size: 11px; }
@@ -325,7 +331,9 @@
   .sub-page .detail-signin { display: none; }
   .detail-hero { min-height: 0; }
   .detail-hero-grid,
-  .detail-story-grid { grid-template-columns: 1fr; }
+  .detail-story-grid { min-width: 0; grid-template-columns: minmax(0, 1fr); }
+  .detail-hero-grid > *,
+  .detail-story-grid > * { min-width: 0; }
   .detail-blueprint,
   .detail-context { max-width: 650px; }
   .detail-heading-row { grid-template-columns: 1fr; gap: 0; }
