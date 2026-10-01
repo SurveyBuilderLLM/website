@@ -277,13 +277,17 @@ def main():
         os.makedirs(os.path.join(BASE, d), exist_ok=True)
     for u in USE_CASES:
         p = os.path.join(BASE, "usecases", u["slug"] + ".html")
-        with open(p, "w") as f: f.write(usecase_page(u))
+        with open(p, "w", encoding="utf-8", newline="\n") as f:
+            f.write(usecase_page(u))
     for feat in FEATURES:
         p = os.path.join(BASE, "features", feat["slug"] + ".html")
-        with open(p, "w") as f: f.write(feature_page(feat))
-    css = open(os.path.join(BASE, "styles.css")).read()
+        with open(p, "w", encoding="utf-8", newline="\n") as f:
+            f.write(feature_page(feat))
+    with open(os.path.join(BASE, "styles.css"), encoding="utf-8") as css_file:
+        css = css_file.read()
     if "/* nav dropdowns */" not in css:
-        with open(os.path.join(BASE, "styles.css"), "a") as f: f.write(CSS)
+        with open(os.path.join(BASE, "styles.css"), "a", encoding="utf-8", newline="\n") as f:
+            f.write(CSS)
     print(f"wrote {len(USE_CASES)} usecase + {len(FEATURES)} feature pages")
 
 if __name__ == "__main__":
