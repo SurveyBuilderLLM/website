@@ -1,618 +1,744 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aayvu — the AI agent that programs your surveys</title>
-<meta name="description" content="Give Aayvu a questionnaire. Its AI agent builds the complete survey—questions, logic, validation, and translations—ready for your review.">
-<link rel="canonical" href="https://web.aayvu.io/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Aayvu">
-<meta property="og:title" content="Aayvu — the AI agent that programs your surveys">
-<meta property="og:description" content="From questionnaire to launch-ready survey. Aayvu builds the questions, logic, validation, and translations for you.">
-<meta property="og:url" content="https://web.aayvu.io/">
-<meta property="og:image" content="https://web.aayvu.io/assets/aayvu-social-preview.png">
-<meta property="og:image:secure_url" content="https://web.aayvu.io/assets/aayvu-social-preview.png">
-<meta property="og:image:type" content="image/png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Aayvu turns questionnaires into launch-ready surveys with an AI agent.">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Aayvu — the AI agent that programs your surveys">
-<meta name="twitter:description" content="From questionnaire to launch-ready survey, built by an AI agent and reviewed by you.">
-<meta name="twitter:image" content="https://web.aayvu.io/assets/aayvu-social-preview.png">
-<script src="theme.js?v=4"></script>
-<link rel="stylesheet" href="styles.css?v=embed-2">
-<link rel="stylesheet" href="theme.css?v=1">
-<script src="navigation.js?v=nav-5" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aayvu turns research questionnaires into programmed, review-ready surveys with AI.">
+  <meta name="theme-color" content="#f2efe7">
+  <title>Aayvu: Your Questionnaire. Programmed.</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23181714'/%3E%3Cpath d='M16 6v20M6 16h20M9 9l14 14M23 9L9 23' stroke='%23f0a33a' stroke-width='2.2'/%3E%3C/svg%3E">
+  <script src="theme.js?v=2"></script>
+  <link rel="stylesheet" href="styles.css?v=nav-4">
+  <link rel="stylesheet" href="theme.css?v=1">
+  <link rel="stylesheet" href="home-v3.css?v=1">
+  <script src="navigation.js?v=nav-5" defer></script>
 </head>
-<body>
-<div class="bg-fx"></div>
+<body class="home-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
 
-<nav class="nav">
-  <div class="wrap nav-inner">
-    <a class="brand" href="#top"><img class="brand-logo brand-logo-light" src="assets/logo/aayvu-logo.svg" alt="aayvu"><img class="brand-logo brand-logo-dark" src="assets/logo/aayvu-logo-dark.svg" alt="aayvu"></a>
-    <div class="nav-links">
-      <div class="drop"><button class="drop-trigger" type="button" aria-expanded="false" aria-controls="nav-use-cases">Use cases ▾</button>
-        <div class="drop-menu" id="nav-use-cases" hidden>
-          <a href="usecases/brand-tracking.html">📈 Brand tracking</a>
-          <a href="usecases/nps-csat.html">💜 NPS &amp; CSAT</a>
-          <a href="usecases/concept-testing.html">💡 Concept testing</a>
-          <a href="usecases/pricing-research.html">💰 Pricing research</a>
-          <a href="usecases/ad-testing.html">🎬 Ad &amp; creative testing</a>
-          <a href="usecases/ua-studies.html">🧭 Usage &amp; attitude</a>
-          <a href="usecases/customer-feedback.html">🛍️ Customer feedback</a>
-          <a href="usecases/employee-engagement.html">🏢 Employee engagement</a>
-        </div>
-      </div>
-      <div class="drop"><button class="drop-trigger" type="button" aria-expanded="false" aria-controls="nav-features">Features ▾</button>
-        <div class="drop-menu" id="nav-features" hidden>
-          <a href="features/ai-editor.html">🤖 AI agent editor</a>
-          <a href="features/question-types.html">🧩 Question types</a>
-          <a href="features/testing.html">🧪 Testing &amp; QA</a>
-          <a href="features/themes.html">🎨 Themes &amp; branding</a>
-          <a href="features/quotas.html">🎯 Quota management</a>
-          <a href="features/admin.html">🔐 Admin controls</a>
-        </div>
-      </div>
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="nav-cta">
-      <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
-        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 13A8.5 8.5 0 0 1 11 3.5 8.5 8.5 0 1 0 20.5 13Z"/></svg>
-        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+  <nav class="nav" aria-label="Primary navigation">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" translate="no">aayvu<span class="brand-mark" aria-hidden="true">✳</span></a>
+
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-links">
+        <span></span><span></span>
       </button>
-      <a class="text-link" href="https://app.aayvu.io/login">Sign in →</a>
-      <a class="btn btn-primary" href="#contact">Get early access</a>
-    </div>
-  </div>
-</nav>
 
-<!-- ============ HERO ============ -->
-<header class="hero" id="top">
-  <div class="wrap">
-    <span class="eyebrow rv">AI survey programming agent</span>
-    <h1 class="rv">Your survey,<br><span class="grad">programmed by an AI agent.</span></h1>
-    <p class="sub rv">Give Aayvu your questionnaire — a Word doc, a PDF, even a rough brief. The agent builds the complete survey: the right question types, logic, validation, translations. You review it, refine it, launch it. No programming queue. No waiting.</p>
-    <div class="hero-actions rv">
-      <a class="btn btn-primary btn-lg" href="#contact">Get early access →</a>
-      <a class="text-link" href="#savings">See the time math ↓</a>
-    </div>
-    <p class="hero-micro rv"><b>You stay in control</b> · Works with your AI key · Early access</p>
-
-    <!-- agent at work -->
-    <div class="agent-card rv">
-      <div class="vh"><span>✳ Aayvu agent</span><span class="live" id="agentStatus">● working</span></div>
-      <div class="agent-steps">
-        <div class="astep" data-i="0"><span class="aspin"></span><div><b>Reading your questionnaire</b><small>brand_tracker_Q3.docx · 40 questions detected</small></div></div>
-        <div class="astep" data-i="1"><span class="aspin"></span><div><b>Building questions</b><small>picking types, options, scales</small></div></div>
-        <div class="astep" data-i="2"><span class="aspin"></span><div><b>Wiring logic</b><small>screening, branching, piping, validation</small></div></div>
-        <div class="astep" data-i="3"><span class="aspin"></span><div><b>Ready for your review</b><small>11 logic rules connected · 0 conflicts</small></div></div>
-      </div>
-      <div class="agent-log" id="agentLog" aria-hidden="true"></div>
-    </div>
-  </div>
-</header>
-
-<!-- ============ HOW IT WORKS ============ -->
-<section class="howstrip" id="how">
-  <div class="wrap">
-    <div class="sec-head center rv" style="margin-bottom:38px">
-      <span class="eyebrow">How it works</span>
-      <h2 style="font-size:clamp(28px,3.6vw,44px)">The agent builds. <span class="grad">You review.</span></h2>
-    </div>
-    <div class="how-grid rv">
-      <div class="how-card">
-        <div class="how-n">1</div>
-        <h3>You upload</h3>
-        <p>Drop in your questionnaire — a Word doc, a PDF, even a rough brief of the study.</p>
-      </div>
-      <div class="how-arrow">→</div>
-      <div class="how-card hl">
-        <div class="how-n">2</div>
-        <h3>The agent builds</h3>
-        <p>Aayvu's AI agent programs the full survey: question types, options, scales, screening, branching, piping, validation.</p>
-      </div>
-      <div class="how-arrow">→</div>
-      <div class="how-card">
-        <div class="how-n">3</div>
-        <h3>You review</h3>
-        <p>Refine anything in the visual editor, test the flow as a respondent, then launch when it's right.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ TIME SAVINGS ============ -->
-<section class="block" id="savings">
-  <div class="wrap">
-    <div class="sec-head center rv">
-      <span class="eyebrow">Why teams switch</span>
-      <h2>Do the math on your<br>programming backlog.</h2>
-      <p>Every survey waiting on a programmer is a decision delayed. Drag the sliders — here's roughly what changes.</p>
-    </div>
-    <div class="roi rv">
-      <div class="roi-controls">
-        <div class="slider-row">
-          <div class="slider-head"><label for="sSurveys">Surveys you program per month</label><output id="oSurveys">8</output></div>
-          <input type="range" id="sSurveys" min="1" max="60" value="8">
+      <div class="nav-links" id="primary-links">
+        <a href="#how">How it works</a>
+        <div class="drop">
+          <button class="drop-trigger" type="button" aria-expanded="false" aria-controls="nav-use-cases">Use cases <span aria-hidden="true">⌄</span></button>
+          <div class="drop-menu" id="nav-use-cases" hidden>
+            <a href="usecases/brand-tracking.html">Brand tracking</a>
+            <a href="usecases/nps-csat.html">NPS &amp; CSAT</a>
+            <a href="usecases/concept-testing.html">Concept testing</a>
+            <a href="usecases/pricing-research.html">Pricing research</a>
+            <a href="usecases/ad-testing.html">Ad &amp; creative testing</a>
+            <a href="usecases/ua-studies.html">Usage &amp; attitude</a>
+            <a href="usecases/customer-feedback.html">Customer feedback</a>
+            <a href="usecases/employee-engagement.html">Employee engagement</a>
+          </div>
         </div>
-        <div class="slider-row">
-          <div class="slider-head"><label for="sHours">Manual programming time per survey</label><output id="oHours">6 h</output></div>
-          <input type="range" id="sHours" min="2" max="40" value="6">
+        <div class="drop">
+          <button class="drop-trigger" type="button" aria-expanded="false" aria-controls="nav-features">Features <span aria-hidden="true">⌄</span></button>
+          <div class="drop-menu" id="nav-features" hidden>
+            <a href="features/ai-editor.html">AI agent editor</a>
+            <a href="features/question-types.html">Question types</a>
+            <a href="features/testing.html">Testing &amp; QA</a>
+            <a href="features/themes.html">Themes &amp; branding</a>
+            <a href="features/quotas.html">Quota management</a>
+            <a href="features/admin.html">Admin controls</a>
+          </div>
         </div>
-        <p class="roi-note">Rough estimates - your mileage will vary. Aayvu still includes about 30 minutes of human review per survey.</p>
+        <a href="#contact">Contact</a>
       </div>
-      <div class="roi-result">
-        <div class="roi-bars">
-          <div class="rbar"><span>Manual</span><div class="track"><div class="fill manual" id="barManual"></div></div><b id="tManual">80 h/mo</b></div>
-          <div class="rbar"><span>With Aayvu</span><div class="track"><div class="fill aayvu" id="barAayvu"></div></div><b id="tAayvu">4 h/mo</b></div>
-          <p class="roi-note" id="barScale">Shared scale: 0–2,400 hours/month.</p>
+
+      <div class="nav-cta">
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
+          <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 13A8.5 8.5 0 0 1 11 3.5 8.5 8.5 0 1 0 20.5 13Z"/></svg>
+          <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+        </button>
+        <a class="signin-link" href="#">Sign in</a>
+        <a class="button button-solid nav-access" href="#contact">Get early access</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <header class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-copy rv">
+          <p class="kicker"><span>AI survey programming agent</span><span>Early access</span></p>
+          <h1>Your questionnaire.<br><span>Programmed.</span></h1>
+          <p class="hero-lede">Give Aayvu a Word doc, a PDF, or even a rough brief. The agent builds the complete survey: question types, logic, validation, and translations, ready for you to review.</p>
+          <div class="hero-actions">
+            <a class="button button-solid button-large" href="#contact">Get early access</a>
+            <a class="button button-outline button-large" href="#how">See how it works</a>
+          </div>
+          <ol class="hero-proof" aria-label="Aayvu workflow">
+            <li><span>01</span>Upload your questionnaire</li>
+            <li><span>02</span>AI builds the survey</li>
+            <li><span>03</span>Review &amp; launch</li>
+          </ol>
         </div>
-        <div class="roi-save">Estimated time saved vs manual: <b id="tSaved" class="grad">76 hours</b> per month.</div>
-        <p class="roi-sub" id="tDays">Aayvu estimate includes human review time.</p>
-      </div>
-    </div>
-    <div class="steps" style="margin-top:44px">
-      <div class="step rv">
-        <h3>No programming queue</h3>
-        <p>Surveys stop waiting on the one person who knows the scripting tool. Anyone on the research team can ship.</p>
-      </div>
-      <div class="step rv">
-        <h3>Researchers own it end-to-end</h3>
-        <p>The person who designed the study programs the study. Nothing gets lost between a spec doc and a programmer's interpretation.</p>
-      </div>
-      <div class="step rv">
-        <h3>Iterate the same day</h3>
-        <p>Client wants Q14 reworded and the logic re-wired? Ask the agent, review the change, done — not re-briefed and re-quoted.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ============ USE CASES ============ -->
-<section class="block" id="use-cases" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Use cases</span>
-      <h2>Built for the studies<br>you actually run.</h2>
-      <p>From quick pulses to complex multi-market trackers — if it's market research, Aayvu speaks its language.</p>
-    </div>
-  </div>
-  <div class="wrap car-wrap rv">
-    <button class="car-btn prev" id="carPrev" aria-label="Previous">‹</button>
-    <div class="carousel" id="carousel">
-      <div class="ucar"><div class="uic">📈</div><h3>Brand tracking</h3><p>Awareness, consideration, and preference — wave after wave, with consistent trending.</p><a class="uc-more" href="usecases/brand-tracking.html">Learn more →</a></div>
-      <div class="ucar"><div class="uic">💜</div><h3>NPS &amp; CSAT</h3><p>Loyalty and satisfaction scores with automated follow-ups for detractors and promoters.</p><a class="uc-more" href="usecases/nps-csat.html">Learn more →</a></div>
-      <div class="ucar"><div class="uic">💡</div><h3>Concept testing</h3><p>Screen ideas fast with monadic or sequential designs and randomized exposure.</p><a class="uc-more" href="usecases/concept-testing.html">Learn more →</a></div>
-      <div class="ucar"><div class="uic">💰</div><h3>Pricing research</h3><p>Van Westendorp, Gabor-Granger, and conjoint-ready setups for pricing decisions.</p><a class="uc-more" href="usecases/pricing-research.html">Learn more →</a></div>
-      <div class="ucar"><div class="uic">🎬</div><h3>Ad &amp; creative testing</h3><p>Test concepts, claims, and creatives — with media questions built in — before they ship.</p><a class="uc-more" href="usecases/ad-testing.html">Learn more →</a></div>
-      <div class="ucar"><div class="uic">🧭</div><h3>Usage &amp; attitude</h3><p>Deep U&amp;A studies where the complex routing is the whole job. The agent handles it.</p><a class="uc-more" href="usecases/ua-studies.html">Learn more →</a></div>
-      <div class="ucar"><div class="uic">🛍️</div><h3>Customer feedback</h3><p>Post-purchase and journey surveys that adapt to each customer's answers.</p><a class="uc-more" href="usecases/customer-feedback.html">Learn more →</a></div>
-      <div class="ucar"><div class="uic">🏢</div><h3>Employee engagement</h3><p>Pulse and engagement surveys across teams, regions, and languages.</p><a class="uc-more" href="usecases/employee-engagement.html">Learn more →</a></div>
-    </div>
-    <button class="car-btn next" id="carNext" aria-label="Next">›</button>
-    <div class="car-controls">
-      <button class="car-mob-btn" id="carMobPrev" aria-label="Previous">‹</button>
-      <div class="car-dots" id="carDots"></div>
-      <button class="car-mob-btn" id="carMobNext" aria-label="Next">›</button>
-    </div>
-  </div>
-</section>
+        <div class="workbench rv rv-right" aria-label="Interactive Aayvu questionnaire demo">
+          <div class="workbench-bar">
+            <span class="wb-file"><span class="file-icon" aria-hidden="true">▤</span> brand_tracker_Q3.docx</span>
+            <span class="wb-progress"><b id="demoPageCount">Page 1 / 6</b><i></i>Live demo</span>
+          </div>
+          <div class="workbench-grid">
+            <section class="source-document" aria-label="Source questionnaire">
+              <div class="pane-label"><span>Source document</span><span>Scroll the pages</span></div>
+              <div class="document-scroll" id="documentScroll" tabindex="0" aria-label="Scrollable source questionnaire pages">
+                <button class="source-page active" type="button" data-question="0" aria-pressed="true">
+                  <span class="page-number">Page 1</span><span class="question-number">Q1 · Single select</span>
+                  <strong>Which region do you currently live in?</strong>
+                  <span class="doc-options">○ North &nbsp; ○ South &nbsp; ○ East &nbsp; ○ West</span>
+                </button>
+                <button class="source-page" type="button" data-question="1" aria-pressed="false">
+                  <span class="page-number">Page 2</span><span class="question-number">Q2 · Multi-select</span>
+                  <strong>Which of these brands have you used in the past 3 months?</strong>
+                  <span class="doc-options">□ Northstar &nbsp; □ Hush &nbsp; □ Morrow &nbsp; □ Vale</span>
+                  <span class="doc-logic">↳ Answers feed Q3</span>
+                </button>
+                <button class="source-page" type="button" data-question="2" aria-pressed="false">
+                  <span class="page-number">Page 3</span><span class="question-number">Q3 · Rating</span>
+                  <strong>How likely are you to recommend [brand selected in Q2]?</strong>
+                  <span class="doc-options">0 &nbsp; 1 &nbsp; 2 &nbsp; 3 &nbsp; 4 &nbsp; 5 &nbsp; 6 &nbsp; 7 &nbsp; 8 &nbsp; 9 &nbsp; 10</span>
+                  <span class="doc-logic" id="logicQ3">PIPE · Waiting for Q2</span>
+                </button>
+                <button class="source-page" type="button" data-question="3" aria-pressed="false">
+                  <span class="page-number">Page 4</span><span class="question-number">Q4 · Slider</span>
+                  <strong>How much would you expect to pay each month?</strong>
+                  <span class="doc-options">$500 ───────────── $5,000</span>
+                  <span class="doc-logic" id="logicQ4">SHOW IF · Q3 ≥ 7</span>
+                </button>
+                <button class="source-page" type="button" data-question="4" aria-pressed="false">
+                  <span class="page-number">Page 5</span><span class="question-number">Q5 · Long text</span>
+                  <strong>What is the main reason for your score?</strong>
+                  <span class="doc-options">Open text response</span>
+                  <span class="doc-logic" id="logicQ5">SHOW IF · Q3 ≤ 6</span>
+                </button>
+                <button class="source-page" type="button" data-question="5" aria-pressed="false">
+                  <span class="page-number">Page 6</span><span class="question-number">Q6 · Number</span>
+                  <strong>How many research studies did your team run last year?</strong>
+                  <span class="doc-options">Whole number · 0–999</span>
+                </button>
+              </div>
+            </section>
 
-<!-- ============ TRANSLATIONS ============ -->
-<section class="block" style="padding-top:0">
-  <div class="wrap">
-    <div class="trans-band rv">
-      <div class="sec-head" style="margin-bottom:34px">
-        <span class="eyebrow">Translations</span>
-        <h2>One survey.<br>Every language.</h2>
-        <p>Run the same study across markets without the copy-paste marathon.</p>
-      </div>
-      <div class="trio">
-        <div class="tcard"><div class="tic">🔍</div><h3>Extracted automatically</h3><p>Every question, option, and scale label is captured for translation — nothing to hunt down.</p></div>
-        <div class="tcard"><div class="tic">👀</div><h3>Reviewed by humans</h3><p>Check and approve each translation in a dedicated review step before it goes live.</p></div>
-        <div class="tcard"><div class="tic">🔄</div><h3>Stays in sync</h3><p>Edit the source text later and only the changed bits need re-translation.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FEATURES ============ -->
-<section class="block" id="features" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center rv">
-      <span class="eyebrow">Features</span>
-      <h2>An editor that does<br>the heavy lifting.</h2>
-      <p>Click through what the agent — and the editor around it — can do.</p>
-    </div>
-    <div class="ftabs rv" role="tablist">
-      <button class="ftab active" data-tab="agent" role="tab">🤖 AI agent editor</button>
-      <button class="ftab" data-tab="types" role="tab">🧩 Question types</button>
-      <button class="ftab" data-tab="testing" role="tab">🧪 Testing &amp; QA</button>
-      <button class="ftab" data-tab="themes" role="tab">🎨 Themes &amp; branding</button>
-      <button class="ftab" data-tab="quotas" role="tab">🎯 Quota management</button>
-      <button class="ftab" data-tab="admin" role="tab">🔐 Admin controls</button>
-    </div>
-
-    <div class="fpanel active rv" data-panel="agent">
-      <div class="fp-copy">
-        <h3>Tell it what to change. It changes it.</h3>
-        <p>The agent doesn't just generate once — it edits on instruction. "Rewrite Q7 to sound neutral." "Add a screening question for pet owners." "Re-wire the logic after Q12." Describe it in plain language; the agent rebuilds it.</p>
-        <ul><li><span class="tick">✓</span>Prompt-driven edits across questions, logic, and flow</li><li><span class="tick">✓</span>Bring your own AI key — OpenAI-compatible models, AWS Bedrock, and more</li><li><span class="tick">✓</span>Every change is reviewable before it goes live</li></ul>
-      <a class="text-link fp-more" href="features/ai-editor.html">Learn more about the AI agent editor →</a></div>
-      <div class="fp-visual"><div class="chatmock"><div class="cm-q">"Make Q7 a 1–7 scale instead, and only ask it of promoters."</div><div class="cm-a"><span>✳</span><div><b>Done.</b> Q7 is now a 1–7 rating, shown only when Q6 ≥ 9. Logic re-wired, validation updated.</div></div></div></div>
-    </div>
-
-    <div class="fpanel rv" data-panel="types">
-      <div class="fp-copy">
-        <h3>Every question you'll ever need.</h3>
-        <p>Pick a category — every type works with logic, validation, and translations out of the box.</p>
-        <div class="qchips" id="qchips">
-          <button class="qchip active" data-cat="choice">Choice</button>
-          <button class="qchip" data-cat="scales">Scales</button>
-          <button class="qchip" data-cat="text">Text &amp; numbers</button>
-          <button class="qchip" data-cat="grids">Grids</button>
-          <button class="qchip" data-cat="advanced">Advanced</button>
-          <button class="qchip" data-cat="media">Media</button>
+            <section class="survey-flow" aria-label="Programmed survey">
+              <div class="pane-label"><span>Respondent preview</span><span class="ready-dot">Interactive</span></div>
+              <div class="question-stage" id="questionStage" aria-live="polite"></div>
+              <div class="preview-note"><span aria-hidden="true">↳</span><p><b>Try it yourself.</b> Your answer is saved while you move between questions.</p></div>
+            </section>
+          </div>
+          <div class="workbench-foot">
+            <span><b id="answeredCount">0</b> of 6 answered</span><span><b>6</b> question types</span><span><b>0</b> conflicts</span>
+            <div class="question-nav"><button id="demoPrev" type="button" aria-label="Previous demo question">Previous</button><button id="demoNext" type="button">Next question</button></div>
+          </div>
         </div>
-      <a class="text-link fp-more" href="features/question-types.html">Learn more about question types →</a></div>
-      <div class="fp-visual"><div class="qlist" id="qlist"></div></div>
-    </div>
-
-    <div class="fpanel rv" data-panel="testing">
-      <div class="fp-copy">
-        <h3>Catch breaks before respondents do.</h3>
-        <p>Walk through the survey exactly as a respondent would — try every branch, trigger every validation — and let Aayvu flag logic conflicts before a single real response.</p>
-        <ul><li><span class="tick">✓</span>Respondent test mode with full logic simulation</li><li><span class="tick">✓</span>Automatic conflict detection across rules</li><li><span class="tick">✓</span>Validation preview for every required field</li></ul>
-      <a class="text-link fp-more" href="features/testing.html">Learn more about testing & QA →</a></div>
-      <div class="fp-visual"><div class="logic-demo"><div class="node"><small>Test pass · complete</small>Walked 40 questions · 11 branches taken</div><div class="node"><small>Logic check</small><span style="color:var(--ok)">✓ 0 conflicts found</span></div><div class="node"><small>Validation check</small><span style="color:var(--ok)">✓ all required fields reachable</span></div></div></div>
-    </div>
-
-    <div class="fpanel rv" data-panel="themes">
-      <div class="fp-copy">
-        <h3>On brand, automatically.</h3>
-        <p>Surveys that look like you sent them. Set your colors, fonts, and logo once — every survey inherits the brand.</p>
-        <ul><li><span class="tick">✓</span>Custom themes: colors, typography, styling</li><li><span class="tick">✓</span>Your logo on every respondent-facing page</li><li><span class="tick">✓</span>Clean, mobile-friendly layouts by default</li></ul>
-      <a class="text-link fp-more" href="features/themes.html">Learn more about themes & branding →</a></div>
-      <div class="fp-visual"><div class="theme-demo"><div class="tdots"><span style="background:#bd650c"></span><span style="background:#e9a52d"></span><span style="background:#29241e"></span><span style="background:#faf9f6;border:1px solid var(--line)"></span></div><p>Acme Insights theme · applied to 12 surveys</p><div class="tprev"><b>Q3 · How satisfied are you?</b><div class="tstars">★★★★★</div></div></div></div>
-    </div>
-
-    <div class="fpanel rv" data-panel="quotas">
-      <div class="fp-copy">
-        <h3>Full control of your sample.</h3>
-        <p>Cap completes per segment and decide exactly what happens when a quota fills or a respondent screens out — routed gracefully, never a dead end.</p>
-        <ul><li><span class="tick">✓</span>Quotas by any segment: age, region, behavior</li><li><span class="tick">✓</span>Screen-outs and over-quotas handled politely</li><li><span class="tick">✓</span>Live quota monitoring while fieldwork runs</li></ul>
-      <a class="text-link fp-more" href="features/quotas.html">Learn more about quota management →</a></div>
-      <div class="fp-visual"><div class="logic-demo"><div class="node"><small>Quota · 18–34 · Mumbai</small><div class="qbar"><div style="width:72%"></div></div>216 / 300 completes</div><div class="node"><small>Quota · 35+ · Delhi</small><div class="qbar"><div style="width:100%"></div></div>300 / 300 · full → new entrants screened</div></div></div>
-    </div>
-
-    <div class="fpanel rv" data-panel="admin">
-      <div class="fp-copy">
-        <h3>Run research like a team.</h3>
-        <p>One place to manage who can do what — users and roles, projects and workspaces, all under your control.</p>
-        <ul><li><span class="tick">✓</span>Users and admin roles</li><li><span class="tick">✓</span>Projects and workspaces per team or client</li><li><span class="tick">✓</span>Usage and activity in one dashboard</li></ul>
-      <a class="text-link fp-more" href="features/admin.html">Learn more about admin controls →</a></div>
-      <div class="fp-visual"><div class="logic-demo"><div class="node"><small>Workspace · Acme Insights</small>14 projects · 6 members</div><div class="node"><small>Roles</small>2 admins · 4 researchers</div><div class="node"><small>This month</small>32 surveys generated</div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FINAL CTA ============ -->
-<section class="final">
-  <div class="orbit"></div>
-  <div class="wrap">
-    <span class="eyebrow rv" style="justify-content:center">Better questions. Closer answers.</span>
-    <h2 class="rv">Curious what the agent<br><span class="grad">would build for you?</span></h2>
-    <p class="rv">Send over a questionnaire — we'll show you the agent's version.</p>
-    <a class="btn btn-primary btn-lg rv" href="#contact">Get early access →</a>
-  </div>
-</section>
-
-<!-- ============ CONTACT ============ -->
-<section class="block" id="contact" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Contact</span>
-      <h2>Talk to us.</h2>
-      <p>Questions, early access, partnerships, support — a real human replies.</p>
-    </div>
-    <div class="contact-grid">
-      <div class="form-card form-card-embed rv">
-        <!-- Aayvu Embedded Contact Survey -->
-        <!-- Note: Create this survey in the Aayvu platform and replace 'early-access' with the actual slug. -->
-        <iframe
-          class="early-access-frame"
-          src="https://www.aayvu.io/f/early-access?embed=1"
-          scrolling="no"
-          title="Request early access to Aayvu">
-        </iframe>
       </div>
-      <div>
-        <div class="side-card rv"><h4>📬 Email us directly</h4><p><b><a href="mailto:founders@aayvu.io" style="color:inherit;text-decoration:underline">founders@aayvu.io</a></b></p></div>
-        <div class="side-card rv"><h4>⚡ Early access</h4><p>We're onboarding research teams in waves. Tell us about your work and we'll get you set up — most teams see their first agent-built survey within a day.</p></div>
-        <div class="side-card rv"><h4>🕐 What to expect</h4><ul><li>We reply within one business day.</li><li>Onboarding is a 30-minute call.</li><li>Bring a questionnaire — see the agent build it live.</li></ul></div>
+    </header>
+
+    <section class="process-section" id="how" aria-labelledby="process-title">
+      <div class="wrap process-heading rv">
+        <p class="section-label">The four-step process</p>
+        <h2 id="process-title">A questionnaire goes in.<br>A field-ready survey comes out.</h2>
+        <p>Each stage hands clean work to the next. You can see, test, and change everything before launch.</p>
       </div>
-    </div>
-    <div class="faq rv" style="max-width:760px;margin-top:56px">
-      <details><summary>Is Aayvu available now?</summary><p>We're in early access, onboarding research teams in waves. Request access above — usually just a few days.</p></details>
-      <details><summary>Do I need my own AI key?</summary><p>No — Aayvu works out of the box. If your company prefers its own provider, bring your key (OpenAI-compatible, AWS Bedrock, and more).</p></details>
-      <details><summary>What does it cost?</summary><p>Pricing is being finalized during early access. Early-access teams lock in founding pricing — ask us about it.</p></details>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a class="brand" href="#top"><img class="brand-logo brand-logo-light" src="assets/logo/aayvu-logo.svg" alt="aayvu"><img class="brand-logo brand-logo-dark" src="assets/logo/aayvu-logo-dark.svg" alt="aayvu"></a>
-        <p class="foot-tag">Better questions. Closer answers.</p>
+      <div class="wrap">
+        <ol class="process-journey rv" aria-label="Aayvu's four-step survey creation process">
+          <li>
+            <div class="process-marker"><span>01</span><i></i></div>
+            <div class="process-art process-art-upload" aria-hidden="true"><b>DOCX</b><em>Q1</em><em>Q2</em><em>Q3</em></div>
+            <p class="process-verb">Start</p><h3>Upload the source</h3><p>Bring a Word document, PDF, or rough brief. Aayvu reads the structure and intent.</p>
+          </li>
+          <li>
+            <div class="process-marker"><span>02</span><i></i></div>
+            <div class="process-art process-art-build" aria-hidden="true"><span></span><span></span><span></span><b>AI</b></div>
+            <p class="process-verb">Build</p><h3>The agent programs it</h3><p>Questions, answer options, branching, piping, and validation are assembled automatically.</p>
+          </li>
+          <li>
+            <div class="process-marker"><span>03</span><i></i></div>
+            <div class="process-art process-art-review" aria-hidden="true"><span>Q7</span><b>✓</b><em>0 conflicts</em></div>
+            <p class="process-verb">Control</p><h3>You review and test</h3><p>Edit visually, walk every respondent path, and approve the agent's work before it goes live.</p>
+          </li>
+          <li>
+            <div class="process-marker"><span>04</span><i></i></div>
+            <div class="process-art process-art-launch" aria-hidden="true"><b>LIVE</b><span></span><span></span><span></span></div>
+            <p class="process-verb">Finish</p><h3>Launch with confidence</h3><p>Publish the same day, monitor responses, and keep refining without re-briefing a programmer.</p>
+          </li>
+        </ol>
       </div>
-      <div><h5>Product</h5><ul><li><a href="#features">Features</a></li><li><a href="#use-cases">Use cases</a></li><li><a href="#savings">Time savings</a></li><li><a href="https://app.aayvu.io/login">Sign in</a></li></ul></div>
-      <div><h5>Company</h5><ul><li><a href="#contact">Contact</a></li><li><a href="#contact">Early access</a></li></ul></div>
-      <div><h5>Resources</h5><ul><li><a href="#savings">How it works</a></li><li><a href="#contact">Support</a></li></ul></div>
+    </section>
+
+    <section class="impact-section" id="savings" aria-labelledby="impact-title">
+      <div class="wrap impact-grid">
+        <div class="impact-copy rv">
+          <p class="section-label section-label-light">Time savings</p>
+          <h2 id="impact-title">See the impact on your research backlog.</h2>
+          <p>Every survey waiting on a programmer is a decision delayed. Adjust the assumptions to see how much review time Aayvu can give back.</p>
+          <div class="impact-reasons">
+            <p><span>01</span><b>No programming queue</b></p>
+            <p><span>02</span><b>Researchers own the study end to end</b></p>
+            <p><span>03</span><b>Changes ship the same day</b></p>
+          </div>
+        </div>
+
+        <div class="calculator rv">
+          <div class="calculator-inputs">
+            <div class="slider-row">
+              <div class="slider-head"><label for="sSurveys">Surveys per month</label><output id="oSurveys" for="sSurveys">8</output></div>
+              <input type="range" id="sSurveys" min="1" max="30" value="8">
+              <div class="range-ends"><span>1</span><span>30</span></div>
+            </div>
+            <div class="slider-row">
+              <div class="slider-head"><label for="sHours">Manual hours per survey</label><output id="oHours" for="sHours">10 h</output></div>
+              <input type="range" id="sHours" min="2" max="32" value="10">
+              <div class="range-ends"><span>2 h</span><span>32 h</span></div>
+            </div>
+            <p class="calculator-note">Estimate includes about 30 minutes of researcher review per survey with Aayvu.</p>
+          </div>
+          <div class="calculator-result" aria-live="polite">
+            <p>Estimated time returned</p>
+            <strong id="tSaved">76 hours</strong>
+            <span id="tDays">About 10 full work-days each month.</span>
+            <div class="comparison-bars" aria-label="Manual versus Aayvu hours">
+              <div><span>Manual</span><i><em id="barManual"></em></i><b id="tManual">80 h</b></div>
+              <div><span>With Aayvu</span><i><em id="barAayvu"></em></i><b id="tAayvu">4 h</b></div>
+              <p class="bar-scale" id="barScale">Shared scale: 0–960 hours / month</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="usecase-section" id="use-cases" aria-labelledby="usecase-title">
+      <div class="wrap usecase-layout">
+        <div class="section-intro sticky-intro rv">
+          <p class="section-label">Use cases</p>
+          <h2 id="usecase-title">Built for the studies you actually run.</h2>
+          <p>From quick pulses to complex multi-market trackers, Aayvu speaks the language of research.</p>
+        </div>
+        <div class="usecase-index rv">
+          <a href="usecases/brand-tracking.html"><span>01</span><h3>Brand tracking</h3><p>Keep waves consistent without rebuilding the study by hand.</p><i aria-hidden="true">↗</i></a>
+          <a href="usecases/nps-csat.html"><span>02</span><h3>NPS &amp; CSAT</h3><p>Route detractors and promoters to the right follow-up.</p><i aria-hidden="true">↗</i></a>
+          <a href="usecases/concept-testing.html"><span>03</span><h3>Concept testing</h3><p>Set up monadic and sequential designs with randomized exposure.</p><i aria-hidden="true">↗</i></a>
+          <a href="usecases/pricing-research.html"><span>04</span><h3>Pricing research</h3><p>Program Van Westendorp, Gabor-Granger, and conjoint-ready studies.</p><i aria-hidden="true">↗</i></a>
+          <a href="usecases/ad-testing.html"><span>05</span><h3>Ad &amp; creative testing</h3><p>Test concepts, claims, and media before they ship.</p><i aria-hidden="true">↗</i></a>
+          <a href="usecases/ua-studies.html"><span>06</span><h3>Usage &amp; attitude</h3><p>Let the agent handle the routing in complex U&amp;A studies.</p><i aria-hidden="true">↗</i></a>
+          <a href="usecases/customer-feedback.html"><span>07</span><h3>Customer feedback</h3><p>Adapt every journey survey to the answers people give.</p><i aria-hidden="true">↗</i></a>
+          <a href="usecases/employee-engagement.html"><span>08</span><h3>Employee engagement</h3><p>Reach teams, regions, and languages with one source survey.</p><i aria-hidden="true">↗</i></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features-section" id="features" aria-labelledby="features-title">
+      <div class="wrap">
+        <div class="features-heading rv">
+          <div><p class="section-label">Features</p><h2 id="features-title">A closer look at the workbench.</h2></div>
+          <p>Click through the tools that help the agent and the researcher around it do better work.</p>
+        </div>
+
+        <div class="feature-workbench rv">
+          <div class="feature-tabs" role="tablist" aria-label="Aayvu features">
+            <button class="feature-tab active" id="tab-agent" type="button" role="tab" aria-selected="true" aria-controls="panel-agent" tabindex="0" data-tab="agent"><span>01</span>AI agent editor</button>
+            <button class="feature-tab" id="tab-types" type="button" role="tab" aria-selected="false" aria-controls="panel-types" tabindex="-1" data-tab="types"><span>02</span>Question types</button>
+            <button class="feature-tab" id="tab-testing" type="button" role="tab" aria-selected="false" aria-controls="panel-testing" tabindex="-1" data-tab="testing"><span>03</span>Testing &amp; QA</button>
+            <button class="feature-tab" id="tab-themes" type="button" role="tab" aria-selected="false" aria-controls="panel-themes" tabindex="-1" data-tab="themes"><span>04</span>Themes &amp; branding</button>
+            <button class="feature-tab" id="tab-translations" type="button" role="tab" aria-selected="false" aria-controls="panel-translations" tabindex="-1" data-tab="translations"><span>05</span>Translations</button>
+            <button class="feature-tab" id="tab-quotas" type="button" role="tab" aria-selected="false" aria-controls="panel-quotas" tabindex="-1" data-tab="quotas"><span>06</span>Quota management</button>
+            <button class="feature-tab" id="tab-admin" type="button" role="tab" aria-selected="false" aria-controls="panel-admin" tabindex="-1" data-tab="admin"><span>07</span>Admin controls</button>
+          </div>
+
+          <div class="feature-panels">
+            <article class="feature-panel active" id="panel-agent" role="tabpanel" aria-labelledby="tab-agent" data-panel="agent">
+              <div class="feature-copy"><p class="panel-count">Feature 01 / 07</p><h3>Tell it what to change. It changes it.</h3><p>“Rewrite Q7 to sound neutral.” “Add a screening question for pet owners.” “Re-wire the logic after Q12.” Describe the change in plain language; Aayvu rebuilds it.</p><ul><li>Edits questions, logic, and flow</li><li>Works with OpenAI-compatible models, AWS Bedrock, and more</li><li>Keeps every change reviewable</li></ul><a href="features/ai-editor.html">Explore the AI agent editor</a></div>
+              <div class="feature-demo chat-demo"><div class="prompt-bubble" id="agentPromptEcho">Make Q7 a 1–7 scale and only ask it of promoters.</div><div class="agent-answer"><span>✳</span><p id="agentReply"><b>Done.</b> Q7 is now a 1–7 rating, shown only when Q6 ≥ 9. Logic and validation are updated.</p></div><form class="agent-command" id="agentCommand"><label for="agentCommandInput">Ask the agent for a change</label><div><input id="agentCommandInput" type="text" value="Add an Other option to Q6" autocomplete="off"><button type="submit">Apply</button></div></form><div class="change-list"><span><i>Q7</i> Question type changed</span><span><i>IF</i> Display logic added</span><span><i>✓</i> 0 conflicts found</span></div></div>
+            </article>
+
+            <article class="feature-panel" id="panel-types" role="tabpanel" aria-labelledby="tab-types" data-panel="types" hidden>
+              <div class="feature-copy"><p class="panel-count">Feature 02 / 07</p><h3>Every question you need, without the setup tax.</h3><p>Use simple choices, advanced grids, MaxDiff, conjoint, media, and more. Logic, validation, and translations work across the set.</p><ul><li>Choice, scale, text, number, and grid questions</li><li>MaxDiff, conjoint, hotspot, and hybrid designs</li><li>Consistent respondent behavior on mobile</li></ul><a href="features/question-types.html">Explore question types</a></div>
+              <div class="feature-demo type-demo"><div><span>Choice</span><button type="button" data-type-name="Single select">Single select</button><button type="button" data-type-name="Multi-select">Multi-select</button><button type="button" data-type-name="Dropdown">Dropdown</button></div><div><span>Scales</span><button type="button" data-type-name="Rating">Rating</button><button type="button" data-type-name="Ranking">Ranking</button><button type="button" data-type-name="Slider">Slider</button></div><div><span>Advanced</span><button type="button" data-type-name="MaxDiff">MaxDiff</button><button type="button" data-type-name="Conjoint">Conjoint</button><button type="button" data-type-name="Hybrid">Hybrid</button></div><p class="type-selection" id="typeSelection">Select a question type to preview it.</p></div>
+            </article>
+
+            <article class="feature-panel" id="panel-testing" role="tabpanel" aria-labelledby="tab-testing" data-panel="testing" hidden>
+              <div class="feature-copy"><p class="panel-count">Feature 03 / 07</p><h3>Catch breaks before respondents do.</h3><p>Walk the survey like a respondent, trigger every branch, and let Aayvu flag conflicts before fieldwork begins.</p><ul><li>Respondent test mode</li><li>Automatic conflict detection</li><li>Validation preview for required fields</li></ul><a href="features/testing.html">Explore testing &amp; QA</a></div>
+              <div class="feature-demo qa-demo" id="qaDemo"><p><span>Test path</span><b>40 questions ready</b><em>Waiting</em></p><p><span>Logic check</span><b>11 branches queued</b><em>Waiting</em></p><p><span>Validation</span><b>40 fields queued</b><em>Waiting</em></p><button type="button" id="runQa">Run QA check</button></div>
+            </article>
+
+            <article class="feature-panel" id="panel-themes" role="tabpanel" aria-labelledby="tab-themes" data-panel="themes" hidden>
+              <div class="feature-copy"><p class="panel-count">Feature 04 / 07</p><h3>On brand, automatically.</h3><p>Set colors, typography, and logo once. Every respondent-facing survey inherits the system.</p><ul><li>Custom colors and typography</li><li>Your logo on every survey</li><li>Responsive layouts by default</li></ul><a href="features/themes.html">Explore themes &amp; branding</a></div>
+              <div class="feature-demo brand-demo" id="brandDemo"><div class="brand-swatches" role="group" aria-label="Choose a survey accent color"><button class="active" type="button" data-theme-color="#be4b0a" aria-label="Use burnt orange"></button><button type="button" data-theme-color="#286e4c" aria-label="Use forest green"></button><button type="button" data-theme-color="#365cc7" aria-label="Use cobalt blue"></button><button type="button" data-theme-color="#8f3f76" aria-label="Use plum"></button></div><span>Acme Insights theme · choose a color</span><div class="mini-survey"><i>A</i><small>Question 4 of 8</small><h4>How satisfied are you?</h4><div class="rating-demo" role="radiogroup" aria-label="Satisfaction rating"><button type="button" role="radio" aria-checked="false">1</button><button type="button" role="radio" aria-checked="false">2</button><button type="button" role="radio" aria-checked="false">3</button><button type="button" role="radio" aria-checked="false">4</button><button type="button" role="radio" aria-checked="false">5</button></div><button class="mini-next" type="button">Next</button></div></div>
+            </article>
+
+            <article class="feature-panel" id="panel-translations" role="tabpanel" aria-labelledby="tab-translations" data-panel="translations" hidden>
+              <div class="feature-copy"><p class="panel-count">Feature 05 / 07</p><h3>One survey. Every language.</h3><p>Extract every string automatically, review with people who know the market, and keep source changes in sync.</p><ul><li>Every question and option extracted</li><li>Human review built into the workflow</li><li>Only changed strings need re-translation</li></ul><a href="features/translations.html">Explore the translation workflow</a></div>
+              <div class="feature-demo feature-translation"><div class="table-toolbar"><span>brand_tracker_Q3</span><b>4 languages</b></div><table><thead><tr><th>Language</th><th>Question 7</th><th>Status</th></tr></thead><tbody><tr><th>English</th><td>How likely are you to recommend…</td><td><span>Source</span></td></tr><tr><th>Spanish</th><td>¿Qué probabilidad hay de que…</td><td><span>Approved</span></td></tr><tr id="frenchRow"><th>French</th><td>Quelle est la probabilité que…</td><td><span id="frenchStatus" class="needs-review">Review</span></td></tr><tr><th>Hindi</th><td>आपके सुझाव देने की कितनी…</td><td><span>Approved</span></td></tr></tbody></table><div class="translation-action"><p><b>Q7 changed.</b> French needs review.</p><button id="approveTranslation" type="button">Approve French</button></div></div>
+            </article>
+
+            <article class="feature-panel" id="panel-quotas" role="tabpanel" aria-labelledby="tab-quotas" data-panel="quotas" hidden>
+              <div class="feature-copy"><p class="panel-count">Feature 06 / 07</p><h3>Full control of your sample.</h3><p>Drag the targets to rebalance the sample. Filled quotas update immediately and show exactly when a group closes.</p><ul><li>Quotas by age, region, or behavior</li><li>Graceful screen-outs and over-quotas</li><li>Live monitoring during fieldwork</li></ul><a href="features/quotas.html">Explore quota management</a></div>
+              <div class="feature-demo quota-demo"><label><span>18–34 · Mumbai</span><b><output id="quotaOneValue">216</output> / 300</b><input id="quotaOne" type="range" min="0" max="300" value="216" aria-label="18 to 34 Mumbai quota"><i><em id="quotaOneBar" style="width:72%"></em></i></label><label><span>35+ · Delhi</span><b><output id="quotaTwoValue">300</output> / 300</b><input id="quotaTwo" type="range" min="0" max="300" value="300" aria-label="35 and over Delhi quota"><i><em id="quotaTwoBar" style="width:100%"></em></i></label><label><span>Women · South</span><b><output id="quotaThreeValue">148</output> / 240</b><input id="quotaThree" type="range" min="0" max="240" value="148" aria-label="Women South quota"><i><em id="quotaThreeBar" style="width:62%"></em></i></label></div>
+            </article>
+
+            <article class="feature-panel" id="panel-admin" role="tabpanel" aria-labelledby="tab-admin" data-panel="admin" hidden>
+              <div class="feature-copy"><p class="panel-count">Feature 07 / 07</p><h3>Run research like a team.</h3><p>Choose a role to see exactly what each teammate can do. Permissions stay understandable instead of becoming another admin puzzle.</p><ul><li>Users and admin roles</li><li>Projects and workspaces per team or client</li><li>Usage and activity in one place</li></ul><a href="features/admin.html">Explore admin controls</a></div>
+              <div class="feature-demo admin-demo"><div class="admin-toolbar"><span>Workspace · Acme Insights</span><div><button class="active" type="button" data-role="researcher">Researcher</button><button type="button" data-role="admin">Admin</button></div></div><div class="permission-list" id="permissionList"><label><span>Create and edit surveys<small>Build inside assigned projects</small></span><input type="checkbox" checked></label><label><span>Publish surveys<small>Launch approved fieldwork</small></span><input type="checkbox" checked></label><label><span>Manage members<small>Invite, remove, and change roles</small></span><input type="checkbox"></label><label><span>Billing and connections<small>Manage providers and invoices</small></span><input type="checkbox"></label></div><p class="admin-summary" id="adminSummary">Researcher · 2 of 4 permissions enabled</p></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact-heading rv">
+        <p class="section-label section-label-light">Early access</p>
+        <h2 id="contact-title">Curious what the agent would build for you?</h2>
+        <p>Bring a questionnaire. We’ll show you the agent’s version.</p>
+      </div>
+
+      <div class="wrap contact-shell rv">
+        <div class="contact-form contact-form-embed">
+          <iframe
+            class="early-access-frame"
+            src="https://app.aayvu.io/f/early-access?embed=1"
+            scrolling="no"
+            title="Request early access to Aayvu">
+          </iframe>
+        </div>
+
+        <aside class="contact-aside" aria-label="Early access details">
+          <div><span>01</span><h3>Reply within one business day</h3><p>A real person reads every note.</p></div>
+          <div><span>02</span><h3>30-minute onboarding</h3><p>Bring a questionnaire and watch the agent build it live.</p></div>
+          <div><span>03</span><h3>Your AI setup, your choice</h3><p>Use Aayvu out of the box or bring an approved provider.</p></div>
+          <p class="direct-email">Prefer email? <a href="mailto:hello@aayvu.com">hello@aayvu.com</a> <small>(placeholder)</small></p>
+        </aside>
+      </div>
+
+      <div class="wrap faq-shell rv">
+        <p class="section-label section-label-light">Questions</p>
+        <div class="faq-list">
+          <details><summary>Is Aayvu available now?<span aria-hidden="true">+</span></summary><p>We’re in early access, onboarding research teams in waves. Request access above; it usually takes just a few days.</p></details>
+          <details><summary>Do I need my own AI key?<span aria-hidden="true">+</span></summary><p>No. Aayvu works out of the box. If your company prefers its own provider, bring your key for an OpenAI-compatible model, AWS Bedrock, and more.</p></details>
+          <details><summary>What does it cost?<span aria-hidden="true">+</span></summary><p>Pricing is being finalized during early access. Early-access teams lock in founding pricing; ask us about it.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-main">
+      <div><a class="brand footer-brand" href="#top" translate="no">aayvu<span class="brand-mark" aria-hidden="true">✳</span></a><p>Better questions.<br>Closer answers.</p></div>
+      <div><h2>Product</h2><a href="#features">Features</a><a href="#use-cases">Use cases</a><a href="#savings">Time savings</a><a href="#">Sign in</a></div>
+      <div><h2>Company</h2><a href="#contact">Contact</a><a href="#contact">Early access</a><a href="#how">How it works</a></div>
+      <div><h2>Explore</h2><a href="features/ai-editor.html">AI editor</a><a href="features/question-types.html">Question types</a><a href="features/testing.html">Testing &amp; QA</a></div>
     </div>
-    <div class="foot-base"><span>© 2026 Aayvu. All rights reserved.</span><span>Built for modern research teams.</span></div>
-  </div>
-</footer>
+    <div class="wrap footer-base"><span>© 2026 Aayvu. All rights reserved.</span><span>Marketing mockup. Copy in draft.</span></div>
+  </footer>
 
-<script>
-/* screenshot helper: ?static=1 reveals everything instantly (for mockup review shots) */
-if (location.search.indexOf('static=1') > -1) { document.write('<style>.rv{opacity:1!important;transform:none!important}</style>'); }
-if (location.search.indexOf('drop=1') > -1) { document.write('<style>.drop-menu{display:block!important;animation:none!important}</style>'); }
-/* ---------- ROI calculator ---------- */
-(function(){
-  var sS=document.getElementById('sSurveys'), sH=document.getElementById('sHours');
-  var oS=document.getElementById('oSurveys'), oH=document.getElementById('oHours');
-  var tM=document.getElementById('tManual'), tA=document.getElementById('tAayvu'),
-      tSv=document.getElementById('tSaved'), tD=document.getElementById('tDays'),
-      bM=document.getElementById('barManual'), bA=document.getElementById('barAayvu');
-  var maxHours=Number(sS.max)*Number(sH.max);
-  document.getElementById('barScale').textContent='Shared scale: 0–'+maxHours.toLocaleString('en-US')+' hours/month.';
-  function fmt(n){
-    if (n>=1000) return (n/1000).toFixed(n>=10000?0:1).replace(/\.0$/,'')+'k';
-    return n<10 ? Number(n.toFixed(1)).toString() : Math.round(n).toString();
-  }
-  function upd(){
-    var s=+sS.value, h=+sH.value;
-    oS.textContent=s; oH.textContent=h+' h';
-    var manual=s*h, withA=s*0.5, saved=Math.max(0,manual-withA);
-    tM.textContent=fmt(manual)+' h/mo'; tA.textContent=fmt(withA)+' h/mo';
-    tSv.textContent=fmt(saved)+' hours';
-    tD.textContent='Aayvu estimate: '+fmt(withA)+' h/mo of review time, about 30 minutes per survey.';
-    bM.style.width=(manual/maxHours*100)+'%';
-    bA.style.width=(withA/maxHours*100)+'%';
-  }
-  ['input', 'change', 'pointermove'].forEach(function(ev){
-    sS.addEventListener(ev, upd, { passive: true });
-    sH.addEventListener(ev, upd, { passive: true });
-  });
-  upd();
-})();
+  <script>
+  (function () {
+    'use strict';
 
-/* ---------- responsive survey embed ---------- */
-(function(){
-  var frame = document.querySelector('.early-access-frame');
-  if (!frame) return;
-  var frameOrigin = new URL(frame.src, window.location.href).origin;
+    var params = new URLSearchParams(window.location.search);
+    if (params.has('static')) document.documentElement.classList.add('static-view');
 
-  function requestMeasurement() {
-    if (frame.contentWindow) {
-      frame.contentWindow.postMessage({ type: 'aayvu:embed-measure' }, frameOrigin);
-    }
-  }
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  window.addEventListener('message', function(event) {
-    if (event.origin !== frameOrigin || event.source !== frame.contentWindow) return;
-    if (!event.data || event.data.type !== 'aayvu:embed-resize') return;
-    var height = Math.ceil(Number(event.data.height));
-    if (!Number.isFinite(height) || height < 320 || height > 12000) return;
-    frame.style.height = height + 'px';
-  });
-  frame.addEventListener('load', requestMeasurement);
-  window.addEventListener('resize', requestMeasurement, { passive: true });
-  requestMeasurement();
-  [250, 1000, 2500].forEach(function(delay) {
-    window.setTimeout(requestMeasurement, delay);
-  });
-})();
-
-/* ---------- use-case carousel ---------- */
-(function(){
-  var car = document.getElementById('carousel');
-  var prevBtn = document.getElementById('carPrev');
-  var nextBtn = document.getElementById('carNext');
-  var mobPrev = document.getElementById('carMobPrev');
-  var mobNext = document.getElementById('carMobNext');
-  var dotsBox = document.getElementById('carDots');
-  var cards = car ? car.querySelectorAll('.ucar') : [];
-
-  function getStep() {
-    var c = car.querySelector('.ucar');
-    if (!c) return 318;
-    var gap = 18;
-    try {
-      var g = parseFloat(window.getComputedStyle(car).gap);
-      if (!isNaN(g)) gap = g;
-    } catch(e) {}
-    return c.offsetWidth + gap;
-  }
-
-  function doScroll(dir) {
-    car.scrollBy({ left: dir * getStep(), behavior: 'smooth' });
-  }
-
-  if (prevBtn) prevBtn.onclick = function() { doScroll(-1); };
-  if (nextBtn) nextBtn.onclick = function() { doScroll(1); };
-  if (mobPrev) mobPrev.onclick = function() { doScroll(-1); };
-  if (mobNext) mobNext.onclick = function() { doScroll(1); };
-
-  if (dotsBox && cards.length) {
-    dotsBox.innerHTML = '';
-    cards.forEach(function(_, idx) {
-      var d = document.createElement('button');
-      d.className = 'car-dot' + (idx === 0 ? ' active' : '');
-      d.type = 'button';
-      d.setAttribute('aria-label', 'Go to usecase ' + (idx + 1));
-      d.onclick = function() {
-        car.scrollTo({ left: idx * getStep(), behavior: 'smooth' });
-      };
-      dotsBox.appendChild(d);
+    var navToggle = document.querySelector('.nav-toggle');
+    var navLinks = document.getElementById('primary-links');
+    navToggle.addEventListener('click', function () {
+      var open = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!open));
+      navToggle.setAttribute('aria-label', open ? 'Open navigation' : 'Close navigation');
+      navLinks.classList.toggle('mobile-open', !open);
     });
-
-    var dots = dotsBox.querySelectorAll('.car-dot');
-    var scrollTimer = null;
-    car.addEventListener('scroll', function() {
-      clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(function() {
-        var step = getStep();
-        var cur = Math.round(car.scrollLeft / step);
-        dots.forEach(function(dot, i) {
-          dot.classList.toggle('active', i === cur);
-        });
-      }, 50);
-    }, { passive: true });
-  }
-})();
-
-/* ---------- feature tabs ---------- */
-(function(){
-  var tabs=document.querySelectorAll('.ftab'), panels=document.querySelectorAll('.fpanel');
-  tabs.forEach(function(t){ t.addEventListener('click',function(){
-    tabs.forEach(function(x){x.classList.remove('active')}); t.classList.add('active');
-    panels.forEach(function(p){p.classList.toggle('active',p.dataset.panel===t.dataset.tab)});
-  });});
-})();
-
-/* ---------- question type chips ---------- */
-(function(){
-  var cats={
-    choice:['Single select','Multi-select','Dropdown'],
-    scales:['Rating (stars, numbers, custom)','Ranking','Slider'],
-    text:['Short text','Long text','Number with validation'],
-    grids:['Matrix','Grid','Constant sum','Hybrid'],
-    advanced:['MaxDiff (best–worst)','Conjoint analysis','Hotspot (click on image)'],
-    media:['Image & video questions','Info / instruction blocks']
-  };
-  var chips=document.querySelectorAll('.qchip'), list=document.getElementById('qlist');
-  function render(cat){ list.innerHTML=cats[cat].map(function(t){return '<div class="qitem"><span class="tick">→</span>'+t+'</div>'}).join(''); }
-  chips.forEach(function(c){ c.addEventListener('click',function(){
-    chips.forEach(function(x){x.classList.remove('active')}); c.classList.add('active'); render(c.dataset.cat);
-  });});
-  render('choice');
-})();
-
-/* ---------- agent demo loop ---------- */
-(function(){
-  var steps = document.querySelectorAll('.astep'),
-      log = document.getElementById('agentLog'),
-      status = document.getElementById('agentStatus');
-  if (!steps.length || !log || !status) return;
-
-  var timers = [];
-  function addTimer(fn, ms) {
-    var t = setTimeout(fn, ms);
-    timers.push(t);
-    return t;
-  }
-  function clearAllTimers() {
-    timers.forEach(function(t){ clearTimeout(t); });
-    timers = [];
-  }
-
-  function appendLog(text, isBold) {
-    var d = document.createElement('div');
-    if (isBold) {
-      d.innerHTML = '› <b>' + text + '</b>';
-    } else {
-      d.textContent = '› ' + text;
-    }
-    log.appendChild(d);
-    log.scrollTop = log.scrollHeight;
-  }
-
-  var stepConfig = [
-    {
-      logs: [{ text: 'reading Q1–Q40 …', delay: 0 }],
-      duration: 1200
-    },
-    {
-      logs: [{ text: 'type: multi_select → Q7', delay: 0 }],
-      duration: 1300
-    },
-    {
-      logs: [
-        { text: 'rule: Q12 ≤ 6 → ask Q13', delay: 0 },
-        { text: 'rule: piping {age} → Q9', delay: 450 },
-        { text: 'validation: email format → Q14', delay: 900 }
-      ],
-      duration: 1600
-    },
-    {
-      logs: [{ text: '0 conflicts · draft ready', delay: 0 }],
-      duration: 1100
-    }
-  ];
-
-  function reset() {
-    clearAllTimers();
-    steps.forEach(function(s){ s.classList.remove('active', 'done'); });
-    log.innerHTML = '';
-    status.textContent = '● working';
-    status.classList.remove('ready');
-  }
-
-  function executeStep(idx) {
-    if (idx >= stepConfig.length) {
-      status.textContent = '● ready for review';
-      status.classList.add('ready');
-      appendLog('draft ready — your turn.', true);
-      addTimer(function(){
-        reset();
-        addTimer(function(){ executeStep(0); }, 700);
-      }, 4000);
-      return;
-    }
-
-    var cfg = stepConfig[idx];
-    var s = steps[idx];
-
-    s.classList.remove('done');
-    s.classList.add('active');
-
-    cfg.logs.forEach(function(item){
-      if (item.delay === 0) {
-        appendLog(item.text, false);
-      } else {
-        addTimer(function(){
-          appendLog(item.text, false);
-        }, item.delay);
+    navLinks.addEventListener('click', function (event) {
+      if (event.target.closest('a')) {
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Open navigation');
+        navLinks.classList.remove('mobile-open');
       }
     });
 
-    addTimer(function(){
-      // Mark step done immediately as its work finishes
-      s.classList.remove('active');
-      s.classList.add('done');
+    var questions = [
+      { type: 'Single select', prompt: 'Which region do you live in?', kind: 'single', options: ['North', 'South', 'East', 'West'] },
+      { type: 'Multi-select', prompt: 'Which of these brands have you bought in the past 3 months?', kind: 'multi', options: ['Northstar', 'Hush', 'Morrow', 'Vale'] },
+      { type: '0–10 rating', prompt: 'How likely are you to recommend Northstar?', kind: 'rating' },
+      { type: 'Price slider', prompt: 'How much would you expect to pay each month?', kind: 'slider', min: 500, max: 5000, step: 100 },
+      { type: 'Long text', prompt: 'What is the main reason for your score?', kind: 'text' },
+      { type: 'Number', prompt: 'How many research studies did your team run last year?', kind: 'number' }
+    ];
+    var answers = [null, [], null, null, '', ''];
+    var currentQuestion = 0;
+    var sourcePages = Array.from(document.querySelectorAll('.source-page'));
+    var documentScroll = document.getElementById('documentScroll');
+    var questionStage = document.getElementById('questionStage');
+    var pageCount = document.getElementById('demoPageCount');
+    var answeredCount = document.getElementById('answeredCount');
+    var scrollLockUntil = 0;
 
-      addTimer(function(){
-        executeStep(idx + 1);
-      }, 250);
-    }, cfg.duration);
-  }
+    function isAnswered(answer, question) {
+      if (question.kind === 'multi') return answer.length > 0;
+      if (question.kind === 'slider') return answer !== null;
+      return answer !== null && String(answer).trim() !== '';
+    }
 
-  reset();
-  addTimer(function(){ executeStep(0); }, 900);
-})();
+    function primaryBrand() {
+      return answers[1].length ? answers[1][0] : 'the selected brand';
+    }
 
-/* ---------- scroll reveal ---------- */
-(function(){
-  var els=document.querySelectorAll('.rv');
-  if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in')}); return; }
-  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }); },{threshold:.12});
-  els.forEach(function(e){ io.observe(e); });
-})();
-</script>
+    function questionAvailability(index) {
+      if (index === 2 && !answers[1].length) return { available: false, jump: 1, rule: 'PIPE FROM Q2', reason: 'Select at least one brand in Q2 before this rating is shown.' };
+      if (index === 3) {
+        if (answers[2] === null) return { available: false, jump: 2, rule: 'SHOW IF Q3 ≥ 7', reason: 'Answer Q3 first. This price question is only shown to respondents who rate 7 or higher.' };
+        if (Number(answers[2]) < 7) return { available: false, jump: 2, rule: 'SKIPPED · Q3 IS ' + answers[2], reason: 'This respondent rated below 7, so Aayvu removes the price question from their path.' };
+      }
+      if (index === 4) {
+        if (answers[2] === null) return { available: false, jump: 2, rule: 'SHOW IF Q3 ≤ 6', reason: 'Answer Q3 first. This follow-up is reserved for ratings of 6 or lower.' };
+        if (Number(answers[2]) > 6) return { available: false, jump: 2, rule: 'SKIPPED · Q3 IS ' + answers[2], reason: 'This respondent rated 7 or higher, so the negative follow-up is skipped.' };
+      }
+      return { available: true };
+    }
+
+    function questionPrompt(index) {
+      if (index === 2) return 'How likely are you to recommend ' + primaryBrand() + '?';
+      if (index === 4) return 'What is the main reason for your score for ' + primaryBrand() + '?';
+      return questions[index].prompt;
+    }
+
+    function updateSourceLogic() {
+      sourcePages.forEach(function (page, index) {
+        var status = questionAvailability(index);
+        page.classList.toggle('logic-skipped', !status.available);
+        page.classList.toggle('logic-live', status.available && index >= 2 && index <= 4);
+      });
+      document.getElementById('logicQ3').textContent = answers[1].length ? 'PIPE · “' + primaryBrand() + '” from Q2' : 'PIPE · Waiting for Q2';
+      document.getElementById('logicQ4').textContent = answers[2] === null ? 'SHOW IF · Q3 ≥ 7' : (Number(answers[2]) >= 7 ? 'LIVE · Q3 is ' + answers[2] : 'SKIPPED · Q3 is ' + answers[2]);
+      document.getElementById('logicQ5').textContent = answers[2] === null ? 'SHOW IF · Q3 ≤ 6' : (Number(answers[2]) <= 6 ? 'LIVE · Q3 is ' + answers[2] : 'SKIPPED · Q3 is ' + answers[2]);
+    }
+
+    function updateAnsweredCount() {
+      answeredCount.textContent = answers.filter(function (answer, index) { return questionAvailability(index).available && isAnswered(answer, questions[index]); }).length;
+    }
+
+    function questionBody(question, index) {
+      var answer = answers[index];
+      if (question.kind === 'single' || question.kind === 'multi') {
+        return '<div class="question-options">' + question.options.map(function (option) {
+          var checked = question.kind === 'single' ? answer === option : answer.indexOf(option) !== -1;
+          return '<label class="question-option"><input type="' + (question.kind === 'single' ? 'radio' : 'checkbox') + '" name="demo-' + index + '" value="' + option + '"' + (checked ? ' checked' : '') + '><span>' + option + '</span></label>';
+        }).join('') + '</div>';
+      }
+      if (question.kind === 'rating') {
+        var ratings = [];
+        for (var score = 0; score <= 10; score += 1) ratings.push('<label><input type="radio" name="demo-rating" value="' + score + '"' + (Number(answer) === score ? ' checked' : '') + '><span>' + score + '</span></label>');
+        return '<div class="rating-options">' + ratings.join('') + '</div><div class="rating-ends"><span>Not likely</span><span>Extremely likely</span></div>';
+      }
+      if (question.kind === 'slider') {
+        var sliderValue = answer === null ? 2500 : answer;
+        return '<div class="demo-range-output"><output id="demoRangeValue">$' + Number(sliderValue).toLocaleString('en-US') + '</output><span>per month</span></div><input type="range" min="' + question.min + '" max="' + question.max + '" step="' + question.step + '" value="' + sliderValue + '" aria-label="Expected monthly price">';
+      }
+      if (question.kind === 'text') return '<textarea aria-label="Reason for score" placeholder="Type your response…">' + answer + '</textarea>';
+      return '<input type="number" min="0" max="999" step="1" value="' + answer + '" placeholder="Enter a whole number" aria-label="Number of studies">';
+    }
+
+    function renderQuestion() {
+      var question = questions[currentQuestion];
+      var availability = questionAvailability(currentQuestion);
+      sourcePages.forEach(function (page, index) {
+        var active = index === currentQuestion;
+        page.classList.toggle('active', active);
+        page.setAttribute('aria-pressed', String(active));
+      });
+      pageCount.textContent = 'Page ' + (currentQuestion + 1) + ' / ' + questions.length;
+      updateSourceLogic();
+      if (!availability.available) {
+        questionStage.innerHTML = '<div class="interactive-question logic-skip"><div class="question-meta"><span>Logic rule</span><span>Q' + (currentQuestion + 1) + ' of ' + questions.length + '</span></div><div class="logic-skip-card"><i>↳</i><p><span>' + availability.rule + '</span><strong>Not shown on this respondent path.</strong><small>' + availability.reason + '</small></p></div><button type="button" data-jump="' + availability.jump + '">Change the answer that controls this rule</button></div>';
+        updateAnsweredCount();
+        return;
+      }
+      var logicNote = '';
+      if (currentQuestion === 2) logicNote = '<div class="logic-live-note"><span>PIPE</span><p>Using “' + primaryBrand() + '” from the brands selected in Q2.</p></div>';
+      if (currentQuestion === 3) logicNote = '<div class="logic-live-note"><span>LOGIC</span><p>Shown because Q3 is ' + answers[2] + ' — a rating of 7 or higher.</p></div>';
+      if (currentQuestion === 4) logicNote = '<div class="logic-live-note"><span>LOGIC</span><p>Shown because Q3 is ' + answers[2] + ' — a rating of 6 or lower.</p></div>';
+      questionStage.innerHTML = '<div class="interactive-question"><div class="question-meta"><span>' + question.type + '</span><span>Q' + (currentQuestion + 1) + ' of ' + questions.length + '</span></div>' + logicNote + '<fieldset><legend>' + questionPrompt(currentQuestion) + '</legend>' + questionBody(question, currentQuestion) + '</fieldset><p class="answer-state' + (isAnswered(answers[currentQuestion], question) ? ' saved' : '') + '">' + (isAnswered(answers[currentQuestion], question) ? '✓ Answer saved' : 'Choose or enter an answer') + '</p></div>';
+      updateAnsweredCount();
+    }
+
+    function selectQuestion(index, moveDocument) {
+      currentQuestion = Math.max(0, Math.min(questions.length - 1, index));
+      renderQuestion();
+      if (moveDocument) {
+        scrollLockUntil = Date.now() + 300;
+        sourcePages[currentQuestion].scrollIntoView({ behavior: 'auto', block: 'nearest' });
+      }
+    }
+
+    sourcePages.forEach(function (page, index) {
+      page.addEventListener('click', function () { selectQuestion(index, true); });
+    });
+    documentScroll.addEventListener('scroll', function () {
+      if (Date.now() < scrollLockUntil) return;
+      window.requestAnimationFrame(function () {
+        var scroller = documentScroll.getBoundingClientRect();
+        var center = scroller.top + scroller.height / 2;
+        var closest = 0;
+        var distance = Infinity;
+        sourcePages.forEach(function (page, index) {
+          var rect = page.getBoundingClientRect();
+          var nextDistance = Math.abs(rect.top + rect.height / 2 - center);
+          if (nextDistance < distance) { distance = nextDistance; closest = index; }
+        });
+        if (closest !== currentQuestion) selectQuestion(closest, false);
+      });
+    }, { passive: true });
+    document.getElementById('demoPrev').addEventListener('click', function () { selectQuestion(currentQuestion - 1, true); });
+    document.getElementById('demoNext').addEventListener('click', function () { selectQuestion(currentQuestion + 1, true); });
+    questionStage.addEventListener('click', function (event) {
+      var jump = event.target.closest('[data-jump]');
+      if (jump) selectQuestion(Number(jump.dataset.jump), true);
+    });
+    questionStage.addEventListener('input', function (event) {
+      var question = questions[currentQuestion];
+      if (question.kind === 'multi') {
+        answers[currentQuestion] = Array.from(questionStage.querySelectorAll('input:checked')).map(function (input) { return input.value; });
+        if (!answers[currentQuestion].length) { answers[2] = null; answers[3] = null; answers[4] = ''; }
+      } else if (question.kind === 'slider') {
+        answers[currentQuestion] = Number(event.target.value);
+        document.getElementById('demoRangeValue').textContent = '$' + answers[currentQuestion].toLocaleString('en-US');
+      } else if (question.kind === 'number') {
+        answers[currentQuestion] = event.target.value;
+      } else if (question.kind === 'text') {
+        answers[currentQuestion] = event.target.value;
+      }
+      updateSourceLogic();
+      updateAnsweredCount();
+      var state = questionStage.querySelector('.answer-state');
+      var saved = isAnswered(answers[currentQuestion], question);
+      state.classList.toggle('saved', saved);
+      state.textContent = saved ? '✓ Answer saved' : 'Choose or enter an answer';
+    });
+    questionStage.addEventListener('change', function (event) {
+      var question = questions[currentQuestion];
+      if (question.kind === 'single' || question.kind === 'rating') answers[currentQuestion] = event.target.value;
+      if (question.kind === 'multi') answers[currentQuestion] = Array.from(questionStage.querySelectorAll('input:checked')).map(function (input) { return input.value; });
+      if (question.kind === 'rating') {
+        if (Number(answers[currentQuestion]) >= 7) answers[4] = '';
+        else answers[3] = null;
+        renderQuestion();
+        return;
+      }
+      updateSourceLogic();
+      updateAnsweredCount();
+      var state = questionStage.querySelector('.answer-state');
+      state.classList.add('saved');
+      state.textContent = '✓ Answer saved';
+    });
+    renderQuestion();
+
+    var surveyInput = document.getElementById('sSurveys');
+    var hoursInput = document.getElementById('sHours');
+    var formatNumber = new Intl.NumberFormat('en-US', { maximumFractionDigits: 1 });
+    function updateCalculator() {
+      var surveys = Number(surveyInput.value);
+      var hours = Number(hoursInput.value);
+      var manual = surveys * hours;
+      var withAayvu = surveys * 0.5;
+      var saved = Math.max(0, manual - withAayvu);
+      document.getElementById('oSurveys').textContent = formatNumber.format(surveys);
+      document.getElementById('oHours').textContent = formatNumber.format(hours) + ' h';
+      document.getElementById('tManual').textContent = formatNumber.format(manual) + ' h';
+      document.getElementById('tAayvu').textContent = formatNumber.format(withAayvu) + ' h';
+      document.getElementById('tSaved').textContent = formatNumber.format(saved) + ' hours';
+      document.getElementById('tDays').textContent = 'About ' + Math.max(1, Math.round(saved / 8)) + ' full work-days each month.';
+      var sharedScale = Number(surveyInput.max) * Number(hoursInput.max);
+      document.getElementById('barManual').style.width = manual / sharedScale * 100 + '%';
+      document.getElementById('barAayvu').style.width = withAayvu / sharedScale * 100 + '%';
+      document.getElementById('barScale').textContent = 'Shared scale: 0–' + formatNumber.format(sharedScale) + ' hours / month';
+    }
+    surveyInput.addEventListener('input', updateCalculator);
+    hoursInput.addEventListener('input', updateCalculator);
+    updateCalculator();
+
+    var tabs = Array.from(document.querySelectorAll('.feature-tab'));
+    var panels = Array.from(document.querySelectorAll('.feature-panel'));
+    function activateTab(tab, updateUrl) {
+      tabs.forEach(function (item) {
+        var active = item === tab;
+        item.classList.toggle('active', active);
+        item.setAttribute('aria-selected', String(active));
+        item.tabIndex = active ? 0 : -1;
+      });
+      panels.forEach(function (panel) {
+        var active = panel.dataset.panel === tab.dataset.tab;
+        panel.hidden = !active;
+        panel.classList.toggle('active', active);
+      });
+      if (updateUrl) {
+        var next = new URL(window.location.href);
+        next.searchParams.set('feature', tab.dataset.tab);
+        window.history.replaceState({}, '', next);
+      }
+    }
+    tabs.forEach(function (tab, index) {
+      tab.addEventListener('click', function () { activateTab(tab, true); });
+      tab.addEventListener('keydown', function (event) {
+        if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp' && event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+        event.preventDefault();
+        var forward = event.key === 'ArrowDown' || event.key === 'ArrowRight';
+        var nextIndex = (index + (forward ? 1 : -1) + tabs.length) % tabs.length;
+        activateTab(tabs[nextIndex], true);
+        tabs[nextIndex].focus();
+      });
+    });
+    var requestedTab = params.get('feature');
+    var initialTab = tabs.find(function (tab) { return tab.dataset.tab === requestedTab; });
+    if (initialTab) activateTab(initialTab, false);
+
+    document.getElementById('agentCommand').addEventListener('submit', function (event) {
+      event.preventDefault();
+      var input = document.getElementById('agentCommandInput');
+      var command = input.value.trim();
+      if (!command) return;
+      document.getElementById('agentPromptEcho').textContent = command;
+      var reply = document.getElementById('agentReply');
+      reply.innerHTML = '<b>Done.</b> I drafted that change and checked the affected logic. Review it before publishing.';
+      var answer = reply.closest('.agent-answer');
+      answer.classList.remove('updated');
+      void answer.offsetWidth;
+      answer.classList.add('updated');
+    });
+
+    document.querySelectorAll('.type-demo button').forEach(function (button) {
+      button.addEventListener('click', function () {
+        document.querySelectorAll('.type-demo button').forEach(function (item) { item.classList.remove('active'); });
+        button.classList.add('active');
+        document.getElementById('typeSelection').textContent = button.dataset.typeName + ' selected · logic and validation are ready to configure.';
+      });
+    });
+
+    document.getElementById('runQa').addEventListener('click', function () {
+      var button = this;
+      var statuses = Array.from(document.querySelectorAll('#qaDemo em'));
+      button.disabled = true;
+      button.textContent = 'Checking every path…';
+      statuses.forEach(function (status) { status.textContent = 'Checking…'; status.classList.add('checking'); });
+      window.setTimeout(function () {
+        var labels = ['Complete', '0 conflicts', 'Passed'];
+        statuses.forEach(function (status, index) { status.textContent = labels[index]; status.classList.remove('checking'); });
+        button.disabled = false;
+        button.textContent = 'Run again';
+      }, reducedMotion ? 20 : 700);
+    });
+
+    document.querySelectorAll('.brand-swatches button').forEach(function (swatch) {
+      swatch.addEventListener('click', function () {
+        document.querySelectorAll('.brand-swatches button').forEach(function (item) { item.classList.remove('active'); });
+        swatch.classList.add('active');
+        document.getElementById('brandDemo').style.setProperty('--demo-accent', swatch.dataset.themeColor);
+      });
+    });
+    document.querySelectorAll('.rating-demo button').forEach(function (button) {
+      button.addEventListener('click', function () {
+        document.querySelectorAll('.rating-demo button').forEach(function (item) { item.classList.remove('selected'); item.setAttribute('aria-checked', 'false'); });
+        button.classList.add('selected');
+        button.setAttribute('aria-checked', 'true');
+      });
+    });
+
+    document.getElementById('approveTranslation').addEventListener('click', function () {
+      var status = document.getElementById('frenchStatus');
+      status.textContent = 'Approved';
+      status.classList.remove('needs-review');
+      document.getElementById('frenchRow').classList.add('approved');
+      this.textContent = 'Approved ✓';
+      this.disabled = true;
+    });
+
+    ['One', 'Two', 'Three'].forEach(function (name) {
+      var input = document.getElementById('quota' + name);
+      var output = document.getElementById('quota' + name + 'Value');
+      var bar = document.getElementById('quota' + name + 'Bar');
+      input.addEventListener('input', function () {
+        output.textContent = input.value;
+        bar.style.width = Number(input.value) / Number(input.max) * 100 + '%';
+      });
+    });
+
+    var permissionInputs = Array.from(document.querySelectorAll('#permissionList input'));
+    var roleButtons = Array.from(document.querySelectorAll('[data-role]'));
+    var activeRole = 'Researcher';
+    function updatePermissions() {
+      document.getElementById('adminSummary').textContent = activeRole + ' · ' + permissionInputs.filter(function (input) { return input.checked; }).length + ' of ' + permissionInputs.length + ' permissions enabled';
+    }
+    roleButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        roleButtons.forEach(function (item) { item.classList.toggle('active', item === button); });
+        activeRole = button.dataset.role === 'admin' ? 'Admin' : 'Researcher';
+        permissionInputs.forEach(function (input, index) { input.checked = activeRole === 'Admin' || index < 2; });
+        updatePermissions();
+      });
+    });
+    permissionInputs.forEach(function (input) { input.addEventListener('change', updatePermissions); });
+
+    var earlyAccessFrame = document.querySelector('.early-access-frame');
+    if (earlyAccessFrame) {
+      var frameOrigin = new URL(earlyAccessFrame.src, window.location.href).origin;
+      var requestFrameMeasurement = function () {
+        if (earlyAccessFrame.contentWindow) {
+          earlyAccessFrame.contentWindow.postMessage({ type: 'aayvu:embed-measure' }, frameOrigin);
+        }
+      };
+
+      window.addEventListener('message', function (event) {
+        if (event.origin !== frameOrigin || event.source !== earlyAccessFrame.contentWindow) return;
+        if (!event.data || event.data.type !== 'aayvu:embed-resize') return;
+        var height = Math.ceil(Number(event.data.height));
+        if (!Number.isFinite(height) || height < 320 || height > 12000) return;
+        earlyAccessFrame.style.height = height + 'px';
+      });
+      earlyAccessFrame.addEventListener('load', requestFrameMeasurement);
+      window.addEventListener('resize', requestFrameMeasurement, { passive: true });
+      requestFrameMeasurement();
+      [250, 1000, 2500].forEach(function (delay) {
+        window.setTimeout(requestFrameMeasurement, delay);
+      });
+    }
+
+    var revealItems = document.querySelectorAll('.rv');
+    if (document.documentElement.classList.contains('static-view') || !('IntersectionObserver' in window)) {
+      revealItems.forEach(function (item) { item.classList.add('in'); });
+    } else {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px' });
+      revealItems.forEach(function (item) { observer.observe(item); });
+    }
+
+    var progress = document.getElementById('scrollProgress');
+    var progressQueued = false;
+    function updateScrollProgress() {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (max > 0 ? window.scrollY / max * 100 : 0) + '%';
+      progressQueued = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (progressQueued) return;
+      progressQueued = true;
+      window.requestAnimationFrame(updateScrollProgress);
+    }, { passive: true });
+    updateScrollProgress();
+  })();
+  </script>
 </body>
 </html>

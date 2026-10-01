@@ -27,6 +27,13 @@
   apply(saved);
   document.addEventListener('DOMContentLoaded', () => {
     apply(root.dataset.theme);
+    document.querySelectorAll('.theme-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        apply(theme);
+        try { localStorage.setItem(key, theme); } catch (_) {}
+      });
+    });
     [150, 500, 1500].forEach(delay => {
       window.setTimeout(() => syncEmbeddedTheme(root.dataset.theme), delay);
     });
@@ -36,12 +43,6 @@
       syncEmbeddedTheme(root.dataset.theme);
     }
   }, true);
-  document.addEventListener('click', event => {
-    if (!(event.target instanceof Element) || !event.target.closest('.theme-toggle')) return;
-    const theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-    apply(theme);
-    try { localStorage.setItem(key, theme); } catch (_) {}
-  });
   window.addEventListener('storage', event => {
     if (event.key === key || event.key === null) apply(event.newValue);
   });
