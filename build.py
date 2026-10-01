@@ -41,7 +41,7 @@ NAV = """<a class="skip-link" href="#main-content">Skip to content</a>
         <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
       </button>
       <a class="detail-signin" href="#">Sign in</a>
-      <a class="detail-cta" href="../index.html#contact">Request access <span>↗</span></a>
+      <a class="detail-cta" href="../index.html#book-demo">Book a demo <span>↗</span></a>
     </div>
   </div>
 </nav>"""
