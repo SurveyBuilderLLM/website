@@ -13,6 +13,3 @@ __pycache__/
 
 # Node
 node_modules/
-
-# Wrangler / Cloudflare
-.wrangler/
