@@ -8,7 +8,7 @@ NAV = """<a class="skip-link" href="#main-content">Skip to content</a>
 <nav class="nav detail-nav" aria-label="Primary navigation">
   <div class="wrap nav-inner">
     <a class="brand" href="../index.html" aria-label="Aayvu home"><img class="brand-logo brand-logo-light" src="../assets/logo/aayvu-logo.svg" alt="Aayvu"><img class="brand-logo brand-logo-dark" src="../assets/logo/aayvu-logo-dark.svg" alt=""></a>
-    <div class="nav-links">
+    <div class="nav-links" id="primary-links">
       <div class="drop"><button class="drop-trigger" type="button" aria-expanded="false" aria-controls="nav-use-cases">Use cases <svg class="drop-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
         <div class="drop-menu" id="nav-use-cases" hidden>
           <a href="../usecases/brand-tracking.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18V9m7 9V5m7 13v-7M3 21h18"/></svg></i><span><b>Brand tracking</b><small>Consistent waves, no rebuilds</small></span></a>
@@ -36,6 +36,7 @@ NAV = """<a class="skip-link" href="#main-content">Skip to content</a>
       </div>
       <a href="../index.html#team">Team</a>
       <a href="../index.html#contact">Contact</a>
+      <div class="mobile-actions"><a class="mobile-btn mobile-btn-solid" href="../index.html#book-demo">Book a demo</a><a class="mobile-btn" href="https://app.aayvu.io/login"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>Sign in</a></div>
     </div>
     <div class="nav-cta">
       <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
@@ -45,6 +46,10 @@ NAV = """<a class="skip-link" href="#main-content">Skip to content</a>
       <a class="detail-signin" href="https://app.aayvu.io/login" aria-label="Sign in to Aayvu" title="Already have access? Sign in to the Aayvu app"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg><span>Sign in</span></a>
       <a class="detail-cta" href="../index.html#book-demo">Book a demo <span>↗</span></a>
     </div>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-links">
+      <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
   </div>
 </nav>"""
 
@@ -163,8 +168,8 @@ def page(kind_label, slug, title, tagline, visual_html, sections_html):
 <script src="../theme.js?v=1"></script>
 <link rel="stylesheet" href="../styles.css?v=nav-5">
 <link rel="stylesheet" href="../theme.css?v=1">
-<link rel="stylesheet" href="../subpage-v2.css?v=20">
-<script src="../navigation.js?v=nav-5" defer></script>
+<link rel="stylesheet" href="../subpage-v2.css?v=23">
+<script src="../navigation.js?v=nav-6" defer></script>
 <script src="../ambient.js?v=5" defer></script>
 <script src="../feature-demos.js?v=1" defer></script>
 </head>

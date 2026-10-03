@@ -541,7 +541,6 @@
 [data-theme='dark'] .sub-page .feature-visual { box-shadow: 22px 24px 0 #0f0e0c; }
 
 @media (max-width: 900px) {
-  .sub-page .nav-links { display: none; }
   .detail-hero { min-height: 0; }
   .detail-hero-grid,
   .detail-story-grid { min-width: 0; grid-template-columns: minmax(0, 1fr); }
@@ -573,10 +572,6 @@
     background-size: auto, 28px 28px, 28px 28px;
   }
   .sub-page .wrap { padding-inline: 18px; }
-  .sub-page .detail-cta { padding: 10px; }
-  .sub-page .detail-cta span { display: none; }
-  .sub-page .detail-signin { padding: 10px; }
-  .sub-page .detail-signin span { display: none; }
   .detail-hero { padding: 55px 0 78px; }
   .detail-icon { width: 52px; height: 52px; margin-bottom: 25px; border-radius: 14px; }
   .detail-icon svg { width: 26px; height: 26px; }
@@ -649,3 +644,40 @@
   .sub-page .quota-moving p:nth-child(3) i em { width: 62%; }
 }
 
+
+/* Mobile nav — one pattern for every page: theme + menu buttons, full-width panel. */
+.sub-page .nav-toggle,
+.sub-page .mobile-actions { display: none; }
+@media (max-width: 960px) {
+  .sub-page .nav-inner { gap: 10px; }
+  .sub-page .nav-cta { order: 2; gap: 8px; margin-left: auto; }
+  .sub-page .nav-cta > :not(.theme-toggle) { display: none; }
+  .sub-page .theme-toggle,
+  .sub-page .nav-toggle { display: grid; place-items: center; flex: 0 0 40px; width: 40px; height: 40px; padding: 0; border: 1px solid var(--detail-line); border-radius: 50%; background: transparent; color: var(--detail-ink); cursor: pointer; }
+  .sub-page .nav-toggle { order: 3; }
+  .sub-page .theme-toggle svg,
+  .sub-page .nav-toggle svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .sub-page .nav-toggle .icon-close,
+  .sub-page .nav-toggle[aria-expanded="true"] .icon-menu { display: none; }
+  .sub-page .nav-toggle[aria-expanded="true"] .icon-close { display: block; }
+  .sub-page .nav-links { display: none; position: absolute; top: 100%; right: 0; left: 0; height: calc(100dvh - var(--nav-h, 72px)); z-index: 80; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 0; margin: 0; padding: 4px 18px 28px; border-top: 1px solid var(--detail-line); background: var(--detail-paper); overflow-y: auto; overscroll-behavior: contain; }
+  .sub-page .nav-links.mobile-open { display: flex; animation: drop-in 160ms ease-out; }
+  .sub-page .nav-links > a,
+  .sub-page .drop-trigger { display: flex; align-items: center; justify-content: space-between; width: 100%; height: auto; min-height: 56px; padding: 0 2px; border-bottom: 1px solid var(--detail-line); color: var(--detail-ink); font-size: 17px; font-weight: 600; text-align: left; }
+  .sub-page .drop { display: block; width: 100%; }
+  .sub-page .drop-caret { width: 14px; height: 14px; }
+  .sub-page .drop-menu,
+  [data-theme='dark'] .sub-page .drop-menu { position: static; display: grid; grid-template-columns: 1fr; width: auto; min-width: 0; max-height: none; margin: 0; padding: 6px 0 12px; transform: none; translate: none; border: 0; border-bottom: 1px solid var(--detail-line); border-radius: 0; background: transparent; box-shadow: none; animation: none; }
+  .sub-page .drop-menu[hidden] { display: none; }
+  .sub-page .drop-menu a { grid-template-columns: 30px 1fr; gap: 12px; padding: 8px 4px; }
+  .sub-page .drop-tile { width: 30px; height: 30px; border-radius: 7px; }
+  .sub-page .drop-menu .drop-icon { width: 16px; height: 16px; }
+  .sub-page .drop-menu b { font-size: 15px; font-weight: 500; }
+  .sub-page .drop-menu small { display: none; }
+  .sub-page .drop-menu a.drop-all { margin-top: 2px; border-top: 0; padding: 10px 4px; font-size: 13px; }
+  .sub-page .mobile-actions { display: grid; gap: 10px; margin-top: 26px; }
+  .sub-page .mobile-btn { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; border: 1px solid var(--detail-ink); color: var(--detail-ink); font-size: 15px; font-weight: 700; }
+  .sub-page .mobile-btn-solid { background: var(--detail-ink); color: var(--detail-paper); }
+  .sub-page .mobile-btn svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  body.nav-open { overflow: hidden; }
+}

@@ -63,3 +63,26 @@
     });
   });
 })();
+
+// Mobile menu: full-width panel under the header, body scroll locked while open.
+(() => {
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.getElementById('primary-links');
+  const nav = document.querySelector('.nav');
+  if (!toggle || !links || !nav) return;
+
+  function set(open) {
+    if (open) document.documentElement.style.setProperty('--nav-h', Math.round(nav.getBoundingClientRect().bottom) + 'px');
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    links.classList.toggle('mobile-open', open);
+    document.body.classList.toggle('nav-open', open);
+  }
+
+  toggle.addEventListener('click', () => set(toggle.getAttribute('aria-expanded') !== 'true'));
+  links.addEventListener('click', event => { if (event.target.closest('a')) set(false); });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && links.classList.contains('mobile-open')) { set(false); toggle.focus(); }
+  });
+  window.matchMedia('(min-width: 961px)').addEventListener('change', event => { if (event.matches) set(false); });
+})();
