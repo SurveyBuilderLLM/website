@@ -26,13 +26,13 @@
   <script src="theme.js?v=2"></script>
   <link rel="stylesheet" href="styles.css?v=nav-5">
   <link rel="stylesheet" href="theme.css?v=1">
-  <link rel="stylesheet" href="home-v3.css?v=2">
+  <link rel="stylesheet" href="home-v3.css?v=19">
   <script src="navigation.js?v=nav-5" defer></script>
+  <script src="ambient.js?v=5" defer></script>
 </head>
 <body class="home-page">
   <a class="skip-link" href="#main">Skip to main content</a>
   <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
-
   <nav class="nav" aria-label="Primary navigation">
     <div class="wrap nav-inner">
       <a class="brand" href="#top" aria-label="Aayvu home">
@@ -45,32 +45,36 @@
       </button>
 
       <div class="nav-links" id="primary-links">
-        <a href="#how">How it works</a>
         <div class="drop">
-          <button class="drop-trigger" type="button" aria-expanded="false" aria-controls="nav-use-cases">Use cases <span aria-hidden="true">⌄</span></button>
+          <button class="drop-trigger" type="button" aria-expanded="false" aria-controls="nav-use-cases">Use cases <svg class="drop-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
           <div class="drop-menu" id="nav-use-cases" hidden>
-            <a href="usecases/brand-tracking.html">Brand tracking</a>
-            <a href="usecases/nps-csat.html">NPS &amp; CSAT</a>
-            <a href="usecases/concept-testing.html">Concept testing</a>
-            <a href="usecases/pricing-research.html">Pricing research</a>
-            <a href="usecases/ad-testing.html">Ad &amp; creative testing</a>
-            <a href="usecases/ua-studies.html">Usage &amp; attitude</a>
-            <a href="usecases/customer-feedback.html">Customer feedback</a>
-            <a href="usecases/employee-engagement.html">Employee engagement</a>
+            <a href="usecases/brand-tracking.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18V9m7 9V5m7 13v-7M3 21h18"/></svg></i><span><b>Brand tracking</b><small>Consistent waves, no rebuilds</small></span></a>
+            <a href="usecases/nps-csat.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15a8 8 0 1 1 16 0m-8 0 4-5M7 19h10"/></svg></i><span><b>NPS &amp; CSAT</b><small>Score-based follow-ups, wired in</small></span></a>
+            <a href="usecases/concept-testing.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6m-5 3h4M8 14c-1.2-1-2-2.8-2-4.7a6 6 0 1 1 12 0c0 1.9-.8 3.7-2 4.7-.8.7-1 1.2-1 2H9c0-.8-.2-1.3-1-2Z"/></svg></i><span><b>Concept testing</b><small>Monadic & sequential designs</small></span></a>
+            <a href="usecases/pricing-research.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5C14.8 7.5 13.7 7 12.2 7 10.4 7 9 7.9 9 9.3c0 3.7 6.5 1.4 6.5 5 0 1.6-1.5 2.7-3.5 2.7-1.6 0-2.9-.6-3.7-1.7M12 5v14"/></svg></i><span><b>Pricing research</b><small>Van Westendorp, Gabor-Granger</small></span></a>
+            <a href="usecases/ad-testing.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3V9Z"/></svg></i><span><b>Ad &amp; creative testing</b><small>Concepts, claims, and media</small></span></a>
+            <a href="usecases/ua-studies.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/></svg></i><span><b>Usage &amp; attitude</b><small>Complex routing, handled</small></span></a>
+            <a href="usecases/customer-feedback.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm2 5h10m-10 3h6"/></svg></i><span><b>Customer feedback</b><small>Journey surveys that adapt</small></span></a>
+            <a href="usecases/employee-engagement.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm13 9v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></i><span><b>Employee engagement</b><small>Every team, every language</small></span></a>
+          <a class="drop-all" href="#use-cases">All use cases <span aria-hidden="true">→</span></a>
           </div>
         </div>
         <div class="drop">
-          <button class="drop-trigger" type="button" aria-expanded="false" aria-controls="nav-features">Features <span aria-hidden="true">⌄</span></button>
+          <button class="drop-trigger" type="button" aria-expanded="false" aria-controls="nav-features">Features <svg class="drop-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
           <div class="drop-menu" id="nav-features" hidden>
-            <a href="features/ai-editor.html">AI agent editor</a>
-            <a href="features/question-types.html">Question types</a>
-            <a href="features/testing.html">Testing &amp; QA</a>
-            <a href="features/themes.html">Themes &amp; branding</a>
-            <a href="features/quotas.html">Quota management</a>
-            <a href="features/admin.html">Admin controls</a>
+            <a href="features/ai-editor.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5V8a3 3 0 0 1 3-3h7a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H8l-4 3.5ZM18 3l.7 1.8 2.3.7-2.3.7L18 8l-.7-1.8-2.3-.7 2.3-.7L18 3Z"/></svg></i><span><b>AI agent editor</b><small>Edit in plain language</small></span></a>
+            <a href="features/question-types.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h5m4 0h7M9 3v6M4 12h10m4 0h2m-6-3v6M4 18h2m4 0h10m-14-3v6"/></svg></i><span><b>Question types</b><small>Every type, logic-ready</small></span></a>
+            <a href="features/testing.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.6 2.8 8 7 10 4.2-2 7-5.4 7-10V6l-7-3Zm-3 8 2 2 4-4"/></svg></i><span><b>Testing &amp; QA</b><small>Catch breaks before launch</small></span></a>
+            <a href="features/themes.html"><i class="drop-tile"><svg class="drop-icon palette-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0 0 20 2 2 0 0 0 2-2c0-.55-.22-1.05-.57-1.42A2 2 0 0 1 15 15.25h1.75A5.25 5.25 0 0 0 22 10C22 5.58 17.52 2 12 2Z"/><circle cx="6.7" cy="10.4" r="1"/><circle cx="9.2" cy="6.7" r="1"/><circle cx="13.7" cy="5.8" r="1"/><circle cx="17.3" cy="8.8" r="1"/></svg></i><span><b>Themes &amp; branding</b><small>Surveys that look like you</small></span></a>
+            <a href="features/translations.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h8m-4-2v2m-3 4c1.2 2.5 3.2 4.5 6 6m0-6c-1.2 2.5-3.2 4.5-6 6m9 4 3.5-9 3.5 9m-5.8-3h4.6"/></svg></i><span><b>Translations</b><small>One survey, every market</small></span></a>
+            <a href="features/quotas.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="11" cy="17" r="2"/></svg></i><span><b>Quota management</b><small>Full control of your sample</small></span></a>
+            <a href="features/admin.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 19v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 3 17.5V19M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8-1v6m-3-3h6"/></svg></i><span><b>Admin controls</b><small>Roles and permissions for teams</small></span></a>
+          <a class="drop-all" href="#features">All features <span aria-hidden="true">→</span></a>
           </div>
         </div>
+        <a href="#team">Team</a>
         <a href="#contact">Contact</a>
+        <a class="mobile-signin" href="https://app.aayvu.io/login"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg><span>Sign in<small>Already have access? Open the app</small></span></a>
       </div>
 
       <div class="nav-cta">
@@ -78,7 +82,7 @@
           <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 13A8.5 8.5 0 0 1 11 3.5 8.5 8.5 0 1 0 20.5 13Z"/></svg>
           <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
         </button>
-        <a class="signin-link" href="#">Sign in</a>
+        <a class="signin-link" href="https://app.aayvu.io/login" title="Already have access? Sign in to the Aayvu app"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg><span>Sign in</span></a>
         <a class="button button-solid nav-access" href="#book-demo">Book a demo</a>
       </div>
     </div>
@@ -86,20 +90,15 @@
 
   <main id="main">
     <header class="hero" id="top">
+      <canvas class="distortion-grid" data-distortion-grid aria-hidden="true"></canvas>
       <div class="wrap hero-grid">
         <div class="hero-copy rv">
-          <p class="kicker"><span>AI survey programming agent</span><span>Early access</span></p>
           <h1>Your questionnaire.<br><span>Programmed.</span></h1>
           <p class="hero-lede">Give Aayvu a Word doc, a PDF, or even a rough brief. The agent builds the complete survey: question types, logic, validation, and translations, ready for you to review.</p>
           <div class="hero-actions">
             <a class="button button-solid button-large" href="#contact">Get early access</a>
             <a class="button button-outline button-large" href="#how">See how it works</a>
           </div>
-          <ol class="hero-proof" aria-label="Aayvu workflow">
-            <li><span>01</span>Upload your questionnaire</li>
-            <li><span>02</span>AI builds the survey</li>
-            <li><span>03</span>Review &amp; launch</li>
-          </ol>
         </div>
 
         <div class="workbench rv rv-right" aria-label="Interactive Aayvu questionnaire demo">
@@ -164,9 +163,8 @@
 
     <section class="process-section" id="how" aria-labelledby="process-title">
       <div class="wrap process-heading rv">
-        <p class="section-label">The four-step process</p>
-        <h2 id="process-title">A questionnaire goes in.<br>A field-ready survey comes out.</h2>
-        <p>Each stage hands clean work to the next. You can see, test, and change everything before launch.</p>
+        <h2 id="process-title">How it works in four simple steps.</h2>
+        <p>You can see, test, and change everything before launch.</p>
       </div>
       <div class="wrap">
         <ol class="process-journey rv" aria-label="Aayvu's four-step survey creation process">
@@ -197,9 +195,8 @@
     <section class="impact-section" id="savings" aria-labelledby="impact-title">
       <div class="wrap impact-grid">
         <div class="impact-copy rv">
-          <p class="section-label section-label-light">Time savings</p>
           <h2 id="impact-title">See the impact on your research backlog.</h2>
-          <p>Every survey waiting on a programmer is a decision delayed. Adjust the assumptions to see how much review time Aayvu can give back.</p>
+          <p class="impact-lede">Every survey waiting on a programmer is a decision delayed. Adjust the assumptions to see how much review time Aayvu can give back.</p>
           <div class="impact-reasons">
             <p><span>01</span><b>No programming queue</b></p>
             <p><span>02</span><b>Researchers own the study end to end</b></p>
@@ -238,9 +235,8 @@
     <section class="usecase-section" id="use-cases" aria-labelledby="usecase-title">
       <div class="wrap usecase-layout">
         <div class="section-intro sticky-intro rv">
-          <p class="section-label">Use cases</p>
           <h2 id="usecase-title">Built for the studies you actually run.</h2>
-          <p>From quick pulses to complex multi-market trackers, Aayvu speaks the language of research.</p>
+          <p class="section-afterword">From quick pulses to complex multi-market trackers, Aayvu speaks the language of research.</p>
         </div>
         <div class="usecase-index rv">
           <a href="usecases/brand-tracking.html"><span>01</span><h3>Brand tracking</h3><p>Keep waves consistent without rebuilding the study by hand.</p><i aria-hidden="true">↗</i></a>
@@ -258,8 +254,8 @@
     <section class="features-section" id="features" aria-labelledby="features-title">
       <div class="wrap">
         <div class="features-heading rv">
-          <div><p class="section-label">Features</p><h2 id="features-title">A closer look at the workbench.</h2></div>
-          <p>Click through the tools that help the agent and the researcher around it do better work.</p>
+          <div><h2 id="features-title">Everything you need to build better surveys.</h2></div>
+          <p>Explore each feature and try the controls for yourself.</p>
         </div>
 
         <div class="feature-workbench rv">
@@ -275,47 +271,88 @@
 
           <div class="feature-panels">
             <article class="feature-panel active" id="panel-agent" role="tabpanel" aria-labelledby="tab-agent" data-panel="agent">
-              <div class="feature-copy"><p class="panel-count">Feature 01 / 07</p><h3>Tell it what to change. It changes it.</h3><p>“Rewrite Q7 to sound neutral.” “Add a screening question for pet owners.” “Re-wire the logic after Q12.” Describe the change in plain language; Aayvu rebuilds it.</p><ul><li>Edits questions, logic, and flow</li><li>Works with OpenAI-compatible models, AWS Bedrock, and more</li><li>Keeps every change reviewable</li></ul><a href="features/ai-editor.html">Explore the AI agent editor</a></div>
-              <div class="feature-demo chat-demo"><div class="prompt-bubble" id="agentPromptEcho">Make Q7 a 1–7 scale and only ask it of promoters.</div><div class="agent-answer"><span>✳</span><p id="agentReply"><b>Done.</b> Q7 is now a 1–7 rating, shown only when Q6 ≥ 9. Logic and validation are updated.</p></div><form class="agent-command" id="agentCommand"><label for="agentCommandInput">Ask the agent for a change</label><div><input id="agentCommandInput" type="text" value="Add an Other option to Q6" autocomplete="off"><button type="submit">Apply</button></div></form><div class="change-list"><span><i>Q7</i> Question type changed</span><span><i>IF</i> Display logic added</span><span><i>✓</i> 0 conflicts found</span></div></div>
+              <div class="feature-copy"><p class="panel-count"><span>01</span> AI agent editor</p><h3>Tell it what to change. It changes it.</h3><p>“Rewrite Q7 to sound neutral.” “Add a screening question for pet owners.” “Re-wire the logic after Q12.” Describe the change in plain language; Aayvu rebuilds it.</p><ul><li>Edits questions, logic, and flow</li><li>Updates connected logic and validation automatically</li><li>Keeps every change reviewable</li></ul><a href="features/ai-editor.html">Explore the AI agent editor</a></div>
+              <div class="feature-demo chat-demo">
+                <div class="chat-top"><span><i aria-hidden="true"></i>Aayvu agent</span><b>Ready</b></div>
+                <div class="chat-thread">
+                  <div class="chat-message chat-message-user"><span>You</span><p id="agentPromptEcho">Make Q7 a 1–7 scale and only ask it of promoters.</p></div>
+                  <div class="chat-message chat-message-agent"><i class="chat-avatar" aria-hidden="true">✳</i><div><span>Aayvu</span><p id="agentReply"><b>Done.</b> Q7 is now a 1–7 rating, shown only when Q6 ≥ 9. Logic and validation are updated.</p><div class="chat-tool"><span><i>✓</i> <b id="agentToolTitle">Updated survey logic</b></span><small id="agentToolDetail">Q7 · rating scale · display rule</small></div></div></div>
+                </div>
+                <form class="agent-command" id="agentCommand"><label for="agentCommandInput">Message Aayvu</label><div><input id="agentCommandInput" type="text" value="Add an Other option to Q6" autocomplete="off"><button type="submit" aria-label="Send message">↗</button></div></form>
+              </div>
             </article>
 
             <article class="feature-panel" id="panel-types" role="tabpanel" aria-labelledby="tab-types" data-panel="types" hidden>
-              <div class="feature-copy"><p class="panel-count">Feature 02 / 07</p><h3>Every question you need, without the setup tax.</h3><p>Use simple choices, advanced grids, MaxDiff, conjoint, media, and more. Logic, validation, and translations work across the set.</p><ul><li>Choice, scale, text, number, and grid questions</li><li>MaxDiff, conjoint, hotspot, and hybrid designs</li><li>Consistent respondent behavior on mobile</li></ul><a href="features/question-types.html">Explore question types</a></div>
-              <div class="feature-demo type-demo"><div><span>Choice</span><button type="button" data-type-name="Single select">Single select</button><button type="button" data-type-name="Multi-select">Multi-select</button><button type="button" data-type-name="Dropdown">Dropdown</button></div><div><span>Scales</span><button type="button" data-type-name="Rating">Rating</button><button type="button" data-type-name="Ranking">Ranking</button><button type="button" data-type-name="Slider">Slider</button></div><div><span>Advanced</span><button type="button" data-type-name="MaxDiff">MaxDiff</button><button type="button" data-type-name="Conjoint">Conjoint</button><button type="button" data-type-name="Hybrid">Hybrid</button></div><p class="type-selection" id="typeSelection">Select a question type to preview it.</p></div>
+              <div class="feature-copy"><p class="panel-count"><span>02</span> Question types</p><h3>Every question you need, without the setup tax.</h3><p>Use simple choices, advanced grids, MaxDiff, conjoint, media, and more. Logic, validation, and translations work across the set.</p><ul><li>Choice, scale, text, number, and grid questions</li><li>MaxDiff, conjoint, hotspot, and hybrid designs</li><li>Consistent respondent behavior on mobile</li></ul><a href="features/question-types.html">Explore question types</a></div>
+              <div class="feature-demo type-studio">
+                <div class="type-studio-top"><span>Question library</span><b id="typeSelection">Single select</b></div>
+                <div class="type-chip-row" role="tablist" aria-label="Preview a question type"><button class="active" type="button" data-type-name="Single select">Single select</button><button type="button" data-type-name="Rating">Rating</button><button type="button" data-type-name="Multi-select">Multi-select</button><button type="button" data-type-name="Slider">Slider</button></div>
+                <div class="type-live-preview"><small id="typePreviewMeta">Question 4 · Single select</small><h4 id="typePreviewQuestion">Which plan fits your team?</h4><div class="type-preview-control" id="typePreviewControl"><button>Starter</button><button class="selected">Scale</button><button>Enterprise</button></div></div>
+              </div>
             </article>
 
             <article class="feature-panel" id="panel-testing" role="tabpanel" aria-labelledby="tab-testing" data-panel="testing" hidden>
-              <div class="feature-copy"><p class="panel-count">Feature 03 / 07</p><h3>Catch breaks before respondents do.</h3><p>Walk the survey like a respondent, trigger every branch, and let Aayvu flag conflicts before fieldwork begins.</p><ul><li>Respondent test mode</li><li>Automatic conflict detection</li><li>Validation preview for required fields</li></ul><a href="features/testing.html">Explore testing &amp; QA</a></div>
+              <div class="feature-copy"><p class="panel-count"><span>03</span> Testing &amp; QA</p><h3>Catch breaks before respondents do.</h3><p>Walk the survey like a respondent, trigger every branch, and let Aayvu flag conflicts before fieldwork begins.</p><ul><li>Respondent test mode</li><li>Automatic conflict detection</li><li>Validation preview for required fields</li></ul><a href="features/testing.html">Explore testing &amp; QA</a></div>
               <div class="feature-demo qa-demo" id="qaDemo"><p><span>Test path</span><b>40 questions ready</b><em>Waiting</em></p><p><span>Logic check</span><b>11 branches queued</b><em>Waiting</em></p><p><span>Validation</span><b>40 fields queued</b><em>Waiting</em></p><button type="button" id="runQa">Run QA check</button></div>
             </article>
 
             <article class="feature-panel" id="panel-themes" role="tabpanel" aria-labelledby="tab-themes" data-panel="themes" hidden>
-              <div class="feature-copy"><p class="panel-count">Feature 04 / 07</p><h3>On brand, automatically.</h3><p>Set colors, typography, and logo once. Every respondent-facing survey inherits the system.</p><ul><li>Custom colors and typography</li><li>Your logo on every survey</li><li>Responsive layouts by default</li></ul><a href="features/themes.html">Explore themes &amp; branding</a></div>
+              <div class="feature-copy"><p class="panel-count"><span>04</span> Themes &amp; branding</p><h3>On brand, automatically.</h3><p>Set colors, typography, and logo once. Every respondent-facing survey inherits the system.</p><ul><li>Custom colors and typography</li><li>Your logo on every survey</li><li>Responsive layouts by default</li></ul><a href="features/themes.html">Explore themes &amp; branding</a></div>
               <div class="feature-demo brand-demo" id="brandDemo"><div class="brand-swatches" role="group" aria-label="Choose a survey accent color"><button class="active" type="button" data-theme-color="#be4b0a" aria-label="Use burnt orange"></button><button type="button" data-theme-color="#286e4c" aria-label="Use forest green"></button><button type="button" data-theme-color="#365cc7" aria-label="Use cobalt blue"></button><button type="button" data-theme-color="#8f3f76" aria-label="Use plum"></button></div><span>Acme Insights theme · choose a color</span><div class="mini-survey"><i>A</i><small>Question 4 of 8</small><h4>How satisfied are you?</h4><div class="rating-demo" role="radiogroup" aria-label="Satisfaction rating"><button type="button" role="radio" aria-checked="false">1</button><button type="button" role="radio" aria-checked="false">2</button><button type="button" role="radio" aria-checked="false">3</button><button type="button" role="radio" aria-checked="false">4</button><button type="button" role="radio" aria-checked="false">5</button></div><button class="mini-next" type="button">Next</button></div></div>
             </article>
 
             <article class="feature-panel" id="panel-translations" role="tabpanel" aria-labelledby="tab-translations" data-panel="translations" hidden>
-              <div class="feature-copy"><p class="panel-count">Feature 05 / 07</p><h3>One survey. Every language.</h3><p>Extract every string automatically, review with people who know the market, and keep source changes in sync.</p><ul><li>Every question and option extracted</li><li>Human review built into the workflow</li><li>Only changed strings need re-translation</li></ul><a href="features/translations.html">Explore the translation workflow</a></div>
-              <div class="feature-demo feature-translation"><div class="table-toolbar"><span>brand_tracker_Q3</span><b>4 languages</b></div><table><thead><tr><th>Language</th><th>Question 7</th><th>Status</th></tr></thead><tbody><tr><th>English</th><td>How likely are you to recommend…</td><td><span>Source</span></td></tr><tr><th>Spanish</th><td>¿Qué probabilidad hay de que…</td><td><span>Approved</span></td></tr><tr id="frenchRow"><th>French</th><td>Quelle est la probabilité que…</td><td><span id="frenchStatus" class="needs-review">Review</span></td></tr><tr><th>Hindi</th><td>आपके सुझाव देने की कितनी…</td><td><span>Approved</span></td></tr></tbody></table><div class="translation-action"><p><b>Q7 changed.</b> French needs review.</p><button id="approveTranslation" type="button">Approve French</button></div></div>
+              <div class="feature-copy"><p class="panel-count"><span>05</span> Translations</p><h3>One survey. Every language.</h3><p>Extract every string automatically, review with people who know the market, and keep source changes in sync.</p><ul><li>Every question and option extracted</li><li>Human review built into the workflow</li><li>Only changed strings need re-translation</li></ul><a href="features/translations.html">Explore the translation workflow</a></div>
+              <div class="feature-demo translation-focus-demo">
+                <div class="translation-focus-copy"><small id="translationMeta">English · Source</small><h4 id="translationQuestion">How likely are you to recommend Northstar?</h4></div>
+                <div class="translation-language-tabs" role="tablist" aria-label="Preview translation"><button class="active" type="button" data-language="en"><span aria-hidden="true">🇺🇸</span> EN</button><button type="button" data-language="es"><span aria-hidden="true">🇪🇸</span> ES</button><button type="button" data-language="fr"><span aria-hidden="true">🇫🇷</span> FR</button><button type="button" data-language="hi"><span aria-hidden="true">🇮🇳</span> HI</button></div>
+              </div>
             </article>
 
             <article class="feature-panel" id="panel-quotas" role="tabpanel" aria-labelledby="tab-quotas" data-panel="quotas" hidden>
-              <div class="feature-copy"><p class="panel-count">Feature 06 / 07</p><h3>Full control of your sample.</h3><p>Drag the targets to rebalance the sample. Filled quotas update immediately and show exactly when a group closes.</p><ul><li>Quotas by age, region, or behavior</li><li>Graceful screen-outs and over-quotas</li><li>Live monitoring during fieldwork</li></ul><a href="features/quotas.html">Explore quota management</a></div>
+              <div class="feature-copy"><p class="panel-count"><span>06</span> Quota management</p><h3>Full control of your sample.</h3><p>Drag the targets to rebalance the sample. Filled quotas update immediately and show exactly when a group closes.</p><ul><li>Quotas by age, region, or behavior</li><li>Graceful screen-outs and over-quotas</li><li>Live monitoring during fieldwork</li></ul><a href="features/quotas.html">Explore quota management</a></div>
               <div class="feature-demo quota-demo"><label><span>18–34 · Mumbai</span><b><output id="quotaOneValue">216</output> / 300</b><input id="quotaOne" type="range" min="0" max="300" value="216" aria-label="18 to 34 Mumbai quota"><i><em id="quotaOneBar" style="width:72%"></em></i></label><label><span>35+ · Delhi</span><b><output id="quotaTwoValue">300</output> / 300</b><input id="quotaTwo" type="range" min="0" max="300" value="300" aria-label="35 and over Delhi quota"><i><em id="quotaTwoBar" style="width:100%"></em></i></label><label><span>Women · South</span><b><output id="quotaThreeValue">148</output> / 240</b><input id="quotaThree" type="range" min="0" max="240" value="148" aria-label="Women South quota"><i><em id="quotaThreeBar" style="width:62%"></em></i></label></div>
             </article>
 
             <article class="feature-panel" id="panel-admin" role="tabpanel" aria-labelledby="tab-admin" data-panel="admin" hidden>
-              <div class="feature-copy"><p class="panel-count">Feature 07 / 07</p><h3>Run research like a team.</h3><p>Choose a role to see exactly what each teammate can do. Permissions stay understandable instead of becoming another admin puzzle.</p><ul><li>Users and admin roles</li><li>Projects and workspaces per team or client</li><li>Usage and activity in one place</li></ul><a href="features/admin.html">Explore admin controls</a></div>
-              <div class="feature-demo admin-demo"><div class="admin-toolbar"><span>Workspace · Acme Insights</span><div><button class="active" type="button" data-role="researcher">Researcher</button><button type="button" data-role="admin">Admin</button></div></div><div class="permission-list" id="permissionList"><label><span>Create and edit surveys<small>Build inside assigned projects</small></span><input type="checkbox" checked></label><label><span>Publish surveys<small>Launch approved fieldwork</small></span><input type="checkbox" checked></label><label><span>Manage members<small>Invite, remove, and change roles</small></span><input type="checkbox"></label><label><span>Billing and connections<small>Manage providers and invoices</small></span><input type="checkbox"></label></div><p class="admin-summary" id="adminSummary">Researcher · 2 of 4 permissions enabled</p></div>
+              <div class="feature-copy"><p class="panel-count"><span>07</span> Admin controls</p><h3>Run research like a team.</h3><p>Choose a role to see exactly what each teammate can do. Permissions stay understandable instead of becoming another admin puzzle.</p><ul><li>Users and admin roles</li><li>Projects and workspaces per team or client</li><li>Usage and activity in one place</li></ul><a href="features/admin.html">Explore admin controls</a></div>
+              <div class="feature-demo admin-demo">
+                <div class="admin-toolbar"><span>Acme Insights</span><b>Members</b></div>
+                <div class="admin-shell"><div class="member-picker"><button class="active" type="button" data-member="sam"><i>SR</i><span>Sam Rivera<small>Researcher</small></span></button><button type="button" data-member="mina"><i>MK</i><span>Mina Kapoor<small>Admin</small></span></button><button type="button" data-member="jon"><i>JL</i><span>Jon Lee<small>Viewer</small></span></button></div><div class="member-editor"><button class="admin-back" id="adminBack" type="button">← All members</button><div class="member-editor-head"><span id="memberName">Sam Rivera</span><b id="memberRole">Researcher</b></div><div class="permission-list" id="permissionList"><label><span>Create surveys</span><input type="checkbox" checked></label><label><span>Publish surveys</span><input type="checkbox" checked></label><label><span>Manage members</span><input type="checkbox"></label></div><p class="admin-summary" id="adminSummary">2 of 3 permissions enabled</p></div></div>
+              </div>
             </article>
           </div>
         </div>
       </div>
     </section>
 
+    <section class="team-section" id="team" aria-labelledby="team-title">
+      <div class="wrap team-layout">
+        <div class="team-intro rv">
+          <h2 id="team-title">Meet the team.</h2>
+          <p>We first worked together on Bauble, an education platform we built in 2020. Aayvu brings us back together, with complementary experience and a shared goal: making research easier to create, run, and understand.</p>
+        </div>
+        <div class="team-list rv">
+          <article>
+            <i aria-hidden="true">SB</i>
+            <div><h3>Sivaganesh Balaganesh</h3><p>Co-founder &amp; Engineering</p></div>
+            <a href="https://www.linkedin.com/in/sivab193" target="_blank" rel="noopener" aria-label="Sivaganesh Balaganesh on LinkedIn" class="team-linkedin" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+            <p class="team-bio">Full-stack engineer and MS Computer Science student at Purdue. After three years at Visa, rising to Senior Software Engineer, he now leads Aayvu’s product and engineering.</p>
+            <ul class="team-tags"><li>MS CS, Purdue</li><li>Ex-Visa Senior SWE</li></ul>
+          </article>
+          <article>
+            <i aria-hidden="true">SR</i>
+            <div><h3>Shravan Rathish</h3><p>Co-founder &amp; Strategy and Growth</p></div>
+            <a href="https://www.linkedin.com/in/shravan-rathish" target="_blank" rel="noopener" aria-label="Shravan Rathish on LinkedIn" class="team-linkedin" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+            <p class="team-bio">Works across strategy, customer research, and growth. Part of the Founder’s Office at Clueso, after nearly three years at ZS in market research and go-to-market strategy.</p>
+            <ul class="team-tags"><li>Founder’s Office, Clueso</li><li>Ex-ZS consultant</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="contact-section" id="contact" aria-labelledby="contact-title">
       <div class="wrap contact-heading rv">
-        <p class="section-label section-label-light">Early access</p>
         <h2 id="contact-title">Curious what the agent would build for you?</h2>
         <p>Bring a questionnaire. We’ll show you the agent’s version.</p>
       </div>
@@ -355,16 +392,16 @@
         <aside class="contact-aside" aria-label="Early access details">
           <div><span>01</span><h3>Reply within one business day</h3><p>A real person reads every note.</p></div>
           <div><span>02</span><h3>30-minute onboarding</h3><p>Bring a questionnaire and watch the agent build it live.</p></div>
-          <div><span>03</span><h3>Your AI setup, your choice</h3><p>Use Aayvu out of the box or bring an approved provider.</p></div>
-          <p class="direct-email">Prefer email? <a href="mailto:hello@aayvu.com">hello@aayvu.com</a> <small>(placeholder)</small></p>
+          <div><span>03</span><h3>Built around your questionnaire</h3><p>See how Aayvu programs a real section of your study.</p></div>
+          <p class="direct-email">Prefer email? <a href="mailto:founders@aayvu.io">founders@aayvu.io</a></p>
         </aside>
       </div>
 
       <div class="wrap faq-shell rv">
-        <p class="section-label section-label-light">Questions</p>
+        <h2 class="faq-title">A few practical questions.</h2>
         <div class="faq-list">
           <details><summary>Is Aayvu available now?<span aria-hidden="true">+</span></summary><p>We’re in early access, onboarding research teams in waves. Request access above; it usually takes just a few days.</p></details>
-          <details><summary>Do I need my own AI key?<span aria-hidden="true">+</span></summary><p>No. Aayvu works out of the box. If your company prefers its own provider, bring your key for an OpenAI-compatible model, AWS Bedrock, and more.</p></details>
+          <details><summary>Can I review changes before publishing?<span aria-hidden="true">+</span></summary><p>Yes. Every question, logic rule, validation, and agent-made change remains visible and editable before launch.</p></details>
           <details><summary>What does it cost?<span aria-hidden="true">+</span></summary><p>Pricing is being finalized during early access. Early-access teams lock in founding pricing; ask us about it.</p></details>
         </div>
       </div>
@@ -373,12 +410,12 @@
 
   <footer>
     <div class="wrap footer-main">
-      <div><a class="brand footer-brand" href="#top" aria-label="Aayvu home"><img class="brand-logo brand-logo-light" src="assets/logo/aayvu-logo.svg" alt="Aayvu"><img class="brand-logo brand-logo-dark" src="assets/logo/aayvu-logo-dark.svg" alt=""></a><p>Better questions.<br>Closer answers.</p></div>
-      <div><h2>Product</h2><a href="#features">Features</a><a href="#use-cases">Use cases</a><a href="#savings">Time savings</a><a href="#">Sign in</a></div>
-      <div><h2>Company</h2><a href="#contact">Contact</a><a href="#contact">Early access</a><a href="#how">How it works</a></div>
+      <div><a class="brand footer-brand" href="#top" aria-label="Aayvu home"><img class="brand-logo brand-logo-light" src="assets/logo/aayvu-logo.svg" alt="Aayvu"><img class="brand-logo brand-logo-dark" src="assets/logo/aayvu-logo-dark.svg" alt=""></a><p>Better questions.<br>Closer answers.</p><a class="footer-social" href="https://www.linkedin.com/company/autosurveybuilder/" target="_blank" rel="noopener" aria-label="Aayvu on LinkedIn" title="Aayvu on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></div>
+      <div><h2>Product</h2><a href="#features">Features</a><a href="#use-cases">Use cases</a><a href="#savings">Time savings</a><a href="https://app.aayvu.io/login">Sign in</a></div>
+      <div><h2>Company</h2><a href="#team">Team</a><a href="#contact">Contact</a><a href="#contact">Early access</a><a href="#how">How it works</a></div>
       <div><h2>Explore</h2><a href="features/ai-editor.html">AI editor</a><a href="features/question-types.html">Question types</a><a href="features/testing.html">Testing &amp; QA</a></div>
     </div>
-    <div class="wrap footer-base"><span>© 2026 Aayvu. All rights reserved.</span><span>Marketing mockup. Copy in draft.</span></div>
+    <div class="wrap footer-base"><span>© 2026 Aayvu. All rights reserved.</span></div>
   </footer>
 
   <script>
@@ -641,27 +678,62 @@
     var initialTab = tabs.find(function (tab) { return tab.dataset.tab === requestedTab; });
     if (initialTab) activateTab(initialTab, false);
 
+    var agentExamples = [
+      { prompt: 'Make Q7 a 1–7 scale and only ask it of promoters.', reply: '<b>Done.</b> Q7 now uses a 1–7 scale and appears when Q6 is 9 or 10.', tool: 'Updated survey logic', detail: 'Q7 · rating scale · display rule' },
+      { prompt: 'Add a screener for weekly shoppers.', reply: '<b>Added.</b> Less-frequent shoppers now exit through the screen-out page.', tool: 'Added question and route', detail: 'Q2 · frequency → screen-out' },
+      { prompt: 'Randomize concepts A, B, and C.', reply: '<b>Done.</b> Exposure is balanced and each follow-up stays with its concept.', tool: 'Rotation tested', detail: '3 concepts · 6 valid paths' }
+    ];
+    var agentExampleIndex = 0;
+    var agentThread = document.querySelector('.chat-thread');
+    function showAgentExample(example) {
+      agentThread.classList.remove('turning');
+      document.getElementById('agentPromptEcho').textContent = example.prompt;
+      document.getElementById('agentReply').innerHTML = example.reply;
+      document.getElementById('agentToolTitle').textContent = example.tool;
+      document.getElementById('agentToolDetail').textContent = example.detail;
+      void agentThread.offsetWidth;
+      agentThread.classList.add('turning');
+    }
+    showAgentExample(agentExamples[0]);
+    if (!reducedMotion) window.setInterval(function () {
+      if (!document.getElementById('panel-agent').classList.contains('active') || document.activeElement === document.getElementById('agentCommandInput')) return;
+      agentExampleIndex = (agentExampleIndex + 1) % agentExamples.length;
+      showAgentExample(agentExamples[agentExampleIndex]);
+    }, 3800);
+
     document.getElementById('agentCommand').addEventListener('submit', function (event) {
       event.preventDefault();
       var input = document.getElementById('agentCommandInput');
       var command = input.value.trim();
       if (!command) return;
-      document.getElementById('agentPromptEcho').textContent = command;
-      var reply = document.getElementById('agentReply');
-      reply.innerHTML = '<b>Done.</b> I drafted that change and checked the affected logic. Review it before publishing.';
-      var answer = reply.closest('.agent-answer');
-      answer.classList.remove('updated');
-      void answer.offsetWidth;
-      answer.classList.add('updated');
+      showAgentExample({ prompt: command, reply: '<b>Done.</b> I drafted that change and checked the affected logic. Review it before publishing.', tool: 'Survey updated', detail: 'Change saved as a reviewable draft' });
     });
 
-    document.querySelectorAll('.type-demo button').forEach(function (button) {
-      button.addEventListener('click', function () {
-        document.querySelectorAll('.type-demo button').forEach(function (item) { item.classList.remove('active'); });
-        button.classList.add('active');
-        document.getElementById('typeSelection').textContent = button.dataset.typeName + ' selected · logic and validation are ready to configure.';
-      });
-    });
+    var typePreviews = {
+      'Single select': { question: 'Which plan fits your team?', control: '<button>Starter</button><button class="selected">Scale</button><button>Enterprise</button>' },
+      'Rating': { question: 'How easy was setup?', control: '<div class="preview-rating"><button>1</button><button>2</button><button>3</button><button class="selected">4</button><button>5</button></div>' },
+      'Multi-select': { question: 'Which tools do you use?', control: '<button class="selected">✓ Surveys</button><button>Interviews</button><button class="selected">✓ Analytics</button>' },
+      'Slider': { question: 'How much would you expect to pay?', control: '<div class="preview-slider"><b>$2,400</b><i><em></em></i><small><span>$500</span><span>$5,000</span></small></div>' }
+    };
+    var typeButtons = Array.from(document.querySelectorAll('.type-chip-row button'));
+    var typeIndex = 0;
+    function showType(button) {
+      var name = button.dataset.typeName;
+      typeButtons.forEach(function (item) { item.classList.toggle('active', item === button); });
+      document.getElementById('typeSelection').textContent = name;
+      document.getElementById('typePreviewMeta').textContent = 'Question 4 · ' + name;
+      document.getElementById('typePreviewQuestion').textContent = typePreviews[name].question;
+      document.getElementById('typePreviewControl').innerHTML = typePreviews[name].control;
+      document.querySelector('.type-live-preview').classList.remove('changing');
+      void document.querySelector('.type-live-preview').offsetWidth;
+      document.querySelector('.type-live-preview').classList.add('changing');
+    }
+    typeButtons.forEach(function (button, index) { button.addEventListener('click', function () { typeIndex = index; showType(button); }); });
+    if (!reducedMotion) window.setInterval(function () {
+      if (!document.getElementById('panel-types').classList.contains('active')) return;
+      typeIndex = (typeIndex + 1) % typeButtons.length;
+      showType(typeButtons[typeIndex]);
+    }, 2800);
 
     document.getElementById('runQa').addEventListener('click', function () {
       var button = this;
@@ -692,14 +764,26 @@
       });
     });
 
-    document.getElementById('approveTranslation').addEventListener('click', function () {
-      var status = document.getElementById('frenchStatus');
-      status.textContent = 'Approved';
-      status.classList.remove('needs-review');
-      document.getElementById('frenchRow').classList.add('approved');
-      this.textContent = 'Approved ✓';
-      this.disabled = true;
-    });
+    var translations = {
+      en: ['English · Source', 'How likely are you to recommend Northstar?'],
+      es: ['Spanish · Approved', '¿Qué probabilidad hay de que recomiende Northstar?'],
+      fr: ['French · In review', 'Quelle est la probabilité que vous recommandiez Northstar?'],
+      hi: ['Hindi · Approved', 'आप नॉर्थस्टार की सिफारिश करने की कितनी संभावना रखते हैं?']
+    };
+    var languageButtons = Array.from(document.querySelectorAll('.translation-language-tabs button'));
+    var languageIndex = 0;
+    function showLanguage(button) {
+      var value = translations[button.dataset.language];
+      languageButtons.forEach(function (item) { item.classList.toggle('active', item === button); });
+      document.getElementById('translationMeta').textContent = value[0];
+      document.getElementById('translationQuestion').textContent = value[1];
+    }
+    languageButtons.forEach(function (button, index) { button.addEventListener('click', function () { languageIndex = index; showLanguage(button); }); });
+    if (!reducedMotion) window.setInterval(function () {
+      if (!document.getElementById('panel-translations').classList.contains('active')) return;
+      languageIndex = (languageIndex + 1) % languageButtons.length;
+      showLanguage(languageButtons[languageIndex]);
+    }, 2600);
 
     ['One', 'Two', 'Three'].forEach(function (name) {
       var input = document.getElementById('quota' + name);
@@ -712,20 +796,47 @@
     });
 
     var permissionInputs = Array.from(document.querySelectorAll('#permissionList input'));
-    var roleButtons = Array.from(document.querySelectorAll('[data-role]'));
-    var activeRole = 'Researcher';
+    var memberButtons = Array.from(document.querySelectorAll('[data-member]'));
+    var members = {
+      sam: { name: 'Sam Rivera', role: 'Researcher', permissions: [true, true, false] },
+      mina: { name: 'Mina Kapoor', role: 'Admin', permissions: [true, true, true] },
+      jon: { name: 'Jon Lee', role: 'Viewer', permissions: [false, false, false] }
+    };
+    var activeMember = 'sam';
+    var adminDemo = document.querySelector('.admin-demo');
+    var adminIndex = 0;
+    var adminPhase = 0;
     function updatePermissions() {
-      document.getElementById('adminSummary').textContent = activeRole + ' · ' + permissionInputs.filter(function (input) { return input.checked; }).length + ' of ' + permissionInputs.length + ' permissions enabled';
+      members[activeMember].permissions = permissionInputs.map(function (input) { return input.checked; });
+      document.getElementById('adminSummary').textContent = permissionInputs.filter(function (input) { return input.checked; }).length + ' of ' + permissionInputs.length + ' permissions enabled';
     }
-    roleButtons.forEach(function (button) {
+    function selectMember(button, openDetail) {
+        memberButtons.forEach(function (item) { item.classList.toggle('active', item === button); });
+        activeMember = button.dataset.member;
+        adminIndex = memberButtons.indexOf(button);
+        document.getElementById('memberName').textContent = members[activeMember].name;
+        document.getElementById('memberRole').textContent = members[activeMember].role;
+        permissionInputs.forEach(function (input, index) { input.checked = members[activeMember].permissions[index]; });
+        document.getElementById('adminSummary').textContent = members[activeMember].permissions.filter(Boolean).length + ' of ' + permissionInputs.length + ' permissions enabled';
+        if (openDetail) adminDemo.classList.add('detail-mode');
+    }
+    memberButtons.forEach(function (button) {
       button.addEventListener('click', function () {
-        roleButtons.forEach(function (item) { item.classList.toggle('active', item === button); });
-        activeRole = button.dataset.role === 'admin' ? 'Admin' : 'Researcher';
-        permissionInputs.forEach(function (input, index) { input.checked = activeRole === 'Admin' || index < 2; });
-        updatePermissions();
+        selectMember(button, true);
       });
     });
+    document.getElementById('adminBack').addEventListener('click', function () { adminDemo.classList.remove('detail-mode'); });
     permissionInputs.forEach(function (input) { input.addEventListener('change', updatePermissions); });
+    if (!reducedMotion) window.setInterval(function () {
+      if (!document.getElementById('panel-admin').classList.contains('active')) return;
+      if (adminPhase === 0) adminDemo.classList.add('detail-mode');
+      if (adminPhase === 1) adminDemo.classList.remove('detail-mode');
+      if (adminPhase === 2) {
+        adminIndex = (adminIndex + 1) % memberButtons.length;
+        selectMember(memberButtons[adminIndex], false);
+      }
+      adminPhase = (adminPhase + 1) % 3;
+    }, 1700);
 
     var earlyAccessFrame = document.querySelector('.early-access-frame');
     if (earlyAccessFrame) {
@@ -779,6 +890,7 @@
       window.requestAnimationFrame(updateScrollProgress);
     }, { passive: true });
     updateScrollProgress();
+
   })();
   </script>
 </body>
