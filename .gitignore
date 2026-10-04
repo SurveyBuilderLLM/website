@@ -2,8 +2,8 @@
 .DS_Store
 Thumbs.db
 
-# Catalyst logs
-catalyst-debug.log
+# Cloudflare CLI state
+.wrangler/
 
 # Python
 __pycache__/

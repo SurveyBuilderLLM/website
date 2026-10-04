@@ -1,4 +1,22 @@
-# Aayvu marketing site — editorial workbench redesign
+# Aayvu marketing website
+
+Static marketing site for [aayvu.io](https://aayvu.io).
+
+## Deployment
+
+Production is hosted on Cloudflare Pages and connected directly to the
+`SurveyBuilderLLM/website` GitHub repository. A push to `main` triggers a
+production deployment; other branches receive preview deployments.
+
+Cloudflare Pages build settings:
+
+- Production branch: `main`
+- Framework preset: None
+- Build command: leave blank
+- Build output directory: `/`
+
+The Pages project serves `aayvu.io`, `www.aayvu.io`, and `web.aayvu.io`.
+`aayvu.io` is the canonical hostname used in page metadata.
 
 ## Current homepage direction (2026-10-01)
 
@@ -28,9 +46,6 @@ internet connection; system fonts are used otherwise.
 applies the saved theme before rendering. `navigation.js` handles the dropdowns.
 Run `python3 build.py` to regenerate the 15 detail pages after editing their
 content or shared navbar template.
-
-Static HTML mockups for the new marketing site, built 2026-09-26.
-NOT pushed anywhere — local mockups only, for copy/design review.
 
 ## Files
 - `index.html` — Home: interactive document-to-survey demo, four-step process,
