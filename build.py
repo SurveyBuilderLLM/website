@@ -1,72 +1,66 @@
 #!/usr/bin/env python3
 """Generate Aayvu marketing sub-pages: usecases/*.html and features/*.html."""
 import os
+from html import escape
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 
 NAV = """<a class="skip-link" href="#main-content">Skip to content</a>
-<nav class="nav detail-nav" aria-label="Primary navigation">
+<nav class="nav" aria-label="Primary navigation">
   <div class="wrap nav-inner">
-    <a class="brand" href="../index.html" aria-label="Aayvu home"><img class="brand-logo brand-logo-light" src="../assets/logo/aayvu-logo.svg" alt="Aayvu"><img class="brand-logo brand-logo-dark" src="../assets/logo/aayvu-logo-dark.svg" alt=""></a>
+    <a class="brand" href="../index.html" translate="no">aayvu<span class="brand-mark" aria-hidden="true">✳</span></a>
+
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-links">
+      <span></span><span></span>
+    </button>
+
     <div class="nav-links" id="primary-links">
-      <div class="drop"><button class="drop-trigger" type="button" aria-expanded="false" aria-controls="nav-use-cases">Use cases <svg class="drop-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
+      <div class="drop"><button class="drop-trigger" type="button" aria-expanded="false" aria-controls="nav-use-cases">Use cases <span aria-hidden="true">⌄</span></button>
         <div class="drop-menu" id="nav-use-cases" hidden>
-          <a href="../usecases/brand-tracking.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18V9m7 9V5m7 13v-7M3 21h18"/></svg></i><span><b>Brand tracking</b><small>Consistent waves, no rebuilds</small></span></a>
-          <a href="../usecases/nps-csat.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15a8 8 0 1 1 16 0m-8 0 4-5M7 19h10"/></svg></i><span><b>NPS &amp; CSAT</b><small>Score-based follow-ups, wired in</small></span></a>
-          <a href="../usecases/concept-testing.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6m-5 3h4M8 14c-1.2-1-2-2.8-2-4.7a6 6 0 1 1 12 0c0 1.9-.8 3.7-2 4.7-.8.7-1 1.2-1 2H9c0-.8-.2-1.3-1-2Z"/></svg></i><span><b>Concept testing</b><small>Monadic & sequential designs</small></span></a>
-          <a href="../usecases/pricing-research.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5C14.8 7.5 13.7 7 12.2 7 10.4 7 9 7.9 9 9.3c0 3.7 6.5 1.4 6.5 5 0 1.6-1.5 2.7-3.5 2.7-1.6 0-2.9-.6-3.7-1.7M12 5v14"/></svg></i><span><b>Pricing research</b><small>Van Westendorp, Gabor-Granger</small></span></a>
-          <a href="../usecases/ad-testing.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3V9Z"/></svg></i><span><b>Ad &amp; creative testing</b><small>Concepts, claims, and media</small></span></a>
-          <a href="../usecases/ua-studies.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/></svg></i><span><b>Usage &amp; attitude</b><small>Complex routing, handled</small></span></a>
-          <a href="../usecases/customer-feedback.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm2 5h10m-10 3h6"/></svg></i><span><b>Customer feedback</b><small>Journey surveys that adapt</small></span></a>
-          <a href="../usecases/employee-engagement.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm13 9v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></i><span><b>Employee engagement</b><small>Every team, every language</small></span></a>
-        <a class="drop-all" href="../index.html#use-cases">All use cases <span aria-hidden="true">→</span></a>
+          <a href="../usecases/brand-tracking.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18V9m7 9V5m7 13v-7M3 21h18"/></svg><span>Brand tracking</span></a>
+          <a href="../usecases/nps-csat.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15a8 8 0 1 1 16 0m-8 0 4-5M7 19h10"/></svg><span>NPS &amp; CSAT</span></a>
+          <a href="../usecases/concept-testing.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6m-5 3h4M8 14c-1.2-1-2-2.8-2-4.7a6 6 0 1 1 12 0c0 1.9-.8 3.7-2 4.7-.8.7-1 1.2-1 2H9c0-.8-.2-1.3-1-2Z"/></svg><span>Concept testing</span></a>
+          <a href="../usecases/pricing-research.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5C14.8 7.5 13.7 7 12.2 7 10.4 7 9 7.9 9 9.3c0 3.7 6.5 1.4 6.5 5 0 1.6-1.5 2.7-3.5 2.7-1.6 0-2.9-.6-3.7-1.7M12 5v14"/></svg><span>Pricing research</span></a>
+          <a href="../usecases/ad-testing.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3V9Z"/></svg><span>Ad &amp; creative testing</span></a>
+          <a href="../usecases/ua-studies.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/></svg><span>Usage &amp; attitude</span></a>
+          <a href="../usecases/customer-feedback.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm2 5h10m-10 3h6"/></svg><span>Customer feedback</span></a>
+          <a href="../usecases/employee-engagement.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm13 9v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg><span>Employee engagement</span></a>
         </div>
       </div>
-      <div class="drop"><button class="drop-trigger" type="button" aria-expanded="false" aria-controls="nav-features">Features <svg class="drop-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
+      <div class="drop"><button class="drop-trigger" type="button" aria-expanded="false" aria-controls="nav-features">Features <span aria-hidden="true">⌄</span></button>
         <div class="drop-menu" id="nav-features" hidden>
-          <a href="../features/ai-editor.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5V8a3 3 0 0 1 3-3h7a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H8l-4 3.5ZM18 3l.7 1.8 2.3.7-2.3.7L18 8l-.7-1.8-2.3-.7 2.3-.7L18 3Z"/></svg></i><span><b>AI agent editor</b><small>Edit in plain language</small></span></a>
-          <a href="../features/question-types.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h5m4 0h7M9 3v6M4 12h10m4 0h2m-6-3v6M4 18h2m4 0h10m-14-3v6"/></svg></i><span><b>Question types</b><small>Every type, logic-ready</small></span></a>
-          <a href="../features/testing.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.6 2.8 8 7 10 4.2-2 7-5.4 7-10V6l-7-3Zm-3 8 2 2 4-4"/></svg></i><span><b>Testing &amp; QA</b><small>Catch breaks before launch</small></span></a>
-          <a href="../features/themes.html"><i class="drop-tile"><svg class="drop-icon palette-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0 0 20 2 2 0 0 0 2-2c0-.55-.22-1.05-.57-1.42A2 2 0 0 1 15 15.25h1.75A5.25 5.25 0 0 0 22 10C22 5.58 17.52 2 12 2Z"/><circle cx="6.7" cy="10.4" r="1"/><circle cx="9.2" cy="6.7" r="1"/><circle cx="13.7" cy="5.8" r="1"/><circle cx="17.3" cy="8.8" r="1"/></svg></i><span><b>Themes &amp; branding</b><small>Surveys that look like you</small></span></a>
-          <a href="../features/translations.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h8m-4-2v2m-3 4c1.2 2.5 3.2 4.5 6 6m0-6c-1.2 2.5-3.2 4.5-6 6m9 4 3.5-9 3.5 9m-5.8-3h4.6"/></svg></i><span><b>Translations</b><small>One survey, every market</small></span></a>
-          <a href="../features/quotas.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="11" cy="17" r="2"/></svg></i><span><b>Quota management</b><small>Full control of your sample</small></span></a>
-          <a href="../features/admin.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 19v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 3 17.5V19M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8-1v6m-3-3h6"/></svg></i><span><b>Admin controls</b><small>Roles and permissions for teams</small></span></a>
-        <a class="drop-all" href="../index.html#features">All features <span aria-hidden="true">→</span></a>
+          <a href="../features/ai-editor.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5V8a3 3 0 0 1 3-3h7a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H8l-4 3.5ZM18 3l.7 1.8 2.3.7-2.3.7L18 8l-.7-1.8-2.3-.7 2.3-.7L18 3Z"/></svg><span>AI agent editor</span></a>
+          <a href="../features/question-types.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h5m4 0h7M9 3v6M4 12h10m4 0h2m-6-3v6M4 18h2m4 0h10m-14-3v6"/></svg><span>Question types</span></a>
+          <a href="../features/testing.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.6 2.8 8 7 10 4.2-2 7-5.4 7-10V6l-7-3Zm-3 8 2 2 4-4"/></svg><span>Testing &amp; QA</span></a>
+          <a href="../features/themes.html"><svg class="drop-icon palette-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0 0 20 2 2 0 0 0 2-2c0-.55-.22-1.05-.57-1.42A2 2 0 0 1 15 15.25h1.75A5.25 5.25 0 0 0 22 10C22 5.58 17.52 2 12 2Z"/><circle cx="6.7" cy="10.4" r="1"/><circle cx="9.2" cy="6.7" r="1"/><circle cx="13.7" cy="5.8" r="1"/><circle cx="17.3" cy="8.8" r="1"/></svg><span>Themes &amp; branding</span></a>
+          <a href="../features/translations.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h8m-4-2v2m-3 4c1.2 2.5 3.2 4.5 6 6m0-6c-1.2 2.5-3.2 4.5-6 6m9 4 3.5-9 3.5 9m-5.8-3h4.6"/></svg><span>Translations</span></a>
+          <a href="../features/quotas.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="11" cy="17" r="2"/></svg><span>Quota management</span></a>
+          <a href="../features/admin.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 19v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 3 17.5V19M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8-1v6m-3-3h6"/></svg><span>Admin controls</span></a>
         </div>
       </div>
       <a href="../index.html#team">Team</a>
       <a href="../index.html#contact">Contact</a>
-      <div class="mobile-actions"><a class="mobile-btn mobile-btn-solid" href="../index.html#book-demo">Book a demo</a><a class="mobile-btn" href="https://app.aayvu.io/login"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>Sign in</a></div>
     </div>
+
     <div class="nav-cta">
       <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
         <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 13A8.5 8.5 0 0 1 11 3.5 8.5 8.5 0 1 0 20.5 13Z"/></svg>
         <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
       </button>
-      <a class="detail-signin" href="https://app.aayvu.io/login" aria-label="Sign in to Aayvu" title="Already have access? Sign in to the Aayvu app"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg><span>Sign in</span></a>
-      <a class="detail-cta" href="../index.html#book-demo">Book a demo <span>↗</span></a>
+      <a class="signin-link" href="https://app.aayvu.io/login">Sign in</a>
+      <a class="button button-solid nav-access" href="../index.html#contact">Get early access</a>
     </div>
-    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-links">
-      <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
-    </button>
   </div>
 </nav>"""
 
-FOOT = """<footer class="detail-footer">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a class="brand" href="../index.html" aria-label="Aayvu home"><img class="brand-logo brand-logo-light" src="../assets/logo/aayvu-logo.svg" alt="Aayvu"><img class="brand-logo brand-logo-dark" src="../assets/logo/aayvu-logo-dark.svg" alt=""></a>
-        <p class="foot-tag">Better questions. Closer answers.</p>
-        <a class="footer-social" href="https://www.linkedin.com/company/autosurveybuilder/" target="_blank" rel="noopener" aria-label="Aayvu on LinkedIn" title="Aayvu on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
-      </div>
-      <div><h5>Product</h5><ul><li><a href="../index.html#features">Features</a></li><li><a href="../index.html#use-cases">Use cases</a></li><li><a href="../index.html#savings">Time savings</a></li><li><a href="https://app.aayvu.io/login">Sign in</a></li></ul></div>
-      <div><h5>Company</h5><ul><li><a href="../index.html#team">Team</a></li><li><a href="../index.html#contact">Contact</a></li><li><a href="../index.html#contact">Early access</a></li></ul></div>
-      <div><h5>Explore</h5><ul><li><a href="../index.html#how">How it works</a></li><li><a href="../features/translations.html">Translations</a></li></ul></div>
-    </div>
-    <div class="foot-base"><span>© 2026 Aayvu. All rights reserved.</span></div>
+FOOT = """<footer>
+  <div class="wrap footer-main">
+    <div><a class="brand footer-brand" href="../index.html" translate="no">aayvu<span class="brand-mark" aria-hidden="true">✳</span></a><p>Better questions.<br>Closer answers.</p><a class="footer-social" href="https://www.linkedin.com/company/autosurveybuilder/" target="_blank" rel="noopener" aria-label="Aayvu on LinkedIn" title="Aayvu on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></div>
+    <div><h2>Product</h2><a href="../index.html#features">Features</a><a href="../index.html#use-cases">Use cases</a><a href="../index.html#savings">Time savings</a><a href="https://app.aayvu.io/login">Sign in</a></div>
+    <div><h2>Company</h2><a href="../index.html#team">Team</a><a href="../index.html#contact">Contact</a><a href="../index.html#contact">Early access</a><a href="../index.html#how">How it works</a></div>
+    <div><h2>Explore</h2><a href="../features/ai-editor.html">AI editor</a><a href="../features/question-types.html">Question types</a><a href="../features/testing.html">Testing &amp; QA</a></div>
   </div>
+  <div class="wrap footer-base"><span>© 2026 Aayvu. All rights reserved.</span><span>AI survey programming for research teams.</span></div>
 </footer>"""
 
 USECASE_QUESTION_DEMOS = {
@@ -156,27 +150,38 @@ def feature_visual(f):
 
 def page(kind_label, slug, title, tagline, visual_html, sections_html):
     page_class = "feature-page" if kind_label == "Features" else "usecase-page"
-    # Titles with a long single word ("engagement", "Translations") get scaled
-    # to the copy column so they don't push into the hero visual.
-    hero_class = "detail-hero detail-hero-fit" if max(len(w) for w in title.split()) >= 10 else "detail-hero"
+    if kind_label == "Use cases":
+        seo_title = f"{title} Survey Software | Aayvu"
+        seo_description = f"Aayvu helps research teams {tagline[0].lower() + tagline[1:]}"
+    else:
+        seo_title = f"{title} for AI Survey Programming | Aayvu"
+        seo_description = f"Aayvu helps research teams {tagline[0].lower() + tagline[1:]}"
+    seo_title_html = escape(seo_title, quote=True)
+    seo_description_html = escape(seo_description, quote=True)
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aayvu — {title}</title>
+<meta name="description" content="{seo_description_html}">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{seo_title_html}">
+<meta property="og:description" content="{seo_description_html}">
+<title>{seo_title_html}</title>
 <script src="../theme.js?v=1"></script>
-<link rel="stylesheet" href="../styles.css?v=nav-5">
+<link rel="stylesheet" href="../styles.css?v=nav-4">
 <link rel="stylesheet" href="../theme.css?v=1">
-<link rel="stylesheet" href="../subpage-v2.css?v=23">
-<script src="../navigation.js?v=nav-6" defer></script>
+<link rel="stylesheet" href="../home-v3.css?v=11">
+<link rel="stylesheet" href="../subpage-v2.css?v=16">
+<script src="../navigation.js?v=nav-5" defer></script>
 <script src="../ambient.js?v=5" defer></script>
 <script src="../feature-demos.js?v=1" defer></script>
 </head>
-<body class="sub-page {page_class} {page_class}-{slug}">
+<body class="home-page sub-page {page_class} {page_class}-{slug}">
 {NAV}
 <main id="main-content">
-<header class="{hero_class}">
+<header class="detail-hero">
   <canvas class="distortion-grid" data-distortion-grid aria-hidden="true"></canvas>
   <div class="wrap detail-hero-grid">
     <div class="detail-hero-copy rv in">
@@ -193,8 +198,8 @@ def page(kind_label, slug, title, tagline, visual_html, sections_html):
 </header>
 {sections_html}
 <section class="detail-cta-band"><div class="wrap rv">
-  <p>Start with the document you already have.</p>
-  <h2>See what the agent<br>would build for you.</h2>
+  <p>Start with the questionnaire you already have.</p>
+  <h2>Turn it into a survey<br>that is ready to review.</h2>
   <a class="detail-button detail-button-light" href="../index.html#contact">Request early access <span>↗</span></a>
 </div></section>
 </main>
@@ -216,15 +221,15 @@ def cards(items):
 def usecase_page(u):
     secs = f"""
 <section class="detail-story"><div class="wrap detail-story-grid">
-  <div class="detail-section-heading rv"><p><span>01</span> Where AI helps</p><h2>The fiddly parts,<br>handled.</h2></div>
-  <div class="story-copy rv">{''.join(f'<p>{p}</p>' for p in u['why_ai'])}<div class="story-note"><span>What changes</span><b>Hours of setup become minutes of review.</b></div></div>
+  <div class="detail-section-heading rv"><p><span>01</span> Survey programming</p><h2>{u['title']} setup,<br>handled.</h2></div>
+  <div class="story-copy rv">{''.join(f'<p>{p}</p>' for p in u['why_ai'])}<div class="story-note"><span>Why it matters</span><b>Spend less time on setup and more time reviewing the research.</b></div></div>
 </div></section>
 <section class="detail-tools"><div class="wrap">
-  <div class="detail-section-heading detail-heading-row rv"><p><span>02</span> Study toolkit</p><h2>The right tools<br>for this study.</h2></div>
+  <div class="detail-section-heading detail-heading-row rv"><p><span>02</span> Study design</p><h2>What your {u['short']}<br>need.</h2></div>
   {cards(u['qtypes'])}
 </div></section>
 <section class="detail-outcomes"><div class="wrap">
-  <div class="detail-section-heading detail-heading-row rv"><p><span>03</span> Why Aayvu</p><h2>Why teams run<br>{u['short']} on Aayvu.</h2></div>
+  <div class="detail-section-heading detail-heading-row rv"><p><span>03</span> Research outcomes</p><h2>Build {u['short']}<br>faster with Aayvu.</h2></div>
   {cards([(t, d) for t, d in u['why']])}
 </div></section>"""
     return page("Use cases", u['slug'], u['title'], u['tagline'], usecase_visual(u), secs)
@@ -232,75 +237,75 @@ def usecase_page(u):
 def feature_page(f):
     secs = f"""
 <section class="detail-story feature-story"><div class="wrap detail-story-grid">
-  <div class="detail-section-heading rv"><p><span>01</span> Go deeper</p><h2>{f['depth_head']}</h2></div>
+  <div class="detail-section-heading rv"><p><span>01</span> How {f['title'].lower()} works</p><h2>{f['depth_head']}</h2></div>
   <div class="story-copy rv">{''.join(f'<p>{p}</p>' for p in f['depth'])}<div class="story-note"><span>{f['note_label']}</span><b>{f['note']}</b></div></div>
 </div></section>
 <section class="feature-benefits" id="why-it-matters"><div class="wrap">
-  <div class="detail-section-heading detail-heading-row rv"><p><span>02</span> Why it matters</p><h2>{f['benefit_head']}</h2></div>
+  <div class="detail-section-heading detail-heading-row rv"><p><span>02</span> Benefits for research teams</p><h2>{f['benefit_head']}</h2></div>
   <div class="feature-benefit-grid rv">{''.join(f'<article><span>{i:02d}</span><h3>{t}</h3><p>{d}</p></article>' for i, (t, d) in enumerate(f['benefits'], 1))}</div>
 </div></section>
 <section class="feature-workflow" id="in-practice"><div class="wrap feature-workflow-layout">
-  <div class="detail-section-heading rv"><p><span>03</span> In practice</p><h2>{f['workflow_head']}</h2><p class="workflow-intro">{f['workflow_intro']}</p></div>
+  <div class="detail-section-heading rv"><p><span>03</span> Workflow</p><h2>{f['workflow_head']}</h2><p class="workflow-intro">{f['workflow_intro']}</p></div>
   <ol class="feature-step-list rv">{''.join(f'<li><span>{i:02d}</span><div><h3>{t}</h3><p>{d}</p></div></li>' for i, (t, d) in enumerate(f['workflow'], 1))}</ol>
 </div></section>
-<section class="detail-tools" id="included"><div class="wrap">
-  <div class="detail-section-heading detail-heading-row rv"><p><span>04</span> What’s included</p><h2>{f['included_head']}</h2></div>
+<section class="detail-tools" id="capabilities"><div class="wrap">
+  <div class="detail-section-heading detail-heading-row rv"><p><span>04</span> Capabilities</p><h2>{f['included_head']}</h2></div>
   <div class="feature-ledger rv">{''.join(f'<article><span>{i:02d}</span><h3>{t}</h3><p>{d}</p></article>' for i, (t, d) in enumerate(f['includes'], 1))}</div>
 </div></section>"""
     return page("Features", f['slug'], f['title'], f['tagline'], feature_visual(f), secs)
 
 USE_CASES = [
  dict(slug="brand-tracking", icon="📈", title="Brand tracking", short="brand trackers",
-  tagline="Wave after wave of consistent, comparable data — without the wave of programming.",
+  tagline="Build consistent, review-ready brand tracking surveys for every wave and market.",
   why_ai=[
    "Trackers live or die on consistency. One changed scale label and your trend line is fiction. The agent rebuilds the exact structure every wave — same question types, same scales, same routing — so each wave stays perfectly comparable to the last.",
    "And when the business asks for a new brand added mid-year, you don't re-brief a programmer. You ask the agent, review the change, and field."],
   qtypes=[("Multi-select", "Awareness batteries across long brand lists."), ("Rating scales", "Imagery, consideration, and preference."), ("Grids", "Brand × attribute matrices in one screen.")],
   why=[("Consistency, enforced", "The agent keeps every wave structurally identical."), ("Changes in minutes", "Add brands, tweak attributes, re-field — same day."), ("Multi-market ready", "Translations keep every market on the same questionnaire.")]),
  dict(slug="nps-csat", icon="💜", title="NPS & CSAT", short="NPS programs",
-  tagline="Loyalty scores in, follow-ups out — automatically.",
+  tagline="Build NPS and CSAT surveys with automatic score routing, follow-ups, and trend-safe scales.",
   why_ai=[
    "NPS looks simple until you program it: the 0–10 scale, the detractor / passive / promoter split, different follow-ups for each group, piping the score into later questions. The agent wires all of it from a one-line description.",
    "Change the follow-up wording next quarter? One prompt, reviewed in seconds — no rebuild."],
   qtypes=[("0–10 rating", "The classic likelihood-to-recommend scale."), ("Long text", "Open-ended 'why' follow-ups per segment."), ("Single select", "Reason codes and driver questions.")],
   why=[("Branching included", "Detractor and promoter paths wired automatically."), ("Iterate freely", "Reword follow-ups without reprogramming."), ("Trend-safe", "The scale stays identical quarter to quarter.")]),
  dict(slug="concept-testing", icon="💡", title="Concept testing", short="concept tests",
-  tagline="Screen ideas in hours, not weeks.",
+  tagline="Build concept testing surveys with randomized exposure, diagnostics, and respondent-ready logic.",
   why_ai=[
    "Concept tests are fiddly: randomized concept order, monadic or sequential exposure, diagnostics after each concept. It's exactly the kind of setup work researchers dread and programmers bill for.",
    "The agent sets up the rotation and randomization, keeps each respondent's path clean, and lets you add another concept the morning of fieldwork."],
   qtypes=[("Image & media", "Show the concept, pack, or stimulus."), ("Rating", "Appeal, uniqueness, and relevance diagnostics."), ("Ranking & MaxDiff", "Force choices between competing ideas.")],
   why=[("Randomization built in", "Concept order rotated without scripting."), ("Same-day iterations", "Add a concept, re-field, no re-quote."), ("Clean respondent paths", "Monadic or sequential — handled correctly.")]),
  dict(slug="pricing-research", icon="💰", title="Pricing research", short="pricing studies",
-  tagline="Price with evidence, not gut feel.",
+  tagline="Build pricing surveys for Van Westendorp, Gabor-Granger, conjoint, and other evidence-led methods.",
   why_ai=[
    "Pricing methods are precise instruments: Van Westendorp's four questions must be asked exactly right, Gabor-Granger needs its price ladder sequenced, conjoint needs its experimental design respected. The agent knows these methods and sets them up correctly.",
    "You bring the price points; the agent builds the instrument."],
   qtypes=[("Number & text", "Van Westendorp's four price questions."), ("Single select", "Gabor-Granger buy / no-buy ladders."), ("Conjoint & MaxDiff", "Trade-off and feature-value exercises.")],
   why=[("Method-correct setups", "The agent follows the method, not a guess."), ("Validation included", "Sensible ranges and required answers."), ("Analysis-ready output", "Clean CSVs structured for pricing analysis.")]),
  dict(slug="ad-testing", icon="🎬", title="Ad & creative testing", short="creative tests",
-  tagline="Know before it airs.",
+  tagline="Build ad testing surveys with randomized creative exposure, media questions, and clear diagnostics.",
   why_ai=[
    "Creative testing means exposing respondents to media, then asking the right diagnostics while it's fresh — with creative order randomized across respondents. Doing that by hand is slow; the agent assembles it in one pass.",
    "Swap in a new cut the night before field? The agent re-wires the exposure in minutes."],
   qtypes=[("Image & video", "Native media exposure questions."), ("Rating scales", "Breakthrough, branding, and persuasion diagnostics."), ("Long text", "Open-ended reactions in their own words.")],
   why=[("Media built in", "Show images and video natively."), ("Randomized exposure", "Creative order rotated automatically."), ("Fast swaps", "New creative, same survey, minutes.")]),
  dict(slug="ua-studies", icon="🧭", title="Usage & attitude", short="U&A studies",
-  tagline="The deep studies, without the deep programming pain.",
+  tagline="Program complex usage and attitude surveys with brand funnels, grids, and branching logic intact.",
   why_ai=[
    "U&A studies are the heavyweights: long questionnaires, category usage, brand funnels, and routing that branches on everything. They're the studies most likely to stall in a programming queue.",
    "The agent takes the whole document — all forty, sixty, eighty questions — and programs it in one go, logic included. You spend your time on the analysis, not the setup."],
   qtypes=[("Grids", "Category × brand usage matrices."), ("Multi-select", "Long repertoire and behavior lists."), ("Constant sum", "Share-of-wallet allocation.")],
   why=[("Handles the long ones", "60+ question documents programmed in one pass."), ("Complex routing, done", "Funnels and branches wired correctly."), ("Test before field", "Walk every path as a respondent first.")]),
  dict(slug="customer-feedback", icon="🛍️", title="Customer feedback", short="feedback programs",
-  tagline="Every journey, every touchpoint, heard.",
+  tagline="Build adaptive customer feedback surveys for every journey, touchpoint, and follow-up.",
   why_ai=[
    "Feedback surveys need to adapt: a delivery question for the delivery customer, a returns path for the returns customer. The agent builds those adaptive paths from your journey map.",
    "Launch in the morning, tweak by the afternoon — feedback programs stay alive instead of going stale."],
   qtypes=[("CSAT rating", "Satisfaction at each touchpoint."), ("Single select", "Journey stage and reason codes."), ("Long text", "Verbatims that explain the score.")],
   why=[("Adaptive paths", "Questions follow the customer's journey."), ("Piping everywhere", "Names, orders, and context carried through."), ("Always editable", "Live surveys updated without rebuilds.")]),
  dict(slug="employee-engagement", icon="🏢", title="Employee engagement", short="engagement surveys",
-  tagline="Hear the whole company, in every language.",
+  tagline="Build employee engagement surveys across teams, departments, regions, and languages.",
   why_ai=[
    "Engagement surveys span regions, languages, and departments — with anonymity to protect and cuts to deliver. The agent handles the translations workflow and the department routing in one build.",
    "Pulse monthly without the monthly programming invoice."],
@@ -310,7 +315,7 @@ USE_CASES = [
 
 FEATURES = [
  dict(slug="ai-editor", icon="🤖", title="AI agent editor",
-  tagline="Describe the change in plain language. The agent makes it.",
+  tagline="Edit survey questions, logic, validation, and flow by describing the change in plain language.",
   depth_head="An editor that edits itself.",
   depth=[
    "Most survey tools make you do the clicking. Aayvu's agent does the work: it generates the survey from your document, and then it keeps working — rewriting questions, rebuilding sections, re-wiring logic — on your instruction.",
@@ -330,7 +335,7 @@ FEATURES = [
   included_head="Everything the agent can change.",
   includes=[("Rewrite in context", "Adjust tone, clarity, or neutrality without losing the question's role."), ("Add and reorganize", "Create questions, insert sections, and change the order of the flow."), ("Change question structure", "Switch types, options, scales, rows, or columns."), ("Re-wire logic", "Update visibility, skips, terminations, and answer actions."), ("Connect earlier answers", "Pipe answers and numeric targets into later questions."), ("Review before launch", "Inspect the draft in the visual editor and respondent preview.")] ),
  dict(slug="question-types", icon="🧩", title="Question types",
-  tagline="Every question you'll ever need — all working with logic, validation, and translations.",
+  tagline="Build simple questions, advanced grids, MaxDiff, conjoint, media, and more without custom setup.",
   depth_head="A format for every answer.",
   depth=[
    "From quick choice questions to hybrid grids and advanced research methods, each format is built into the same editor rather than bolted on as a special case.",
@@ -350,7 +355,7 @@ FEATURES = [
   included_head="From a radio button to conjoint.",
   includes=[("Choice", "Single select, multiple select, dropdowns, and image selection."), ("Text, number, date & time", "Open answers with length, range, integer, pattern, and uniqueness rules."), ("Scales", "Ratings and sliders with custom bounds and labels."), ("Matrices & hybrid grids", "Single, multiple, rating, numeric, and mixed-type columns with row-level behavior."), ("Allocation", "Ranking, constant sum, and percentage allocation with total checks."), ("Advanced research", "MaxDiff, conjoint, hotspot, and drag-and-drop matching."), ("Media & content", "File upload, voice input, and information screens.")] ),
  dict(slug="testing", icon="🧪", title="Testing & QA",
-  tagline="Catch breaks before respondents do.",
+  tagline="Test every respondent path and catch broken logic, invalid references, and validation issues before launch.",
   depth_head="Field with confidence.",
   depth=[
    "The most expensive bug in research is the one found after fieldwork starts. Aayvu's test mode lets you walk the survey exactly as a respondent would — taking every branch, triggering every validation.",
@@ -370,7 +375,7 @@ FEATURES = [
   included_head="Checks that follow the logic.",
   includes=[("Respondent preview", "Fill the survey with the same question controls used in the live form."), ("Logic analysis", "Check question, row, column, and answer-action dependencies."), ("Reference checks", "Flag missing questions, variables, options, pipes, and quotas."), ("Cycle detection", "Surface circular visibility and hybrid column gating."), ("Validation preview", "Exercise required fields, ranges, selection limits, patterns, and sum rules."), ("Publish separation", "Keep editing without changing the live snapshot until you republish.")] ),
  dict(slug="themes", icon="🎨", title="Themes & branding",
-  tagline="Surveys that look like you sent them.",
+  tagline="Apply your colors, typography, and logo across every respondent-facing survey.",
   depth_head="On brand, automatically.",
   depth=[
    "A survey is a touchpoint with your brand — or your client's. Set your colors, typography, and logo once, and every survey inherits the theme.",
@@ -390,7 +395,7 @@ FEATURES = [
   included_head="The details respondents notice.",
   includes=[("Color system", "Accent, surface, text, border, and interaction states."), ("Typography", "Readable type choices with a consistent hierarchy."), ("Logo placement", "A clear brand presence across respondent-facing pages."), ("Survey controls", "Buttons, fields, choices, scales, and progress states that belong together."), ("Responsive layouts", "Comfortable spacing and controls across desktop and mobile."), ("Live preview", "Review the complete look before the survey is published.")] ),
  dict(slug="translations", icon="文", title="Translations",
-  tagline="One source survey, every market — with human review where it matters.",
+  tagline="Translate one source survey for every market, with human review and source changes kept in sync.",
   depth_head="One survey. Every language.",
   depth=[
    "Aayvu extracts every respondent-facing string into one translation workspace, so questions, options, errors, and buttons never get lost between files.",
@@ -410,7 +415,7 @@ FEATURES = [
   included_head="Translation with a paper trail.",
   includes=[("Automatic extraction", "Collect respondent-facing strings without copy-and-paste."), ("Language workspace", "Review source and translated wording together."), ("External review links", "Invite market experts without giving them editor access."), ("Approve, correct, transliterate", "Capture the exact kind of change a reviewer is requesting."), ("Reviewer feedback", "See approvals and suggested wording inside the survey workspace."), ("Change tracking", "Return affected strings to review when the source changes.")] ),
  dict(slug="quotas", icon="🎯", title="Quota management",
-  tagline="Full control of your sample.",
+  tagline="Set sample targets, monitor completes, and control what happens when a respondent segment fills.",
   depth_head="The right respondents, in the right numbers.",
   depth=[
    "Cap completes by any segment — age, region, behavior, anything you ask. When a quota fills, new respondents are screened gracefully instead of hitting a dead end.",
@@ -430,7 +435,7 @@ FEATURES = [
   included_head="Everything behind the target bar.",
   includes=[("Question-and-answer mapping", "Count respondents from the exact answer that defines the segment."), ("Hard quotas", "Stop additional respondents when the target is reached."), ("Soft quotas", "Track the segment without interrupting the respondent."), ("Answer actions", "Apply a quota as part of a question's routed outcome."), ("Quota-full messaging", "Control the page shown when a hard quota closes."), ("Configuration checks", "Flag missing mappings, invalid limits, and deleted quota references.")] ),
  dict(slug="admin", icon="🔐", title="Admin controls",
-  tagline="Run research like a team.",
+  tagline="Manage roles, workspaces, projects, and survey collaborators from one clear admin view.",
   depth_head="One place for the whole operation.",
   depth=[
    "Research is a team sport. Aayvu's admin controls let you manage users and roles, organize work into projects and workspaces, and keep an eye on usage — all from one dashboard.",

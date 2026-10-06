@@ -3,62 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aayvu — Testing & QA</title>
+<meta name="description" content="Aayvu helps research teams test every respondent path and catch broken logic, invalid references, and validation issues before launch.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Testing &amp; QA for AI Survey Programming | Aayvu">
+<meta property="og:description" content="Aayvu helps research teams test every respondent path and catch broken logic, invalid references, and validation issues before launch.">
+<title>Testing &amp; QA for AI Survey Programming | Aayvu</title>
 <script src="../theme.js?v=1"></script>
-<link rel="stylesheet" href="../styles.css?v=nav-5">
+<link rel="stylesheet" href="../styles.css?v=nav-4">
 <link rel="stylesheet" href="../theme.css?v=1">
-<link rel="stylesheet" href="../subpage-v2.css?v=23">
-<script src="../navigation.js?v=nav-6" defer></script>
+<link rel="stylesheet" href="../home-v3.css?v=11">
+<link rel="stylesheet" href="../subpage-v2.css?v=16">
+<script src="../navigation.js?v=nav-5" defer></script>
 <script src="../ambient.js?v=5" defer></script>
 <script src="../feature-demos.js?v=1" defer></script>
 </head>
-<body class="sub-page feature-page feature-page-testing">
+<body class="home-page sub-page feature-page feature-page-testing">
 <a class="skip-link" href="#main-content">Skip to content</a>
-<nav class="nav detail-nav" aria-label="Primary navigation">
+<nav class="nav" aria-label="Primary navigation">
   <div class="wrap nav-inner">
-    <a class="brand" href="../index.html" aria-label="Aayvu home"><img class="brand-logo brand-logo-light" src="../assets/logo/aayvu-logo.svg" alt="Aayvu"><img class="brand-logo brand-logo-dark" src="../assets/logo/aayvu-logo-dark.svg" alt=""></a>
+    <a class="brand" href="../index.html" translate="no">aayvu<span class="brand-mark" aria-hidden="true">✳</span></a>
+
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-links">
+      <span></span><span></span>
+    </button>
+
     <div class="nav-links" id="primary-links">
-      <div class="drop"><button class="drop-trigger" type="button" aria-expanded="false" aria-controls="nav-use-cases">Use cases <svg class="drop-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
+      <div class="drop"><button class="drop-trigger" type="button" aria-expanded="false" aria-controls="nav-use-cases">Use cases <span aria-hidden="true">⌄</span></button>
         <div class="drop-menu" id="nav-use-cases" hidden>
-          <a href="../usecases/brand-tracking.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18V9m7 9V5m7 13v-7M3 21h18"/></svg></i><span><b>Brand tracking</b><small>Consistent waves, no rebuilds</small></span></a>
-          <a href="../usecases/nps-csat.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15a8 8 0 1 1 16 0m-8 0 4-5M7 19h10"/></svg></i><span><b>NPS &amp; CSAT</b><small>Score-based follow-ups, wired in</small></span></a>
-          <a href="../usecases/concept-testing.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6m-5 3h4M8 14c-1.2-1-2-2.8-2-4.7a6 6 0 1 1 12 0c0 1.9-.8 3.7-2 4.7-.8.7-1 1.2-1 2H9c0-.8-.2-1.3-1-2Z"/></svg></i><span><b>Concept testing</b><small>Monadic & sequential designs</small></span></a>
-          <a href="../usecases/pricing-research.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5C14.8 7.5 13.7 7 12.2 7 10.4 7 9 7.9 9 9.3c0 3.7 6.5 1.4 6.5 5 0 1.6-1.5 2.7-3.5 2.7-1.6 0-2.9-.6-3.7-1.7M12 5v14"/></svg></i><span><b>Pricing research</b><small>Van Westendorp, Gabor-Granger</small></span></a>
-          <a href="../usecases/ad-testing.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3V9Z"/></svg></i><span><b>Ad &amp; creative testing</b><small>Concepts, claims, and media</small></span></a>
-          <a href="../usecases/ua-studies.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/></svg></i><span><b>Usage &amp; attitude</b><small>Complex routing, handled</small></span></a>
-          <a href="../usecases/customer-feedback.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm2 5h10m-10 3h6"/></svg></i><span><b>Customer feedback</b><small>Journey surveys that adapt</small></span></a>
-          <a href="../usecases/employee-engagement.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm13 9v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></i><span><b>Employee engagement</b><small>Every team, every language</small></span></a>
-        <a class="drop-all" href="../index.html#use-cases">All use cases <span aria-hidden="true">→</span></a>
+          <a href="../usecases/brand-tracking.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18V9m7 9V5m7 13v-7M3 21h18"/></svg><span>Brand tracking</span></a>
+          <a href="../usecases/nps-csat.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15a8 8 0 1 1 16 0m-8 0 4-5M7 19h10"/></svg><span>NPS &amp; CSAT</span></a>
+          <a href="../usecases/concept-testing.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6m-5 3h4M8 14c-1.2-1-2-2.8-2-4.7a6 6 0 1 1 12 0c0 1.9-.8 3.7-2 4.7-.8.7-1 1.2-1 2H9c0-.8-.2-1.3-1-2Z"/></svg><span>Concept testing</span></a>
+          <a href="../usecases/pricing-research.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5C14.8 7.5 13.7 7 12.2 7 10.4 7 9 7.9 9 9.3c0 3.7 6.5 1.4 6.5 5 0 1.6-1.5 2.7-3.5 2.7-1.6 0-2.9-.6-3.7-1.7M12 5v14"/></svg><span>Pricing research</span></a>
+          <a href="../usecases/ad-testing.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3V9Z"/></svg><span>Ad &amp; creative testing</span></a>
+          <a href="../usecases/ua-studies.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/></svg><span>Usage &amp; attitude</span></a>
+          <a href="../usecases/customer-feedback.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm2 5h10m-10 3h6"/></svg><span>Customer feedback</span></a>
+          <a href="../usecases/employee-engagement.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm13 9v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg><span>Employee engagement</span></a>
         </div>
       </div>
-      <div class="drop"><button class="drop-trigger" type="button" aria-expanded="false" aria-controls="nav-features">Features <svg class="drop-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
+      <div class="drop"><button class="drop-trigger" type="button" aria-expanded="false" aria-controls="nav-features">Features <span aria-hidden="true">⌄</span></button>
         <div class="drop-menu" id="nav-features" hidden>
-          <a href="../features/ai-editor.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5V8a3 3 0 0 1 3-3h7a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H8l-4 3.5ZM18 3l.7 1.8 2.3.7-2.3.7L18 8l-.7-1.8-2.3-.7 2.3-.7L18 3Z"/></svg></i><span><b>AI agent editor</b><small>Edit in plain language</small></span></a>
-          <a href="../features/question-types.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h5m4 0h7M9 3v6M4 12h10m4 0h2m-6-3v6M4 18h2m4 0h10m-14-3v6"/></svg></i><span><b>Question types</b><small>Every type, logic-ready</small></span></a>
-          <a href="../features/testing.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.6 2.8 8 7 10 4.2-2 7-5.4 7-10V6l-7-3Zm-3 8 2 2 4-4"/></svg></i><span><b>Testing &amp; QA</b><small>Catch breaks before launch</small></span></a>
-          <a href="../features/themes.html"><i class="drop-tile"><svg class="drop-icon palette-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0 0 20 2 2 0 0 0 2-2c0-.55-.22-1.05-.57-1.42A2 2 0 0 1 15 15.25h1.75A5.25 5.25 0 0 0 22 10C22 5.58 17.52 2 12 2Z"/><circle cx="6.7" cy="10.4" r="1"/><circle cx="9.2" cy="6.7" r="1"/><circle cx="13.7" cy="5.8" r="1"/><circle cx="17.3" cy="8.8" r="1"/></svg></i><span><b>Themes &amp; branding</b><small>Surveys that look like you</small></span></a>
-          <a href="../features/translations.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h8m-4-2v2m-3 4c1.2 2.5 3.2 4.5 6 6m0-6c-1.2 2.5-3.2 4.5-6 6m9 4 3.5-9 3.5 9m-5.8-3h4.6"/></svg></i><span><b>Translations</b><small>One survey, every market</small></span></a>
-          <a href="../features/quotas.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="11" cy="17" r="2"/></svg></i><span><b>Quota management</b><small>Full control of your sample</small></span></a>
-          <a href="../features/admin.html"><i class="drop-tile"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 19v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 3 17.5V19M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8-1v6m-3-3h6"/></svg></i><span><b>Admin controls</b><small>Roles and permissions for teams</small></span></a>
-        <a class="drop-all" href="../index.html#features">All features <span aria-hidden="true">→</span></a>
+          <a href="../features/ai-editor.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5V8a3 3 0 0 1 3-3h7a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H8l-4 3.5ZM18 3l.7 1.8 2.3.7-2.3.7L18 8l-.7-1.8-2.3-.7 2.3-.7L18 3Z"/></svg><span>AI agent editor</span></a>
+          <a href="../features/question-types.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h5m4 0h7M9 3v6M4 12h10m4 0h2m-6-3v6M4 18h2m4 0h10m-14-3v6"/></svg><span>Question types</span></a>
+          <a href="../features/testing.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.6 2.8 8 7 10 4.2-2 7-5.4 7-10V6l-7-3Zm-3 8 2 2 4-4"/></svg><span>Testing &amp; QA</span></a>
+          <a href="../features/themes.html"><svg class="drop-icon palette-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0 0 20 2 2 0 0 0 2-2c0-.55-.22-1.05-.57-1.42A2 2 0 0 1 15 15.25h1.75A5.25 5.25 0 0 0 22 10C22 5.58 17.52 2 12 2Z"/><circle cx="6.7" cy="10.4" r="1"/><circle cx="9.2" cy="6.7" r="1"/><circle cx="13.7" cy="5.8" r="1"/><circle cx="17.3" cy="8.8" r="1"/></svg><span>Themes &amp; branding</span></a>
+          <a href="../features/translations.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h8m-4-2v2m-3 4c1.2 2.5 3.2 4.5 6 6m0-6c-1.2 2.5-3.2 4.5-6 6m9 4 3.5-9 3.5 9m-5.8-3h4.6"/></svg><span>Translations</span></a>
+          <a href="../features/quotas.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="11" cy="17" r="2"/></svg><span>Quota management</span></a>
+          <a href="../features/admin.html"><svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 19v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 3 17.5V19M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8-1v6m-3-3h6"/></svg><span>Admin controls</span></a>
         </div>
       </div>
       <a href="../index.html#team">Team</a>
       <a href="../index.html#contact">Contact</a>
-      <div class="mobile-actions"><a class="mobile-btn mobile-btn-solid" href="../index.html#book-demo">Book a demo</a><a class="mobile-btn" href="https://app.aayvu.io/login"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>Sign in</a></div>
     </div>
+
     <div class="nav-cta">
       <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
         <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 13A8.5 8.5 0 0 1 11 3.5 8.5 8.5 0 1 0 20.5 13Z"/></svg>
         <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
       </button>
-      <a class="detail-signin" href="https://app.aayvu.io/login" aria-label="Sign in to Aayvu" title="Already have access? Sign in to the Aayvu app"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg><span>Sign in</span></a>
-      <a class="detail-cta" href="../index.html#book-demo">Book a demo <span>↗</span></a>
+      <a class="signin-link" href="https://app.aayvu.io/login">Sign in</a>
+      <a class="button button-solid nav-access" href="../index.html#contact">Get early access</a>
     </div>
-    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-links">
-      <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
-    </button>
   </div>
 </nav>
 <main id="main-content">
@@ -68,7 +73,7 @@
     <div class="detail-hero-copy rv in">
       <div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.4 8 8 9 4.6-1 8-4 8-9V6l-8-3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></div>
       <h1>Testing & QA</h1>
-      <p class="detail-sub">Catch breaks before respondents do.</p>
+      <p class="detail-sub">Test every respondent path and catch broken logic, invalid references, and validation issues before launch.</p>
       <div class="detail-actions">
         <a class="detail-button" href="../index.html#contact">Bring us a questionnaire <span>↗</span></a>
         <a href="../index.html#how">See the four-step process ↓</a>
@@ -79,41 +84,35 @@
 </header>
 
 <section class="detail-story feature-story"><div class="wrap detail-story-grid">
-  <div class="detail-section-heading rv"><p><span>01</span> Go deeper</p><h2>Field with confidence.</h2></div>
+  <div class="detail-section-heading rv"><p><span>01</span> How testing & qa works</p><h2>Field with confidence.</h2></div>
   <div class="story-copy rv"><p>The most expensive bug in research is the one found after fieldwork starts. Aayvu's test mode lets you walk the survey exactly as a respondent would — taking every branch, triggering every validation.</p><p>Meanwhile the logic checker scans your rules for conflicts automatically, so broken routing never reaches the field.</p><div class="story-note"><span>Before fieldwork</span><b>Find the broken path while it is still free to fix.</b></div></div>
 </div></section>
 <section class="feature-benefits" id="why-it-matters"><div class="wrap">
-  <div class="detail-section-heading detail-heading-row rv"><p><span>02</span> Why it matters</p><h2>Test the experience, not a checklist.</h2></div>
+  <div class="detail-section-heading detail-heading-row rv"><p><span>02</span> Benefits for research teams</p><h2>Test the experience, not a checklist.</h2></div>
   <div class="feature-benefit-grid rv"><article><span>01</span><h3>See what respondents see</h3><p>Run the published experience with real controls, validations, messages, and branching.</p></article><article><span>02</span><h3>Inspect connected rules</h3><p>Catch missing references, unreachable targets, invalid quotas, and logic cycles before launch.</p></article><article><span>03</span><h3>Fix without leaving the editor</h3><p>Move from an issue to the exact question, rule, or validation that caused it.</p></article></div>
 </div></section>
 <section class="feature-workflow" id="in-practice"><div class="wrap feature-workflow-layout">
-  <div class="detail-section-heading rv"><p><span>03</span> In practice</p><h2>Walk every important path.</h2><p class="workflow-intro">A good QA pass combines automatic checks with a human run-through of the respondent experience.</p></div>
+  <div class="detail-section-heading rv"><p><span>03</span> Workflow</p><h2>Walk every important path.</h2><p class="workflow-intro">A good QA pass combines automatic checks with a human run-through of the respondent experience.</p></div>
   <ol class="feature-step-list rv"><li><span>01</span><div><h3>Scan</h3><p>Analyze the questionnaire for broken references, conflicting actions, and invalid configuration.</p></div></li><li><span>02</span><div><h3>Run</h3><p>Answer as a respondent and deliberately trigger screeners, branches, quotas, and validations.</p></div></li><li><span>03</span><div><h3>Resolve</h3><p>Return to the flagged rule, make the change, and repeat the path before publishing.</p></div></li></ol>
 </div></section>
-<section class="detail-tools" id="included"><div class="wrap">
-  <div class="detail-section-heading detail-heading-row rv"><p><span>04</span> What’s included</p><h2>Checks that follow the logic.</h2></div>
+<section class="detail-tools" id="capabilities"><div class="wrap">
+  <div class="detail-section-heading detail-heading-row rv"><p><span>04</span> Capabilities</p><h2>Checks that follow the logic.</h2></div>
   <div class="feature-ledger rv"><article><span>01</span><h3>Respondent preview</h3><p>Fill the survey with the same question controls used in the live form.</p></article><article><span>02</span><h3>Logic analysis</h3><p>Check question, row, column, and answer-action dependencies.</p></article><article><span>03</span><h3>Reference checks</h3><p>Flag missing questions, variables, options, pipes, and quotas.</p></article><article><span>04</span><h3>Cycle detection</h3><p>Surface circular visibility and hybrid column gating.</p></article><article><span>05</span><h3>Validation preview</h3><p>Exercise required fields, ranges, selection limits, patterns, and sum rules.</p></article><article><span>06</span><h3>Publish separation</h3><p>Keep editing without changing the live snapshot until you republish.</p></article></div>
 </div></section>
 <section class="detail-cta-band"><div class="wrap rv">
-  <p>Start with the document you already have.</p>
-  <h2>See what the agent<br>would build for you.</h2>
+  <p>Start with the questionnaire you already have.</p>
+  <h2>Turn it into a survey<br>that is ready to review.</h2>
   <a class="detail-button detail-button-light" href="../index.html#contact">Request early access <span>↗</span></a>
 </div></section>
 </main>
-<footer class="detail-footer">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a class="brand" href="../index.html" aria-label="Aayvu home"><img class="brand-logo brand-logo-light" src="../assets/logo/aayvu-logo.svg" alt="Aayvu"><img class="brand-logo brand-logo-dark" src="../assets/logo/aayvu-logo-dark.svg" alt=""></a>
-        <p class="foot-tag">Better questions. Closer answers.</p>
-        <a class="footer-social" href="https://www.linkedin.com/company/autosurveybuilder/" target="_blank" rel="noopener" aria-label="Aayvu on LinkedIn" title="Aayvu on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
-      </div>
-      <div><h5>Product</h5><ul><li><a href="../index.html#features">Features</a></li><li><a href="../index.html#use-cases">Use cases</a></li><li><a href="../index.html#savings">Time savings</a></li><li><a href="https://app.aayvu.io/login">Sign in</a></li></ul></div>
-      <div><h5>Company</h5><ul><li><a href="../index.html#team">Team</a></li><li><a href="../index.html#contact">Contact</a></li><li><a href="../index.html#contact">Early access</a></li></ul></div>
-      <div><h5>Explore</h5><ul><li><a href="../index.html#how">How it works</a></li><li><a href="../features/translations.html">Translations</a></li></ul></div>
-    </div>
-    <div class="foot-base"><span>© 2026 Aayvu. All rights reserved.</span></div>
+<footer>
+  <div class="wrap footer-main">
+    <div><a class="brand footer-brand" href="../index.html" translate="no">aayvu<span class="brand-mark" aria-hidden="true">✳</span></a><p>Better questions.<br>Closer answers.</p><a class="footer-social" href="https://www.linkedin.com/company/autosurveybuilder/" target="_blank" rel="noopener" aria-label="Aayvu on LinkedIn" title="Aayvu on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></div>
+    <div><h2>Product</h2><a href="../index.html#features">Features</a><a href="../index.html#use-cases">Use cases</a><a href="../index.html#savings">Time savings</a><a href="https://app.aayvu.io/login">Sign in</a></div>
+    <div><h2>Company</h2><a href="../index.html#team">Team</a><a href="../index.html#contact">Contact</a><a href="../index.html#contact">Early access</a><a href="../index.html#how">How it works</a></div>
+    <div><h2>Explore</h2><a href="../features/ai-editor.html">AI editor</a><a href="../features/question-types.html">Question types</a><a href="../features/testing.html">Testing &amp; QA</a></div>
   </div>
+  <div class="wrap footer-base"><span>© 2026 Aayvu. All rights reserved.</span><span>AI survey programming for research teams.</span></div>
 </footer>
 <script>
 if (location.search.indexOf('static=1') > -1) { document.write('<style>.rv{opacity:1!important;transform:none!important}</style>'); }
