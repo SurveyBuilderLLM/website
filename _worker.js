@@ -24,8 +24,8 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
-    if (url.pathname.startsWith('/survey-embed/f/')) {
-      return proxyApp(request, url.pathname.replace('/survey-embed', ''), true);
+    if (url.pathname.startsWith('/f/')) {
+      return proxyApp(request, url.pathname, true);
     }
 
     if (url.pathname.startsWith('/_next/') || url.pathname.startsWith('/api/')) {
