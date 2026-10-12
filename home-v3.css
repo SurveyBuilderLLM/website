@@ -654,6 +654,28 @@ body.home-page.cursor-active::after { opacity: 1; }
 .faq-list details[open] summary span { transform: rotate(45deg); }
 .faq-list details p { max-width: 680px; margin: 0 0 24px; color: #98938a; font-size: 13px; }
 
+/* The dedicated contact page follows the selected site theme. The homepage
+   keeps its intentionally dark closing contact band. */
+.contact-page .contact-section { background: var(--home-paper); color: var(--home-ink); }
+.contact-page .contact-heading > p:last-child,
+.contact-page .contact-aside p,
+.contact-page .direct-email,
+.contact-page .faq-list details p { color: var(--home-muted); }
+.contact-page :is(.contact-shell, .contact-form, .contact-aside > div, .faq-list, .faq-list details) { border-color: var(--home-line); }
+.contact-page .direct-email a,
+.contact-page .faq-title,
+.contact-page .faq-list summary { color: var(--home-ink); }
+
+[data-theme='dark'] .contact-page .contact-section { background: #171613; color: #f0ede5; }
+[data-theme='dark'] .contact-page .contact-heading > p:last-child { color: #aaa69d; }
+[data-theme='dark'] .contact-page :is(.contact-shell, .contact-form, .contact-aside > div, .faq-list, .faq-list details) { border-color: var(--home-line-dark); }
+[data-theme='dark'] .contact-page .contact-aside p,
+[data-theme='dark'] .contact-page .direct-email { color: #a6a097; }
+[data-theme='dark'] .contact-page .direct-email a,
+[data-theme='dark'] .contact-page .faq-title,
+[data-theme='dark'] .contact-page .faq-list summary { color: #f0ede5; }
+[data-theme='dark'] .contact-page .faq-list details p { color: #aaa49a; }
+
 /* Footer */
 .home-page footer { padding: 72px 0 32px; border-top: 0; background: var(--home-paper); color: var(--home-ink); }
 .footer-main { display: grid; grid-template-columns: 1.6fr repeat(3, 1fr); gap: 50px; }
