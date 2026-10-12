@@ -55,13 +55,13 @@ content or shared navbar template.
 - `features.html` — Features: AI generation, 18 question types (+ Hybrid spotlight grid),
   logic & flow, editor & control, translations, results & export
 - `contact.html` — Contact: form (not wired), side info cards, FAQ
-- `styles.css` — shared brand styles (black, violet #8b5cf6, Outfit + Inter, glass cards)
+- `styles.css` — shared brand foundations and layout primitives
 
 ## Brand source (light theme — current)
 Light theme matches the product's actual light theme (`ui/src/app/themes.css`,
 `data-theme="light"`): warm off-white #faf9f6, ink #29241e, amber brand
 #bd650c / #a9500d / #e9a52d. (The first draft used the old landing page's dark
-violet — that only matched the landing hero, not the product app.)
+the previous visual system — that only matched the old landing hero, not the current product app.)
 
 ## Previous brand note (dark version, superseded below)
 Name/tagline/colors/fonts pulled from the product (`ui/src/app/page.tsx`,
