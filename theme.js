@@ -12,7 +12,7 @@
   }
 
   function setupEmbeddedFrames() {
-    const surveyOrigin = 'https://app.aayvu.io';
+    const surveyOrigin = window.location.origin;
     const frames = Array.from(document.querySelectorAll('.early-access-frame'));
     if (!frames.length) return;
 
