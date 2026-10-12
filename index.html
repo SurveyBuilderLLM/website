@@ -14,7 +14,7 @@
   <script src="theme.js?v=2"></script>
   <link rel="stylesheet" href="styles.css?v=nav-4">
   <link rel="stylesheet" href="theme.css?v=1">
-  <link rel="stylesheet" href="home-v3.css?v=11">
+  <link rel="stylesheet" href="home-v3.css?v=13">
   <script src="navigation.js?v=nav-5" defer></script>
   <script src="ambient.js?v=5" defer></script>
   <script type="application/ld+json">
@@ -302,7 +302,7 @@
 
             <article class="feature-panel" id="panel-quotas" role="tabpanel" aria-labelledby="tab-quotas" data-panel="quotas" hidden>
               <div class="feature-copy"><p class="panel-count"><span>06</span> Quota management</p><h3>Keep every sample target on track.</h3><p>Set targets by age, region, behavior, or any qualifying answer. See progress during fieldwork and control what happens when a segment fills.</p><ul><li>Quotas by age, region, or behavior</li><li>Graceful screen-outs and over-quotas</li><li>Live monitoring during fieldwork</li></ul><a href="features/quotas.html">Explore quota management</a></div>
-              <div class="feature-demo quota-demo"><label><span>18–34 · Mumbai</span><b><output id="quotaOneValue">216</output> / 300</b><input id="quotaOne" type="range" min="0" max="300" value="216" aria-label="18 to 34 Mumbai quota"><i><em id="quotaOneBar" style="width:72%"></em></i></label><label><span>35+ · Delhi</span><b><output id="quotaTwoValue">300</output> / 300</b><input id="quotaTwo" type="range" min="0" max="300" value="300" aria-label="35 and over Delhi quota"><i><em id="quotaTwoBar" style="width:100%"></em></i></label><label><span>Women · South</span><b><output id="quotaThreeValue">148</output> / 240</b><input id="quotaThree" type="range" min="0" max="240" value="148" aria-label="Women South quota"><i><em id="quotaThreeBar" style="width:62%"></em></i></label></div>
+              <div class="feature-demo quota-demo"><label><span>18–34 · Mumbai</span><b><output id="quotaOneValue">216</output> / 300</b><input id="quotaOne" type="range" min="0" max="300" value="216" aria-label="18 to 34 Mumbai quota"><i><em id="quotaOneBar" style="transform:scaleX(.72)"></em></i></label><label><span>35+ · Delhi</span><b><output id="quotaTwoValue">300</output> / 300</b><input id="quotaTwo" type="range" min="0" max="300" value="300" aria-label="35 and over Delhi quota"><i><em id="quotaTwoBar" style="transform:scaleX(1)"></em></i></label><label><span>Women · South</span><b><output id="quotaThreeValue">148</output> / 240</b><input id="quotaThree" type="range" min="0" max="240" value="148" aria-label="Women South quota"><i><em id="quotaThreeBar" style="transform:scaleX(.62)"></em></i></label></div>
             </article>
 
             <article class="feature-panel" id="panel-admin" role="tabpanel" aria-labelledby="tab-admin" data-panel="admin" hidden>
@@ -571,8 +571,8 @@
       document.getElementById('tSaved').textContent = formatNumber.format(saved) + ' hours';
       document.getElementById('tDays').textContent = 'About ' + Math.max(1, Math.round(saved / 8)) + ' full work-days each month.';
       var sharedScale = Number(surveyInput.max) * Number(hoursInput.max);
-      document.getElementById('barManual').style.width = manual / sharedScale * 100 + '%';
-      document.getElementById('barAayvu').style.width = withAayvu / sharedScale * 100 + '%';
+      document.getElementById('barManual').style.transform = 'scaleX(' + manual / sharedScale + ')';
+      document.getElementById('barAayvu').style.transform = 'scaleX(' + withAayvu / sharedScale + ')';
       document.getElementById('barScale').textContent = 'Shared scale: 0–' + formatNumber.format(sharedScale) + ' hours / month';
     }
     surveyInput.addEventListener('input', updateCalculator);
@@ -727,7 +727,7 @@
       var bar = document.getElementById('quota' + name + 'Bar');
       input.addEventListener('input', function () {
         output.textContent = input.value;
-        bar.style.width = Number(input.value) / Number(input.max) * 100 + '%';
+        bar.style.transform = 'scaleX(' + Number(input.value) / Number(input.max) + ')';
       });
     });
 
