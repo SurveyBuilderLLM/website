@@ -11,6 +11,29 @@
     });
   }
 
+  function setupEmbeddedFrames() {
+    const surveyOrigin = 'https://app.aayvu.io';
+    const frames = Array.from(document.querySelectorAll('.early-access-frame'));
+    if (!frames.length) return;
+
+    window.addEventListener('message', event => {
+      if (event.origin !== surveyOrigin || event.data?.type !== 'aayvu:embed-resize') return;
+      const frame = frames.find(candidate => candidate.contentWindow === event.source);
+      const height = Number(event.data.height);
+      if (!frame || !Number.isFinite(height) || height < 320) return;
+      frame.style.height = `${Math.ceil(height)}px`;
+    });
+
+    frames.forEach(frame => {
+      frame.addEventListener('load', () => {
+        try {
+          frame.contentWindow.postMessage({ type: 'aayvu:embed-measure' }, surveyOrigin);
+          frame.contentWindow.postMessage({ type: 'theme', value: root.dataset.theme }, surveyOrigin);
+        } catch (_) {}
+      });
+    });
+  }
+
   function apply(theme) {
     const dark = theme === 'dark';
     root.dataset.theme = dark ? 'dark' : 'light';
@@ -24,6 +47,7 @@
 
   apply(saved);
   document.addEventListener('DOMContentLoaded', () => {
+    setupEmbeddedFrames();
     apply(root.dataset.theme);
     document.querySelectorAll('.theme-toggle').forEach(button => {
       button.addEventListener('click', () => {
