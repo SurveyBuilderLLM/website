@@ -7,7 +7,7 @@
 
   function syncEmbeddedTheme(theme) {
     document.querySelectorAll('.early-access-frame').forEach(frame => {
-      try { frame.contentWindow.postMessage({ type: 'theme', value: theme }, '*'); } catch (_) {}
+      try { frame.contentWindow.postMessage({ type: 'aayvu:embed-theme', value: theme }, window.location.origin); } catch (_) {}
     });
   }
 
@@ -17,8 +17,13 @@
     if (!frames.length) return;
 
     window.addEventListener('message', event => {
-      if (event.origin !== surveyOrigin || event.data?.type !== 'aayvu:embed-resize') return;
+      if (event.origin !== surveyOrigin) return;
       const frame = frames.find(candidate => candidate.contentWindow === event.source);
+      if (event.data?.type === 'aayvu:embed-ready') {
+        syncEmbeddedTheme(root.dataset.theme);
+        return;
+      }
+      if (event.data?.type !== 'aayvu:embed-resize') return;
       const height = Number(event.data.height);
       if (!frame || !Number.isFinite(height) || height < 320) return;
       frame.style.height = `${Math.ceil(height)}px`;
@@ -28,7 +33,7 @@
       frame.addEventListener('load', () => {
         try {
           frame.contentWindow.postMessage({ type: 'aayvu:embed-measure' }, surveyOrigin);
-          frame.contentWindow.postMessage({ type: 'theme', value: root.dataset.theme }, surveyOrigin);
+          frame.contentWindow.postMessage({ type: 'aayvu:embed-theme', value: root.dataset.theme }, surveyOrigin);
         } catch (_) {}
       });
     });
