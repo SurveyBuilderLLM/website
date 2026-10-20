@@ -65,6 +65,7 @@ img { max-width: 100%; }
 .nav-links a:hover { color: var(--ink); }
 .nav-links a.active { color: var(--ink); font-weight: 600; }
 .nav-cta { display: flex; gap: 12px; align-items: center; }
+.nav-toggle { display: none; }
 
 .btn { display: inline-flex; align-items: center; gap: 9px; font-weight: 600; font-size: 15px;
   padding: 12px 22px; border-radius: 999px; border: 1px solid transparent; cursor: pointer;
@@ -245,7 +246,49 @@ footer { border-top: 1px solid var(--line); padding: 56px 0 40px; background: #f
   .alt-row { grid-template-columns: 1fr; gap: 30px; } .alt-row.flip .alt-copy { order: 0; }
   .contact-grid { grid-template-columns: 1fr; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
-  .nav-links { display: none; }
+  .nav-inner { position: relative; }
+  .nav-toggle {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    margin-left: auto;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--card);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .nav-toggle:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+  .nav-toggle span { display: block; width: 16px; height: 1.5px; background: currentColor; transition: transform .16s ease; }
+  .nav-toggle span + span { margin-top: -16px; }
+  .nav-toggle[aria-expanded='true'] span:first-child { transform: translateY(4px) rotate(45deg); }
+  .nav-toggle[aria-expanded='true'] span:last-child { transform: translateY(-4px) rotate(-45deg); }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 68px;
+    right: 28px;
+    left: 28px;
+    z-index: 80;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-height: calc(100dvh - 88px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--card);
+    box-shadow: 0 16px 32px rgba(24,23,20,.16);
+  }
+  .nav-links.mobile-open { display: flex; }
+  .nav-links > a,
+  .drop-trigger { width: 100%; min-height: 44px; height: auto; padding: 11px 12px; text-align: left; }
+  .drop { display: block; }
+  .drop-menu { position: static; min-width: 0; margin: 0 8px 8px; transform: none; box-shadow: none; }
+  body.nav-open { overflow: hidden; }
   .hgrid { grid-template-columns: 110px repeat(3, 1fr); }
 }
 

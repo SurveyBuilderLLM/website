@@ -12,7 +12,7 @@
   <title>AI Research Suite for Market Research Teams | Aayvu</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23181714'/%3E%3Cpath d='M16 6v20M6 16h20M9 9l14 14M23 9L9 23' stroke='%23f0a33a' stroke-width='2.2'/%3E%3C/svg%3E">
   <script src="theme.js?v=2"></script>
-  <link rel="stylesheet" href="styles.css?v=nav-4">
+  <link rel="stylesheet" href="styles.css?v=nav-5">
   <link rel="stylesheet" href="theme.css?v=1">
   <link rel="stylesheet" href="home-v3.css?v=15">
   <script src="navigation.js?v=nav-5" defer></script>
@@ -362,22 +362,6 @@
     if (params.has('static')) document.documentElement.classList.add('static-view');
 
     var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    var navToggle = document.querySelector('.nav-toggle');
-    var navLinks = document.getElementById('primary-links');
-    navToggle.addEventListener('click', function () {
-      var open = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!open));
-      navToggle.setAttribute('aria-label', open ? 'Open navigation' : 'Close navigation');
-      navLinks.classList.toggle('mobile-open', !open);
-    });
-    navLinks.addEventListener('click', function (event) {
-      if (event.target.closest('a')) {
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.setAttribute('aria-label', 'Open navigation');
-        navLinks.classList.remove('mobile-open');
-      }
-    });
 
     var questions = [
       { type: 'Single select', prompt: 'Which region do you live in?', kind: 'single', options: ['North', 'South', 'East', 'West'] },
