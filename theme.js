@@ -16,11 +16,21 @@
     const frames = Array.from(document.querySelectorAll('.early-access-frame'));
     if (!frames.length) return;
 
+    // Show the frame once the survey hydrated and applied the host theme.
+    // The timers are fallbacks so a slow or failed embed is never hidden forever.
+    const reveal = frame => {
+      const shell = frame.closest('.contact-form-embed');
+      if (shell) shell.dataset.state = 'ready';
+    };
+    frames.forEach(frame => window.setTimeout(() => reveal(frame), 10000));
+
     window.addEventListener('message', event => {
       if (event.origin !== surveyOrigin) return;
       const frame = frames.find(candidate => candidate.contentWindow === event.source);
       if (event.data?.type === 'aayvu:embed-ready') {
         syncEmbeddedTheme(root.dataset.theme);
+        // One short beat lets React commit the theme change before reveal.
+        if (frame) window.setTimeout(() => reveal(frame), 80);
         return;
       }
       if (event.data?.type !== 'aayvu:embed-resize') return;
@@ -31,6 +41,9 @@
 
     frames.forEach(frame => {
       frame.addEventListener('load', () => {
+        // Fallback if the survey script never posts embed-ready (any hydrated
+        // state, including errors, posts it), e.g. blocked JavaScript.
+        window.setTimeout(() => reveal(frame), 4000);
         try {
           frame.contentWindow.postMessage({ type: 'aayvu:embed-measure' }, surveyOrigin);
           frame.contentWindow.postMessage({ type: 'aayvu:embed-theme', value: root.dataset.theme }, surveyOrigin);

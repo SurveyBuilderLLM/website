@@ -594,8 +594,22 @@ body.home-page.cursor-active::after { opacity: 1; }
 .contact-heading > p:last-child { margin-top: 22px; color: #aaa69d; font-size: 18px; }
 .contact-shell { display: grid; grid-template-columns: 1.15fr .85fr; }
 .contact-form { padding: clamp(30px, 4vw, 58px); border-right: 1px solid var(--home-line-dark); }
-.contact-form-embed { min-width: 0; padding: 0; overflow: hidden; }
-.early-access-frame { display: block; width: 100%; min-height: 760px; border: 0; background: transparent; }
+.contact-form-embed { position: relative; min-width: 0; padding: 0; overflow: hidden; }
+.early-access-frame { display: block; width: 100%; min-height: 760px; border: 0; background: transparent; transition: opacity 220ms ease; }
+/* Hold the survey behind one placeholder until it has hydrated and taken the
+   host theme, so visitors never see a blank frame, a spinner, then the form.
+   Only applies when theme.js ran (it sets data-theme), so no-JS still shows
+   the frame. */
+.embed-skeleton { position: absolute; inset: 0; display: none; flex-direction: column; padding: 32px clamp(24px, 4vw, 40px); pointer-events: none; }
+html[data-theme] .contact-form-embed[data-state="loading"] .embed-skeleton { display: flex; }
+html[data-theme] .contact-form-embed[data-state="loading"] .early-access-frame { opacity: 0; }
+.embed-skeleton span { display: block; background: var(--home-paper-2, #ecefef); animation: embed-pulse 1.4s ease-in-out infinite; }
+.embed-skeleton .sk-label { width: 42%; height: 14px; margin-bottom: 12px; }
+.embed-skeleton .sk-field { height: 44px; margin-bottom: 30px; border: 1px solid var(--home-line, #cbd2cf); background: transparent; }
+.embed-skeleton .sk-tall { height: 120px; }
+.embed-skeleton .sk-button { width: 140px; height: 44px; margin-top: 4px; }
+@keyframes embed-pulse { 50% { opacity: .45; } }
+@media (prefers-reduced-motion: reduce) { .embed-skeleton span { animation: none; } }
 .booking-section { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(36px, 6vw, 90px); margin-bottom: 34px; border: 1px solid var(--home-line-dark); padding: clamp(28px, 4vw, 48px); }
 .booking-intro { align-self: center; }
 .booking-intro h3 { margin: 13px 0 18px; font-size: clamp(28px, 3.5vw, 46px); line-height: 1.3; letter-spacing: -.045em; }
