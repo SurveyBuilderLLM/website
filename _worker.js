@@ -24,6 +24,11 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    if (url.hostname === 'www.aayvu.io') {
+      url.hostname = 'aayvu.io';
+      return Response.redirect(url.toString(), 308);
+    }
+
     if (url.pathname.startsWith('/f/')) {
       return proxyApp(request, url.pathname, true);
     }
