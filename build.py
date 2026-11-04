@@ -174,6 +174,7 @@ def page(kind_label, slug, title, tagline, visual_html, sections_html):
 <link rel="stylesheet" href="../theme.css?v=1">
 <link rel="stylesheet" href="../home-v3.css?v=11">
 <link rel="stylesheet" href="../subpage-v2.css?v=16">
+<link rel="stylesheet" href="../refinement.css?v=3">
 <script src="../navigation.js?v=nav-5" defer></script>
 <script src="../ambient.js?v=5" defer></script>
 <script src="../feature-demos.js?v=1" defer></script>
