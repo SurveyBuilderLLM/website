@@ -102,8 +102,10 @@ body.home-page {
 .home-page .process-art { border-radius: 14px; background-color: color-mix(in srgb, var(--home-surface) 76%, transparent); }
 .home-page .usecase-index a { border-radius: 14px; transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease; }
 .home-page .usecase-index a:hover { transform: translateY(-3px); background: var(--home-surface); box-shadow: 0 16px 38px rgba(35, 29, 21, .08); }
-.home-page .feature-tabs { border-radius: 14px 0 0 14px; overflow: clip; }
-.home-page .feature-panel { border-radius: 0 14px 14px 0; }
+@media (min-width: 961px) {
+  .home-page .feature-tabs { border-radius: 14px 0 0 14px; overflow: clip; }
+  .home-page .feature-panel { border-radius: 0 14px 14px 0; }
+}
 
 .home-page input:not([type='range']),
 .home-page textarea,
@@ -134,3 +136,48 @@ body.home-page {
 @media (prefers-reduced-motion: reduce) {
   .home-page .usecase-index a:hover { transform: none; }
 }
+
+/* --- Touch-target & a11y refinements (mobile) --- */
+@media (max-width: 960px) {
+  /* Circular icon buttons reach a 44px tap target while keeping the 36px visual ring */
+  .home-page .theme-toggle,
+  .home-page .nav .theme-toggle {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+  }
+  /* LinkedIn / social icon links get a 44px hit area without enlarging the glyph */
+  .footer-main a.footer-social,
+  .team-linkedin {
+    display: inline-grid;
+    place-items: center;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  /* Nav dropdown sub-links reach a comfortable 44px row */
+  .home-page .drop-menu a { min-height: 44px; display: flex; align-items: center; }
+  /* Interactive demo nav buttons (Previous / Next question) reach 44px */
+  .home-page .workbench-foot button { min-height: 44px; }
+  /* Footer navigation links reach the 24px minimum target (WCAG 2.5.8) */
+  .footer-main a:not(.brand):not(.footer-social) { display: inline-flex; align-items: center; min-height: 28px; }
+}
+
+/* Range sliders: keep the thin visual track, expand the grab area to >=24px */
+.home-page input[type='range'] {
+  height: 24px;
+  background-color: transparent;
+  background-image: linear-gradient(var(--home-line, #cbd3ce), var(--home-line, #cbd3ce));
+  background-size: 100% 3px;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.calculator input[type='range'] {
+  background-image: linear-gradient(#615c52, #615c52);
+  background-size: 100% 3px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.home-page input[type='range']::-webkit-slider-runnable-track { height: 24px; background: transparent; }
+.home-page input[type='range']::-moz-range-track { height: 24px; background: transparent; }
+.home-page input[type='range']::-webkit-slider-thumb { margin-top: 0; }

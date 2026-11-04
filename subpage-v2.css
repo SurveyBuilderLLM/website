@@ -10,6 +10,7 @@
   --detail-muted: #6f6a61;
   --detail-line: #cfc8bb;
   --detail-accent: #c45519;
+  --detail-accent-strong: #a9440e;
   margin: 0;
   background: var(--detail-paper);
   color: var(--detail-ink);
@@ -61,7 +62,7 @@
 .sub-page footer .wrap { max-width: 1440px; padding-inline: clamp(22px, 4vw, 64px); }
 .sub-page .skip-link { position: fixed; top: 8px; left: 8px; z-index: 200; padding: 10px 14px; background: var(--detail-ink); color: var(--detail-paper); transform: translateY(-150%); }
 .sub-page .skip-link:focus { transform: none; }
-.sub-page .detail-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 30px; border: 1px solid var(--detail-ink); padding: 11px 14px; background: var(--detail-ink); color: var(--detail-paper); font-size: 11px; font-weight: 700; transition: background-color 160ms ease, color 160ms ease, transform 140ms ease; }
+.sub-page .detail-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 30px; border: 1px solid var(--detail-ink); padding: 13px 16px; background: var(--detail-ink); color: var(--detail-paper); font-size: 11px; font-weight: 700; transition: background-color 160ms ease, color 160ms ease, transform 140ms ease; }
 .sub-page .detail-button:hover { background: var(--detail-accent); color: #fff; }
 .sub-page .detail-button:active { transform: scale(.98); }
 
@@ -482,7 +483,7 @@
 .story-copy { max-width: 710px; }
 .story-copy > p { margin: 0 0 27px; color: var(--detail-muted); font-size: clamp(16px, 1.5vw, 20px); line-height: 1.7; }
 .story-note { display: grid; grid-template-columns: 125px 1fr; gap: 22px; margin-top: 46px; border-top: 1px solid var(--detail-line); border-bottom: 1px solid var(--detail-line); padding: 18px 0; }
-.story-note span { color: var(--detail-accent); font-size: 12px; font-weight: 700; }
+.story-note span { color: var(--detail-accent-strong); font-size: 12px; font-weight: 700; }
 .story-note b { font-size: 13px; }
 .detail-tools { background: var(--detail-surface); }
 .detail-heading-row { display: grid; grid-template-columns: .55fr 1.45fr; gap: 50px; align-items: start; margin-bottom: 65px; }
