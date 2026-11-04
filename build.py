@@ -166,8 +166,19 @@ def page(kind_label, slug, title, tagline, visual_html, sections_html):
 <meta name="description" content="{seo_description_html}">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Aayvu">
 <meta property="og:title" content="{seo_title_html}">
 <meta property="og:description" content="{seo_description_html}">
+<meta property="og:image" content="https://aayvu.io/assets/aayvu-social-preview.png">
+<meta property="og:image:secure_url" content="https://aayvu.io/assets/aayvu-social-preview.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Aayvu — your survey, programmed by an AI agent. From questionnaire to launch-ready survey.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{seo_title_html}">
+<meta name="twitter:description" content="{seo_description_html}">
+<meta name="twitter:image" content="https://aayvu.io/assets/aayvu-social-preview.png">
 <title>{seo_title_html}</title>
 <script src="../theme.js?v=1"></script>
 <link rel="stylesheet" href="../styles.css?v=nav-5">
