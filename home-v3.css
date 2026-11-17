@@ -164,6 +164,7 @@ body.home-page.cursor-active::after { opacity: 1; }
 .home-page .nav-cta { gap: 14px; }
 .home-page .signin-link { color: var(--home-muted); font-size: 14px; font-weight: 600; }
 .home-page .signin-link:hover { color: var(--home-ink); }
+.mobile-signin { display: none; }
 .home-page .theme-toggle {
   width: 36px;
   height: 36px;
@@ -1095,6 +1096,7 @@ body.contact-page { --home-paper: #f7f8f8; --home-paper-2: #ecefef; --home-surfa
   .home-page .drop { display: block; }
   .home-page .drop-menu { position: static; min-width: 0; margin: 0 8px 8px; transform: none; box-shadow: none; }
   .home-page .signin-link { display: none; }
+  .home-page .nav-links.mobile-open .mobile-signin { display: block; color: var(--home-ink); font-weight: 600; }
   .home-page .nav-cta { order: 2; }
   .home-page .nav-toggle { order: 3; }
   .home-page .nav-links { order: 4; }

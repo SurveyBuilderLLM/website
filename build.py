@@ -40,6 +40,7 @@ NAV = """<a class="skip-link" href="#main-content">Skip to content</a>
       </div>
       <a href="../index.html#team">Team</a>
       <a href="../contact.html">Contact</a>
+      <a class="mobile-signin" href="https://app.aayvu.io/login">Sign in</a>
     </div>
 
     <div class="nav-cta">
@@ -183,7 +184,7 @@ def page(kind_label, slug, title, tagline, visual_html, sections_html):
 <script src="../theme.js?v=1"></script>
 <link rel="stylesheet" href="../styles.css?v=nav-5">
 <link rel="stylesheet" href="../theme.css?v=1">
-<link rel="stylesheet" href="../home-v3.css?v=11">
+<link rel="stylesheet" href="../home-v3.css?v=16">
 <link rel="stylesheet" href="../subpage-v2.css?v=16">
 <link rel="stylesheet" href="../refinement.css?v=3">
 <script src="../navigation.js?v=nav-5" defer></script>
