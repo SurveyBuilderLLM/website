@@ -65,8 +65,8 @@ the previous visual system — that only matched the old landing hero, not the c
 
 ## Previous brand note (dark version, superseded below)
 Name/tagline/colors/fonts pulled from the product (`ui/src/app/page.tsx`,
-`ui/src/app/globals.css`, `ui/src/app/home.css`). Sign-in buttons are `#` placeholders
-— they should route to the product's `/login` when this ships.
+`ui/src/app/globals.css`, `ui/src/app/home.css`). The production sign-in action
+routes to `https://app.aayvu.io/login`, including the compact mobile navigation.
 
 ## Placeholders to replace before launch
 - Stats band (index.html): 12,400+ surveys · 380k+ questions · 8 min median · 18 types
